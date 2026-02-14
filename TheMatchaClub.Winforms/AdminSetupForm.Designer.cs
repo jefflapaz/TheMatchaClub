@@ -110,6 +110,7 @@
             Controls.Add(lblPassword);
             Controls.Add(lblUsername);
             Name = "AdminSetupForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
