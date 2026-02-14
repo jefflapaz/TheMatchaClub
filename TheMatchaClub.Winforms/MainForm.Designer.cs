@@ -59,6 +59,7 @@
             Controls.Add(lblSession);
             Controls.Add(btnEndSession);
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             ResumeLayout(false);
             PerformLayout();

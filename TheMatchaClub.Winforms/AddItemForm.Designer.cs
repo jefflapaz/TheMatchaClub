@@ -122,6 +122,7 @@
             Controls.Add(lblPrice);
             Controls.Add(lblName);
             Name = "AddItemForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddItemForm";
             Load += AddItemForm_Load_1;
             ResumeLayout(false);

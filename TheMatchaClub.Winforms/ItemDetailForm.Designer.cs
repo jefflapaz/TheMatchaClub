@@ -105,6 +105,7 @@
             Controls.Add(lblPrice);
             Controls.Add(lblName);
             Name = "ItemDetailForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ItemDetailForm";
             ResumeLayout(false);
             PerformLayout();

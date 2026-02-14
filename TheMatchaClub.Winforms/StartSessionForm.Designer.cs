@@ -68,6 +68,7 @@
             Controls.Add(txtSession);
             Controls.Add(lblSession);
             Name = "StartSessionForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "StartSessionForm";
             ResumeLayout(false);
             PerformLayout();

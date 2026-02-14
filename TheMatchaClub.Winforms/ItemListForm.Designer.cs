@@ -60,6 +60,7 @@
             Controls.Add(flpItems);
             Controls.Add(btnAdd);
             Name = "ItemListForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ItemListForm";
             ResumeLayout(false);
         }
