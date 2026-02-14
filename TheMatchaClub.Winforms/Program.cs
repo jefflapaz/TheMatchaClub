@@ -13,7 +13,9 @@ internal static class Program
 
         using var context = DbContextHelper.Create();
         var authService = new AuthService(context);
+        var sessionService = new SessionService(context);
 
+        // Admin setup or login
         bool hasAdmin = authService.AdminExistsAsync().Result;
 
         if (!hasAdmin)
@@ -27,9 +29,17 @@ internal static class Program
         if (login.ShowDialog() != DialogResult.OK)
             return;
 
-        // TEMP MAIN FORM PLACEHOLDER
-        MessageBox.Show("Login complete");
+        // Session check
+        var activeSession = sessionService.GetActiveSessionAsync().Result;
 
-        System.Windows.Forms.Application.Run(new Form()); 
+        if (activeSession == null)
+        {
+            using var startSession = new StartSessionForm();
+            if (startSession.ShowDialog() != DialogResult.OK)
+                return;
+        }
+
+        // Launch main POS shell
+        System.Windows.Forms.Application.Run(new MainForm());
     }
 }
