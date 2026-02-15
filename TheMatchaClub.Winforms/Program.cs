@@ -40,6 +40,6 @@ internal static class Program
         }
 
         // Launch main POS shell
-        System.Windows.Forms.Application.Run(new ItemListForm());
+        System.Windows.Forms.Application.Run(new POSForm());
     }
 }
