@@ -44,17 +44,35 @@ public class ItemService
         item.IsActive = false;
         await _context.SaveChangesAsync();
     }
-    public async Task UpdateAsync(int itemId, string name, decimal price, int categoryId, bool isUsual)
+    public async Task UpdateAsync(int itemId, string name, decimal price, int newCategoryId, bool isUsual)
     {
         var item = await _context.Items.FindAsync(itemId);
         if (item == null) return;
 
+        int oldCategoryId = item.CategoryId;
+
         item.Name = name;
         item.Price = price;
-        item.CategoryId = categoryId;
+        item.CategoryId = newCategoryId;
         item.IsUsual = isUsual;
 
         await _context.SaveChangesAsync();
+
+        
+        if (oldCategoryId != newCategoryId)
+        {
+            var hasItems = await _context.Items.AnyAsync(x => x.CategoryId == oldCategoryId);
+            if (!hasItems)
+            {
+                var oldCategory = await _context.Categories.FindAsync(oldCategoryId);
+                if (oldCategory != null)
+                {
+                    _context.Categories.Remove(oldCategory);
+                    await _context.SaveChangesAsync();
+                }
+            }
+        }
     }
+
 
 }

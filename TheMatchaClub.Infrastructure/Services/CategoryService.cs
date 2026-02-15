@@ -29,7 +29,7 @@ public class CategoryService
 
     public async Task DeleteIfEmptyAsync(int categoryId)
     {
-        var hasItems = await _context.Items.AnyAsync(x => x.CategoryId == categoryId);
+        var hasItems = await _context.Items.AnyAsync(x => x.CategoryId == categoryId && x.IsActive);
 
         if (!hasItems)
         {
