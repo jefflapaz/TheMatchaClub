@@ -50,14 +50,28 @@ namespace TheMatchaClub.Winforms
         {
             lstOrders.Items.Clear();
 
+            decimal total = 0;
+
             foreach (var item in _cart)
             {
-                lstOrders.Items.Add($"{item.Name} x {item.Quantity} = ₱{item.Price * item.Quantity}");
+                var sub = item.Price * item.Quantity;
+                total += sub;
+
+                lstOrders.Items.Add($"{item.Name} x {item.Quantity} = ₱{sub}");
             }
+
+            lblRunningTotal.Text = $"Total: ₱{total}";
         }
+
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
+            if (_cart.Count == 0)
+            {
+                MessageBox.Show("Cart is empty.");
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtCustomer.Text))
             {
                 MessageBox.Show("Enter customer name.");
@@ -77,12 +91,27 @@ namespace TheMatchaClub.Winforms
 
             if (checkout.ShowDialog() == DialogResult.OK)
             {
-                lstOrders.Items.Clear();
                 _cart.Clear();
+                lstOrders.Items.Clear();
                 txtCustomer.Clear();
+                cmbPayment.SelectedIndex = -1;
+                cmbOrderType.SelectedIndex = -1;
+                lblRunningTotal.Text = "Total: ₱0.00";
             }
 
 
+
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (lstOrders.SelectedIndex < 0)
+                return;
+
+            _cart.RemoveAt(lstOrders.SelectedIndex);
+
+            RefreshOrderList();
+        }
+
     }
 }

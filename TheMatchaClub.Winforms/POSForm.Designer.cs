@@ -36,9 +36,11 @@
             lblPayment = new Label();
             lblCustomer = new Label();
             panel1 = new Panel();
+            btnRemove = new Button();
             btnCheckout = new Button();
             btnChoose = new Button();
             lstOrders = new ListBox();
+            lblRunningTotal = new Label();
             panelCustomerInfo.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -53,7 +55,7 @@
             panelCustomerInfo.Controls.Add(lblCustomer);
             panelCustomerInfo.Location = new Point(41, 130);
             panelCustomerInfo.Name = "panelCustomerInfo";
-            panelCustomerInfo.Size = new Size(295, 250);
+            panelCustomerInfo.Size = new Size(295, 270);
             panelCustomerInfo.TabIndex = 0;
             // 
             // cmbOrderType
@@ -108,17 +110,29 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lblRunningTotal);
+            panel1.Controls.Add(btnRemove);
             panel1.Controls.Add(btnCheckout);
             panel1.Controls.Add(btnChoose);
             panel1.Controls.Add(lstOrders);
             panel1.Location = new Point(440, 130);
             panel1.Name = "panel1";
-            panel1.Size = new Size(281, 250);
+            panel1.Size = new Size(281, 270);
             panel1.TabIndex = 1;
+            // 
+            // btnRemove
+            // 
+            btnRemove.Location = new Point(136, 41);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(115, 23);
+            btnRemove.TabIndex = 3;
+            btnRemove.Text = "Remove Selected";
+            btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
             // 
             // btnCheckout
             // 
-            btnCheckout.Location = new Point(88, 206);
+            btnCheckout.Location = new Point(85, 235);
             btnCheckout.Name = "btnCheckout";
             btnCheckout.Size = new Size(115, 23);
             btnCheckout.TabIndex = 2;
@@ -128,7 +142,7 @@
             // 
             // btnChoose
             // 
-            btnChoose.Location = new Point(136, 17);
+            btnChoose.Location = new Point(136, 12);
             btnChoose.Name = "btnChoose";
             btnChoose.Size = new Size(115, 23);
             btnChoose.TabIndex = 1;
@@ -140,10 +154,19 @@
             // 
             lstOrders.FormattingEnabled = true;
             lstOrders.ItemHeight = 15;
-            lstOrders.Location = new Point(23, 46);
+            lstOrders.Location = new Point(23, 76);
             lstOrders.Name = "lstOrders";
             lstOrders.Size = new Size(228, 124);
             lstOrders.TabIndex = 0;
+            // 
+            // lblRunningTotal
+            // 
+            lblRunningTotal.AutoSize = true;
+            lblRunningTotal.Location = new Point(91, 206);
+            lblRunningTotal.Name = "lblRunningTotal";
+            lblRunningTotal.Size = new Size(67, 15);
+            lblRunningTotal.TabIndex = 4;
+            lblRunningTotal.Text = "Total: ₱0.00";
             // 
             // POSForm
             // 
@@ -158,6 +181,7 @@
             panelCustomerInfo.ResumeLayout(false);
             panelCustomerInfo.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -174,5 +198,7 @@
         private Button btnCheckout;
         private Button btnChoose;
         private ListBox lstOrders;
+        private Button btnRemove;
+        private Label lblRunningTotal;
     }
 }

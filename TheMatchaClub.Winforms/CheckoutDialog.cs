@@ -75,19 +75,19 @@ namespace TheMatchaClub.Winforms
                 using var context = DbContextHelper.Create();
                 var orderService = new OrderService(context);
 
-                await orderService.CreateOrderAsync(
+                var order = await orderService.CreateOrderAsync(
                     _customer,
                     _payment,
                     _orderType,
                     _cart.Select(x => (x.ItemId, x.Quantity)).ToList(),
-                    cash);
+    cash);
 
-
-
-                MessageBox.Show("Order saved.");
+                using var receipt = new ReceiptPreviewForm(order, _cart, cash);
+                receipt.ShowDialog();
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+
             }
             catch (Exception ex)
             {
