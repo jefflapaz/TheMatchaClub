@@ -44,9 +44,8 @@ namespace TheMatchaClub.Winforms
             }
 
             // GROUP BY CATEGORY (Under Usuals)
-            var grouped = items
-                .Where(x => !x.IsUsual)
-                .GroupBy(x => x.Category.Name);
+            var grouped = items.GroupBy(x => x.Category.Name);
+            ;
 
             foreach (var group in grouped)
             {

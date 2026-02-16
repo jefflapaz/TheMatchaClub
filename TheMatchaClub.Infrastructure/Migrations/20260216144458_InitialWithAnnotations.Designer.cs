@@ -12,8 +12,8 @@ using TheMatchaClub.Infrastructure.Data;
 namespace TheMatchaClub.Infrastructure.Migrations
 {
     [DbContext(typeof(MatchaDbContext))]
-    [Migration("20260212063729_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260216144458_InitialWithAnnotations")]
+    partial class InitialWithAnnotations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,7 +71,8 @@ namespace TheMatchaClub.Infrastructure.Migrations
 
                     b.Property<string>("SessionName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<DateTime>("StartDateTime")
                         .HasColumnType("datetime2");
@@ -98,7 +99,8 @@ namespace TheMatchaClub.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -133,7 +135,8 @@ namespace TheMatchaClub.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<decimal>("Price")
                         .HasPrecision(18, 2)
@@ -220,8 +223,6 @@ namespace TheMatchaClub.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemId");
-
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
@@ -253,7 +254,7 @@ namespace TheMatchaClub.Infrastructure.Migrations
                 {
                     b.HasOne("TheMatchaClub.Domain.Entities.Item", "Item")
                         .WithMany()
-                        .HasForeignKey("ItemId")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
