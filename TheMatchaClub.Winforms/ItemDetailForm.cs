@@ -16,8 +16,7 @@ namespace TheMatchaClub.Winforms
 {
     public partial class ItemDetailForm : Form
     {
-        private readonly int _itemId;
-        private readonly int _categoryId;
+
         private Item _item;
 
 

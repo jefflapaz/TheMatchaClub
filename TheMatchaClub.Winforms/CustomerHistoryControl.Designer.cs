@@ -1,13 +1,13 @@
 ﻿namespace TheMatchaClub.Winforms
 {
-    partial class CustomerHistoryForm
+    partial class CustomerHistoryControl
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,10 +20,10 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -39,17 +39,16 @@
             dgvHistory.Location = new Point(0, 0);
             dgvHistory.Name = "dgvHistory";
             dgvHistory.ReadOnly = true;
-            dgvHistory.Size = new Size(800, 450);
-            dgvHistory.TabIndex = 0;
+            dgvHistory.Size = new Size(617, 439);
+            dgvHistory.TabIndex = 1;
             // 
-            // CustomerHistoryForm
+            // CustomerHistoryControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(dgvHistory);
-            Name = "CustomerHistoryForm";
-            Text = "CustomerHistoryForm";
+            Name = "CustomerHistoryControl";
+            Size = new Size(617, 439);
             ((System.ComponentModel.ISupportInitialize)dgvHistory).EndInit();
             ResumeLayout(false);
         }

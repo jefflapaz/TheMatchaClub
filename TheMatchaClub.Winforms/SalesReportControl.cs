@@ -5,17 +5,19 @@ using TheMatchaClub.WinForms.Helpers;
 
 namespace TheMatchaClub.Winforms
 {
-    public partial class SalesReportForm: Form
+    public partial class SalesReportControl : UserControl
+
     {
         private WinChart.Chart _chart = new();
 
 
-        public SalesReportForm()
+        public SalesReportControl()
         {
             InitializeComponent();
-            Load += SalesReportForm_Load;
+            Load += SalesReportControl_Load;
             SetupChart();
         }
+
         private void SetupChart()
         {
             _chart.Dock = DockStyle.Fill;
@@ -26,7 +28,7 @@ namespace TheMatchaClub.Winforms
 
             Controls.Add(_chart);
         }
-        private async void SalesReportForm_Load(object? sender, EventArgs e)
+        private async void SalesReportControl_Load(object? sender, EventArgs e)
         {
             using var context = DbContextHelper.Create();
 

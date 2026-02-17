@@ -13,15 +13,17 @@ using TheMatchaClub.WinForms.Helpers;
 
 namespace TheMatchaClub.Winforms
 {
-    public partial class CustomerHistoryForm : Form
+    public partial class CustomerHistoryControl : UserControl
+
     {
-        public CustomerHistoryForm()
+        public CustomerHistoryControl()
         {
             InitializeComponent();
-            this.Load += CustomerHistoryForm_Load;
+            Load += CustomerHistoryControl_Load;
         }
 
-        private async void CustomerHistoryForm_Load(object? sender, EventArgs e)
+
+        private async void CustomerHistoryControl_Load(object? sender, EventArgs e)
         {
             dgvHistory.AutoGenerateColumns = true;
             using var context = DbContextHelper.Create();

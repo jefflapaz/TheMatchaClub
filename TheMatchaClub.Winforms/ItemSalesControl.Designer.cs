@@ -1,13 +1,13 @@
 ﻿namespace TheMatchaClub.Winforms
 {
-    partial class ItemSalesHistoryForm
+    partial class ItemSalesControl
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,18 +20,29 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            dgvItems = new DataGridView();
             lblGrandTotal = new Label();
+            dgvItems = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
             SuspendLayout();
+            // 
+            // lblGrandTotal
+            // 
+            lblGrandTotal.AutoSize = true;
+            lblGrandTotal.Dock = DockStyle.Bottom;
+            lblGrandTotal.Font = new Font("Segoe UI", 16F);
+            lblGrandTotal.Location = new Point(0, 500);
+            lblGrandTotal.Name = "lblGrandTotal";
+            lblGrandTotal.Size = new Size(189, 30);
+            lblGrandTotal.TabIndex = 3;
+            lblGrandTotal.Text = "Grand Total: ₱0.00";
             // 
             // dgvItems
             // 
@@ -40,29 +51,17 @@
             dgvItems.Location = new Point(0, 0);
             dgvItems.Name = "dgvItems";
             dgvItems.ReadOnly = true;
-            dgvItems.Size = new Size(800, 450);
-            dgvItems.TabIndex = 0;
+            dgvItems.Size = new Size(649, 530);
+            dgvItems.TabIndex = 2;
             // 
-            // lblGrandTotal
-            // 
-            lblGrandTotal.AutoSize = true;
-            lblGrandTotal.Dock = DockStyle.Bottom;
-            lblGrandTotal.Font = new Font("Segoe UI", 16F);
-            lblGrandTotal.Location = new Point(0, 420);
-            lblGrandTotal.Name = "lblGrandTotal";
-            lblGrandTotal.Size = new Size(189, 30);
-            lblGrandTotal.TabIndex = 1;
-            lblGrandTotal.Text = "Grand Total: ₱0.00";
-            // 
-            // ItemSalesHistoryForm
+            // ItemSalesControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(lblGrandTotal);
             Controls.Add(dgvItems);
-            Name = "ItemSalesHistoryForm";
-            Text = "ItemSalesHistoryForm";
+            Name = "ItemSalesControl";
+            Size = new Size(649, 530);
             ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -70,7 +69,7 @@
 
         #endregion
 
-        private DataGridView dgvItems;
         private Label lblGrandTotal;
+        private DataGridView dgvItems;
     }
 }

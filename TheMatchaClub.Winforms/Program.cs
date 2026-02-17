@@ -29,17 +29,7 @@ internal static class Program
         if (login.ShowDialog() != DialogResult.OK)
             return;
 
-        // Session check
-        var activeSession = sessionService.GetActiveSessionAsync().Result;
-
-        if (activeSession == null)
-        {
-            using var startSession = new StartSessionForm();
-            if (startSession.ShowDialog() != DialogResult.OK)
-                return;
-        }
-
-        // Launch main POS shell
-        System.Windows.Forms.Application.Run(new POSForm());
+        
+        System.Windows.Forms.Application.Run(new MainForm());
     }
 }

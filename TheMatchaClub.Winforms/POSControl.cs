@@ -8,17 +8,20 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace TheMatchaClub.Winforms
 {
-    public partial class POSForm : Form
+    public partial class POSControl : UserControl
+
     {
         private List<CartItem> _cart = new();
+        public event Action? OnSessionEnded;
 
 
-        public POSForm()
+        public POSControl()
         {
             InitializeComponent();
-            this.Load += POSForm_Load;
+            Load += POSControl_Load;
         }
-        private async void POSForm_Load(object? sender, EventArgs e)
+
+        private async void POSControl_Load(object? sender, EventArgs e)
         {
             cmbPayment.Items.Clear();
             cmbPayment.Items.AddRange(Enum.GetNames(typeof(PaymentMethod)));
@@ -31,11 +34,19 @@ namespace TheMatchaClub.Winforms
 
             var session = await sessionService.GetActiveSessionAsync();
 
-            if (session != null)
+            if (session == null)
             {
+                pnlStartSession.Visible = true;
+                pnlPOS.Visible = false;
+            }
+            else
+            {
+                pnlStartSession.Visible = false;
+                pnlPOS.Visible = true;
                 lblSession.Text = $"Session: {session.SessionName}";
             }
         }
+
 
 
         private void btnChoose_Click(object sender, EventArgs e)
@@ -142,7 +153,31 @@ namespace TheMatchaClub.Winforms
 
             MessageBox.Show("Session ended.");
 
-            System.Windows.Forms.Application.Exit();
+            // Reset UI instead of exiting app
+            lblSession.Text = "";
+            txtSessionName.Clear();
+            pnlPOS.Visible = false;
+            pnlStartSession.Visible = true;
+        }
+
+
+        private async void btnStartSession_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSessionName.Text))
+            {
+                MessageBox.Show("Enter session name.");
+                return;
+            }
+
+            using var context = DbContextHelper.Create();
+            var sessionService = new SessionService(context);
+
+            await sessionService.StartSessionAsync(txtSessionName.Text);
+
+            lblSession.Text = $"Session: {txtSessionName.Text}";
+
+            pnlStartSession.Visible = false;
+            pnlPOS.Visible = true;
         }
 
     }

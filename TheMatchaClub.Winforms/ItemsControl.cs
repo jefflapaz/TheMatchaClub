@@ -13,15 +13,18 @@ using TheMatchaClub.WinForms.Helpers;
 
 namespace TheMatchaClub.Winforms
 {
-    public partial class ItemListForm : Form
+    public partial class ItemsControl : UserControl
+
+
     {
-        public ItemListForm()
+        public ItemsControl()
         {
             InitializeComponent();
-            this.Load += ItemListForm_Load;
+            Load += ItemsControl_Load;
         }
 
-        private async void ItemListForm_Load(object? sender, EventArgs e)
+
+        private async void ItemsControl_Load(object? sender, EventArgs e)
         {
             await LoadItems();
         }
@@ -87,7 +90,7 @@ namespace TheMatchaClub.Winforms
                 await LoadItems();
         }
 
-       
+
     }
 
 }

@@ -15,46 +15,85 @@ namespace TheMatchaClub.Winforms
 {
     public partial class MainForm : Form
     {
+        private POSControl _pos;
+        private ItemsControl _items;
+        private CustomerHistoryControl _customerHistory;
+        private ItemSalesControl _itemSales;
+        private SalesReportControl _salesReport;
+
         public MainForm()
         {
             InitializeComponent();
-            LoadSession();
+            _pos = new POSControl();
+            _pos.Dock = DockStyle.Fill;
+            _items = new ItemsControl();
+            _items.Dock = DockStyle.Fill;
+            _customerHistory = new CustomerHistoryControl();
+            _customerHistory.Dock = DockStyle.Fill;
+            _itemSales = new ItemSalesControl();
+            _itemSales.Dock = DockStyle.Fill;
+            _salesReport = new SalesReportControl();
+            _salesReport.Dock = DockStyle.Fill;
+
+            pnlContent.Controls.Add(_pos);
+
         }
 
-        private async void btnEndSession_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show(
-                "Are you sure you want to end this session?",
-                "Confirm",
-                MessageBoxButtons.YesNo);
+            var result = MessageBox.Show(
+                "Choose an option:\n\nYes = Logout only\nNo = Logout & Exit\nCancel = Stay",
+                "Exit",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question);
 
-            if (confirm != DialogResult.Yes)
-                return;
-
-            try
+            // YES → Logout only
+            if (result == DialogResult.Yes)
             {
-                using var context = DbContextHelper.Create();
-                var sessionService = new SessionService(context);
-
-                await sessionService.EndSessionAsync();
-
-                MessageBox.Show("Session ended.");
-
+                var login = new LoginForm();
+                login.Show();
                 this.Close();
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private async void LoadSession()
-        {
-            using var context = DbContextHelper.Create();
-            var service = new SessionService(context);
 
-            var session = await service.GetActiveSessionAsync();
-            if (session != null)
-                lblSession.Text = $"Active Session: {session.SessionName}";
+            // NO → Logout & Exit
+            if (result == DialogResult.No)
+            {
+                System.Windows.Forms.Application.Exit();
+                return;
+            }
+
+            // CANCEL → do nothing
+        }
+
+
+        private void btnPOS_Click(object sender, EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            pnlContent.Controls.Add(_pos);
+        }
+
+        private void btnItems_Click(object sender, EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            pnlContent.Controls.Add(_items);
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            pnlContent.Controls.Add(_customerHistory);
+        }
+
+        private void btnItemSales_Click(object sender, EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            pnlContent.Controls.Add(_itemSales);
+        }
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            pnlContent.Controls.Add(_salesReport);
         }
 
     }

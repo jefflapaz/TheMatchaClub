@@ -29,12 +29,12 @@ namespace TheMatchaClub.Winforms
         }
 
 
-        private async void CheckoutDialog_Load(object? sender, EventArgs e)
+        private  void CheckoutDialog_Load(object? sender, EventArgs e)
         {
-            await LoadSummary();
+             LoadSummary();
         }
 
-        private async Task LoadSummary()
+        private void LoadSummary()
         {
             lstSummary.Items.Clear();
             _total = 0;

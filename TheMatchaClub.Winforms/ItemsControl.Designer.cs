@@ -1,13 +1,13 @@
 ﻿namespace TheMatchaClub.Winforms
 {
-    partial class ItemListForm
+    partial class ItemsControl
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,28 +20,17 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            btnAdd = new Button();
             flpItems = new FlowLayoutPanel();
+            btnAdd = new Button();
             SuspendLayout();
-            // 
-            // btnAdd
-            // 
-            btnAdd.Dock = DockStyle.Top;
-            btnAdd.Location = new Point(0, 0);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(800, 40);
-            btnAdd.TabIndex = 0;
-            btnAdd.Text = "+ Add Item";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
             // 
             // flpItems
             // 
@@ -49,25 +38,35 @@
             flpItems.Dock = DockStyle.Fill;
             flpItems.Location = new Point(0, 40);
             flpItems.Name = "flpItems";
-            flpItems.Size = new Size(800, 410);
-            flpItems.TabIndex = 1;
+            flpItems.Size = new Size(598, 467);
+            flpItems.TabIndex = 3;
+            flpItems.Click += btnAdd_Click;
             // 
-            // ItemListForm
+            // btnAdd
+            // 
+            btnAdd.Dock = DockStyle.Top;
+            btnAdd.Location = new Point(0, 0);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(598, 40);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "+ Add Item";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // ItemsControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(flpItems);
             Controls.Add(btnAdd);
-            Name = "ItemListForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "ItemListForm";
+            Name = "ItemsControl";
+            Size = new Size(598, 507);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btnAdd;
         private FlowLayoutPanel flpItems;
+        private Button btnAdd;
     }
 }

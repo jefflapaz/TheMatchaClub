@@ -12,15 +12,17 @@ using TheMatchaClub.WinForms.Helpers;
 
 namespace TheMatchaClub.Winforms
 {
-    public partial class ItemSalesHistoryForm : Form
+    public partial class ItemSalesControl : UserControl
+
     {
-        public ItemSalesHistoryForm()
+        public ItemSalesControl()
         {
             InitializeComponent();
-            this.Load += ItemSalesHistoryForm_Load;
+            Load += ItemSalesControl_Load;
         }
 
-        private async void ItemSalesHistoryForm_Load(object? sender, EventArgs e)
+
+        private async void ItemSalesControl_Load(object? sender, EventArgs e)
         {
             using var context = DbContextHelper.Create();
 
