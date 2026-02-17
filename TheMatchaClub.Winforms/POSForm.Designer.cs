@@ -36,11 +36,13 @@
             lblPayment = new Label();
             lblCustomer = new Label();
             panel1 = new Panel();
+            lblRunningTotal = new Label();
             btnRemove = new Button();
             btnCheckout = new Button();
             btnChoose = new Button();
             lstOrders = new ListBox();
-            lblRunningTotal = new Label();
+            lblSession = new Label();
+            btnEndSession = new Button();
             panelCustomerInfo.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -120,6 +122,15 @@
             panel1.Size = new Size(281, 270);
             panel1.TabIndex = 1;
             // 
+            // lblRunningTotal
+            // 
+            lblRunningTotal.AutoSize = true;
+            lblRunningTotal.Location = new Point(91, 206);
+            lblRunningTotal.Name = "lblRunningTotal";
+            lblRunningTotal.Size = new Size(67, 15);
+            lblRunningTotal.TabIndex = 4;
+            lblRunningTotal.Text = "Total: ₱0.00";
+            // 
             // btnRemove
             // 
             btnRemove.Location = new Point(136, 41);
@@ -159,20 +170,32 @@
             lstOrders.Size = new Size(228, 124);
             lstOrders.TabIndex = 0;
             // 
-            // lblRunningTotal
+            // lblSession
             // 
-            lblRunningTotal.AutoSize = true;
-            lblRunningTotal.Location = new Point(91, 206);
-            lblRunningTotal.Name = "lblRunningTotal";
-            lblRunningTotal.Size = new Size(67, 15);
-            lblRunningTotal.TabIndex = 4;
-            lblRunningTotal.Text = "Total: ₱0.00";
+            lblSession.AutoSize = true;
+            lblSession.Location = new Point(505, 72);
+            lblSession.Name = "lblSession";
+            lblSession.Size = new Size(49, 15);
+            lblSession.TabIndex = 2;
+            lblSession.Text = "Session:";
+            // 
+            // btnEndSession
+            // 
+            btnEndSession.Location = new Point(605, 101);
+            btnEndSession.Name = "btnEndSession";
+            btnEndSession.Size = new Size(116, 23);
+            btnEndSession.TabIndex = 3;
+            btnEndSession.Text = "End Session";
+            btnEndSession.UseVisualStyleBackColor = true;
+            btnEndSession.Click += btnEndSession_Click;
             // 
             // POSForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnEndSession);
+            Controls.Add(lblSession);
             Controls.Add(panel1);
             Controls.Add(panelCustomerInfo);
             Name = "POSForm";
@@ -183,6 +206,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -200,5 +224,7 @@
         private ListBox lstOrders;
         private Button btnRemove;
         private Label lblRunningTotal;
+        private Label lblSession;
+        private Button btnEndSession;
     }
 }

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HIC.System.Windows.Forms.DataVisualization" Version="1.0.1" />
     <PackageReference Include="Syncfusion.Chart.Windows" Version="32.2.4" />
     <PackageReference Include="Syncfusion.Core.WinForms" Version="32.2.4" />
     <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="32.2.4" />

@@ -18,14 +18,25 @@ namespace TheMatchaClub.Winforms
             InitializeComponent();
             this.Load += POSForm_Load;
         }
-        private void POSForm_Load(object? sender, EventArgs e)
+        private async void POSForm_Load(object? sender, EventArgs e)
         {
             cmbPayment.Items.Clear();
             cmbPayment.Items.AddRange(Enum.GetNames(typeof(PaymentMethod)));
 
             cmbOrderType.Items.Clear();
             cmbOrderType.Items.AddRange(Enum.GetNames(typeof(OrderType)));
+
+            using var context = DbContextHelper.Create();
+            var sessionService = new SessionService(context);
+
+            var session = await sessionService.GetActiveSessionAsync();
+
+            if (session != null)
+            {
+                lblSession.Text = $"Session: {session.SessionName}";
+            }
         }
+
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
@@ -111,6 +122,27 @@ namespace TheMatchaClub.Winforms
             _cart.RemoveAt(lstOrders.SelectedIndex);
 
             RefreshOrderList();
+        }
+
+        private async void btnEndSession_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show(
+                "Are you sure you want to end this session?",
+                "End Session",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm != DialogResult.Yes)
+                return;
+
+            using var context = DbContextHelper.Create();
+            var sessionService = new SessionService(context);
+
+            await sessionService.EndSessionAsync();
+
+            MessageBox.Show("Session ended.");
+
+            System.Windows.Forms.Application.Exit();
         }
 
     }
