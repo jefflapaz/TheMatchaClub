@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TheMatchaClub.Domain.Entities;
 using TheMatchaClub.Infrastructure.Data;
 
-namespace TheMatchaClub.Infrastructure.Services;
+namespace TheMatchaClub.Application.Services;
 
 public class AuthService
 {

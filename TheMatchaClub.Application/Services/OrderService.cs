@@ -3,7 +3,7 @@ using TheMatchaClub.Domain.Entities;
 using TheMatchaClub.Domain.Enums;
 using TheMatchaClub.Infrastructure.Data;
 
-namespace TheMatchaClub.Infrastructure.Services;
+namespace TheMatchaClub.Application.Services;
 
 public class OrderService
 {

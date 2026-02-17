@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TheMatchaClub.Domain\TheMatchaClub.Domain.csproj" />
+    <ProjectReference Include="..\TheMatchaClub.Infrastructure\TheMatchaClub.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
