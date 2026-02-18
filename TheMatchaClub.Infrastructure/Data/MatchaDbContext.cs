@@ -5,8 +5,7 @@ namespace TheMatchaClub.Infrastructure.Data;
 
 public class MatchaDbContext : DbContext
 {
-    public MatchaDbContext(DbContextOptions<MatchaDbContext> options)
-        : base(options)
+    public MatchaDbContext(DbContextOptions<MatchaDbContext> options) : base(options)
     {
     }
 

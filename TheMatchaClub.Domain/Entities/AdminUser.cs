@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheMatchaClub.Domain.Entities
 {
@@ -17,7 +14,7 @@ namespace TheMatchaClub.Domain.Entities
         [Required]
         public string PasswordHash { get; set; } = string.Empty;
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } 
 
         public bool IsActive { get; set; } = true;
     }
