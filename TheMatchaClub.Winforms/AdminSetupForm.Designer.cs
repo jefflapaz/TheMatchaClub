@@ -29,45 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSetupForm));
-            lblUsername = new Label();
-            lblPassword = new Label();
-            lblConfirm = new Label();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             txtConfirm = new TextBox();
             btnCreate = new Button();
             SuspendLayout();
             // 
-            // lblUsername
-            // 
-            lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(497, 217);
-            lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(126, 20);
-            lblUsername.TabIndex = 0;
-            lblUsername.Text = "Admin Username:";
-            // 
-            // lblPassword
-            // 
-            lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(497, 275);
-            lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(73, 20);
-            lblPassword.TabIndex = 1;
-            lblPassword.Text = "Password:";
-            // 
-            // lblConfirm
-            // 
-            lblConfirm.AutoSize = true;
-            lblConfirm.Location = new Point(497, 337);
-            lblConfirm.Name = "lblConfirm";
-            lblConfirm.Size = new Size(142, 20);
-            lblConfirm.TabIndex = 2;
-            lblConfirm.Text = "Re-eneter Password:";
-            // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(651, 207);
+            txtUsername.Location = new Point(204, 492);
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(215, 27);
@@ -75,7 +45,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(651, 264);
+            txtPassword.Location = new Point(204, 539);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(215, 27);
@@ -84,7 +54,7 @@
             // 
             // txtConfirm
             // 
-            txtConfirm.Location = new Point(651, 327);
+            txtConfirm.Location = new Point(204, 586);
             txtConfirm.Margin = new Padding(3, 4, 3, 4);
             txtConfirm.Name = "txtConfirm";
             txtConfirm.Size = new Size(215, 27);
@@ -93,7 +63,7 @@
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(782, 393);
+            btnCreate.Location = new Point(461, 586);
             btnCreate.Margin = new Padding(3, 4, 3, 4);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(86, 39);
@@ -112,9 +82,6 @@
             Controls.Add(txtConfirm);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
-            Controls.Add(lblConfirm);
-            Controls.Add(lblPassword);
-            Controls.Add(lblUsername);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "AdminSetupForm";
