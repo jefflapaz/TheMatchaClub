@@ -1,15 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using TheMatchaClub.Domain.Entities;
+using TheMatchaClub.Infrastructure.Identity;
 
 namespace TheMatchaClub.Infrastructure.Data;
 
-public class MatchaDbContext : DbContext
+public class MatchaDbContext : IdentityDbContext<AdminUser>
 {
-    public MatchaDbContext(DbContextOptions<MatchaDbContext> options) : base(options)
+    public MatchaDbContext(DbContextOptions<MatchaDbContext> options)
+        : base(options)
     {
     }
 
-    public DbSet<AdminUser> AdminUsers => Set<AdminUser>();
+
     public DbSet<BusinessSession> BusinessSessions => Set<BusinessSession>();
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<Item> Items => Set<Item>();
@@ -19,10 +22,6 @@ public class MatchaDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        modelBuilder.Entity<AdminUser>()
-            .HasIndex(x => x.Username)
-            .IsUnique();
 
         modelBuilder.Entity<Category>()
             .HasIndex(x => x.Name)

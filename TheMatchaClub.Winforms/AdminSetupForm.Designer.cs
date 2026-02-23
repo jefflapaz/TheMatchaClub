@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblUsername = new Label();
             lblPassword = new Label();
             lblConfirm = new Label();
-            txtUsername = new TextBox();
             txtPassword = new TextBox();
             txtConfirm = new TextBox();
             btnCreate = new Button();
             SuspendLayout();
-            // 
-            // lblUsername
-            // 
-            lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(435, 163);
-            lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(102, 15);
-            lblUsername.TabIndex = 0;
-            lblUsername.Text = "Admin Username:";
             // 
             // lblPassword
             // 
@@ -63,13 +52,6 @@
             lblConfirm.Size = new Size(114, 15);
             lblConfirm.TabIndex = 2;
             lblConfirm.Text = "Re-eneter Password:";
-            // 
-            // txtUsername
-            // 
-            txtUsername.Location = new Point(570, 155);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(189, 23);
-            txtUsername.TabIndex = 3;
             // 
             // txtPassword
             // 
@@ -105,10 +87,8 @@
             Controls.Add(btnCreate);
             Controls.Add(txtConfirm);
             Controls.Add(txtPassword);
-            Controls.Add(txtUsername);
             Controls.Add(lblConfirm);
             Controls.Add(lblPassword);
-            Controls.Add(lblUsername);
             Name = "AdminSetupForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
@@ -117,11 +97,8 @@
         }
 
         #endregion
-
-        private Label lblUsername;
         private Label lblPassword;
         private Label lblConfirm;
-        private TextBox txtUsername;
         private TextBox txtPassword;
         private TextBox txtConfirm;
         private Button btnCreate;
