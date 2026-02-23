@@ -96,5 +96,9 @@ namespace TheMatchaClub.Winforms
             pnlContent.Controls.Add(_salesReport);
         }
 
+        private void pnlSidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
