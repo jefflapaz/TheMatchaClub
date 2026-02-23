@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.24" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TheMatchaClub.Domain\TheMatchaClub.Domain.csproj" />
     <ProjectReference Include="..\TheMatchaClub.Infrastructure\TheMatchaClub.Infrastructure.csproj" />
   </ItemGroup>

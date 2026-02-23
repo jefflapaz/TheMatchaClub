@@ -38,9 +38,9 @@
             lblGrandTotal.AutoSize = true;
             lblGrandTotal.Dock = DockStyle.Bottom;
             lblGrandTotal.Font = new Font("Segoe UI", 16F);
-            lblGrandTotal.Location = new Point(0, 500);
+            lblGrandTotal.Location = new Point(0, 670);
             lblGrandTotal.Name = "lblGrandTotal";
-            lblGrandTotal.Size = new Size(189, 30);
+            lblGrandTotal.Size = new Size(234, 37);
             lblGrandTotal.TabIndex = 3;
             lblGrandTotal.Text = "Grand Total: ₱0.00";
             // 
@@ -49,19 +49,22 @@
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.Dock = DockStyle.Fill;
             dgvItems.Location = new Point(0, 0);
+            dgvItems.Margin = new Padding(3, 4, 3, 4);
             dgvItems.Name = "dgvItems";
             dgvItems.ReadOnly = true;
-            dgvItems.Size = new Size(649, 530);
+            dgvItems.RowHeadersWidth = 51;
+            dgvItems.Size = new Size(742, 707);
             dgvItems.TabIndex = 2;
             // 
             // ItemSalesControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(lblGrandTotal);
             Controls.Add(dgvItems);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ItemSalesControl";
-            Size = new Size(649, 530);
+            Size = new Size(742, 707);
             ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -30,6 +30,8 @@
         {
             lblPassword = new Label();
             lblConfirm = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSetupForm));
+            txtUsername = new TextBox();
             txtPassword = new TextBox();
             txtConfirm = new TextBox();
             btnCreate = new Button();
@@ -52,28 +54,38 @@
             lblConfirm.Size = new Size(114, 15);
             lblConfirm.TabIndex = 2;
             lblConfirm.Text = "Re-eneter Password:";
+            // txtUsername
+            // 
+            txtUsername.Location = new Point(204, 492);
+            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(215, 27);
+            txtUsername.TabIndex = 3;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(570, 198);
+            txtPassword.Location = new Point(204, 539);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(189, 23);
+            txtPassword.Size = new Size(215, 27);
             txtPassword.TabIndex = 4;
             txtPassword.UseSystemPasswordChar = true;
             // 
             // txtConfirm
             // 
-            txtConfirm.Location = new Point(570, 245);
+            txtConfirm.Location = new Point(204, 586);
+            txtConfirm.Margin = new Padding(3, 4, 3, 4);
             txtConfirm.Name = "txtConfirm";
-            txtConfirm.Size = new Size(189, 23);
+            txtConfirm.Size = new Size(215, 27);
             txtConfirm.TabIndex = 5;
             txtConfirm.UseSystemPasswordChar = true;
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(684, 295);
+            btnCreate.Location = new Point(461, 586);
+            btnCreate.Margin = new Padding(3, 4, 3, 4);
             btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(75, 29);
+            btnCreate.Size = new Size(86, 39);
             btnCreate.TabIndex = 6;
             btnCreate.Text = "Create";
             btnCreate.UseVisualStyleBackColor = true;
@@ -81,14 +93,18 @@
             // 
             // AdminSetupForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1244, 626);
             Controls.Add(btnCreate);
             Controls.Add(txtConfirm);
             Controls.Add(txtPassword);
             Controls.Add(lblConfirm);
             Controls.Add(lblPassword);
+            Controls.Add(txtUsername);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AdminSetupForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
