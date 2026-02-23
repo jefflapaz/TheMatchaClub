@@ -22,6 +22,17 @@ namespace TheMatchaClub.Winforms.Helpers
             IntPtr ptr = CreateRoundRectRgn(0, 0, ctrl.Width, ctrl.Height, radius, radius);
             ctrl.Region = Region.FromHrgn(ptr);
         }
+
+        [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn1(
+ int nLeftRect,
+ int nTopRect,
+ int nRightRect,
+ int nBottomRect,
+ int nWidthEllipse,
+ int nHeightEllipse);
+
+
     }
 
 }
