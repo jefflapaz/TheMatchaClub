@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheMatchaClub.Application.Services;
+using TheMatchaClub.Infrastructure;
 using TheMatchaClub.WinForms.Helpers;
 using System.Drawing.Drawing2D;
 
@@ -225,10 +226,10 @@ namespace TheMatchaClub.Winforms
             }
             try
             {
-                using var context = DbContextHelper.Create();
-                var auth = new AuthService(context);
+                var userManager = IdentityHelper.GetUserManager();
+                var authService = new AuthService(userManager);
 
-                var success = await auth.LoginAsync(txtPassword.Text);
+                var success = await authService.LoginAsync("admin", txtPassword.Text);
 
                 if (!success)
                 {
@@ -238,7 +239,11 @@ namespace TheMatchaClub.Winforms
 
                 MessageBox.Show("Login successful.");
 
-                this.DialogResult = DialogResult.OK;
+                this.Hide();
+
+                var main = new MainForm();
+                main.ShowDialog();
+
                 this.Close();
             }
             catch (Exception ex)
@@ -252,8 +257,15 @@ namespace TheMatchaClub.Winforms
             System.Windows.Forms.Application.Exit();
         }
 
-       
+        private async void LoginForm_Load(object sender, EventArgs e)
+        {
+            var auth = new AuthService(IdentityHelper.GetUserManager());
 
-      
+            if (!await auth.AdminExistsAsync())
+            {
+                using var setup = new AdminSetupForm();
+                setup.ShowDialog();
+            }
+        }
     }
 }

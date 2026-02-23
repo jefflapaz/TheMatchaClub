@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            lblPassword = new Label();
+            lblConfirm = new Label();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSetupForm));
             txtUsername = new TextBox();
             txtPassword = new TextBox();
@@ -35,6 +37,23 @@
             btnCreate = new Button();
             SuspendLayout();
             // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.Location = new Point(435, 206);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(60, 15);
+            lblPassword.TabIndex = 1;
+            lblPassword.Text = "Password:";
+            // 
+            // lblConfirm
+            // 
+            lblConfirm.AutoSize = true;
+            lblConfirm.Location = new Point(435, 253);
+            lblConfirm.Name = "lblConfirm";
+            lblConfirm.Size = new Size(114, 15);
+            lblConfirm.TabIndex = 2;
+            lblConfirm.Text = "Re-eneter Password:";
             // txtUsername
             // 
             txtUsername.Location = new Point(204, 492);
@@ -81,6 +100,8 @@
             Controls.Add(btnCreate);
             Controls.Add(txtConfirm);
             Controls.Add(txtPassword);
+            Controls.Add(lblConfirm);
+            Controls.Add(lblPassword);
             Controls.Add(txtUsername);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
@@ -92,11 +113,8 @@
         }
 
         #endregion
-
-        private Label lblUsername;
         private Label lblPassword;
         private Label lblConfirm;
-        private TextBox txtUsername;
         private TextBox txtPassword;
         private TextBox txtConfirm;
         private Button btnCreate;

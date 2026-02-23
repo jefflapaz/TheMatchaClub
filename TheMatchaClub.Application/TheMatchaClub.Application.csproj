@@ -15,4 +15,8 @@
     <ProjectReference Include="..\TheMatchaClub.Infrastructure\TheMatchaClub.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>

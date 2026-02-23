@@ -82,6 +82,7 @@
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
+            Load += LoginForm_Load;
             TransparencyKey = Color.FromArgb(255, 255, 192);
             ResumeLayout(false);
             PerformLayout();
