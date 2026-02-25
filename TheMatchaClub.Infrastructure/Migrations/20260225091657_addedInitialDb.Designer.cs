@@ -12,7 +12,7 @@ using TheMatchaClub.Infrastructure.Data;
 namespace TheMatchaClub.Infrastructure.Migrations
 {
     [DbContext(typeof(MatchaDbContext))]
-    [Migration("20260220110213_addedInitialDb")]
+    [Migration("20260225091657_addedInitialDb")]
     partial class addedInitialDb
     {
         /// <inheritdoc />
