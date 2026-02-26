@@ -38,16 +38,6 @@
             cuiLabel2 = new CuoreUI.Controls.cuiLabel();
             SuspendLayout();
             // 
-            // lblUsername
-            // 
-            lblUsername.AutoSize = true;
-            lblUsername.BackColor = Color.FromArgb(225, 244, 206);
-            lblUsername.Location = new Point(918, 224);
-            lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(126, 20);
-            lblUsername.TabIndex = 0;
-            lblUsername.Text = "Admin Username:";
-            // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
@@ -107,6 +97,34 @@
             btnCreate.TextSpacing = 2;
             btnCreate.Click += btnCreate_Click;
             // 
+            // txtUsername
+            // 
+            txtUsername.BackgroundColor = Color.White;
+            txtUsername.Content = "";
+            txtUsername.FocusBackgroundColor = Color.White;
+            txtUsername.FocusImageTint = Color.White;
+            txtUsername.FocusOutlineColor = Color.FromArgb(255, 106, 0);
+            txtUsername.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.ForeColor = Color.Gray;
+            txtUsername.Image = null;
+            txtUsername.ImageExpand = new Point(0, 0);
+            txtUsername.ImageOffset = new Point(0, 0);
+            txtUsername.Location = new Point(0, 0);
+            txtUsername.Margin = new Padding(4);
+            txtUsername.Multiline = false;
+            txtUsername.Name = "txtUsername";
+            txtUsername.NormalImageTint = Color.White;
+            txtUsername.OutlineColor = Color.FromArgb(128, 128, 128, 128);
+            txtUsername.Padding = new Padding(10, 7, 10, 7);
+            txtUsername.PasswordChar = false;
+            txtUsername.PlaceholderColor = Color.LightGray;
+            txtUsername.PlaceholderText = "Placeholder text..";
+            txtUsername.Rounding = new Padding(8);
+            txtUsername.Size = new Size(266, 45);
+            txtUsername.TabIndex = 0;
+            txtUsername.TextOffset = new Size(0, 0);
+            txtUsername.UnderlinedStyle = true;
+            // 
             // txtPassword
             // 
             txtPassword.BackColor = Color.FromArgb(225, 244, 206);
@@ -133,6 +151,7 @@
             txtPassword.Rounding = new Padding(15);
             txtPassword.Size = new Size(322, 39);
             txtPassword.TabIndex = 8;
+            txtPassword.Tag = "*";
             txtPassword.TextOffset = new Size(0, 0);
             txtPassword.UnderlinedStyle = true;
             // 
@@ -162,6 +181,7 @@
             txtConfirm.Rounding = new Padding(15);
             txtConfirm.Size = new Size(322, 39);
             txtConfirm.TabIndex = 9;
+            txtConfirm.Tag = "*";
             txtConfirm.TextOffset = new Size(0, 0);
             txtConfirm.UnderlinedStyle = true;
             // 
@@ -202,11 +222,9 @@
             Controls.Add(cuiLabel1);
             Controls.Add(txtConfirm);
             Controls.Add(txtPassword);
-           
             Controls.Add(btnCreate);
             Controls.Add(lblConfirm);
             Controls.Add(lblPassword);
-           
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "AdminSetupForm";
