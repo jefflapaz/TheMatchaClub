@@ -34,6 +34,7 @@
             // 
             // rtbReceipt
             // 
+            rtbReceipt.BackColor = Color.FromArgb(250, 255, 208);
             rtbReceipt.Dock = DockStyle.Fill;
             rtbReceipt.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtbReceipt.Location = new Point(0, 0);

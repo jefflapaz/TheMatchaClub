@@ -38,6 +38,7 @@
             // 
             // lstSummary
             // 
+            lstSummary.BackColor = Color.FromArgb(245, 245, 221);
             lstSummary.FormattingEnabled = true;
             lstSummary.ItemHeight = 15;
             lstSummary.Location = new Point(33, 34);
@@ -50,7 +51,7 @@
             lblTotal.AutoSize = true;
             lblTotal.Location = new Point(59, 286);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(36, 15);
+            lblTotal.Size = new Size(35, 15);
             lblTotal.TabIndex = 1;
             lblTotal.Text = "Total:";
             // 
@@ -94,6 +95,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(53, 108, 27);
             ClientSize = new Size(465, 450);
             Controls.Add(btnBack);
             Controls.Add(btnConfirm);

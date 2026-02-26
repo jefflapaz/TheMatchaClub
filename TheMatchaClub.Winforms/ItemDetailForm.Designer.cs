@@ -97,6 +97,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(250, 255, 208);
             ClientSize = new Size(454, 231);
             Controls.Add(btnEdit);
             Controls.Add(btnClose);
