@@ -1,20 +1,27 @@
+using System;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using TheMatchaClub.Application.Services;
-using TheMatchaClub.WinForms.Helpers;
-
+using TheMatchaClub.Infrastructure;
+using TheMatchaClub.Winforms; // for MainForm
 
 namespace TheMatchaClub.Winforms
 {
     public partial class AdminSetupForm : Form
     {
+        private readonly AuthService _authService;
+
         public AdminSetupForm()
         {
             InitializeComponent();
+
+            var userManager = IdentityHelper.GetUserManager();
+            _authService = new AuthService(userManager);
         }
 
         private async void btnCreate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
-                string.IsNullOrWhiteSpace(txtPassword.Text) ||
+            if (string.IsNullOrWhiteSpace(txtPassword.Text) ||
                 string.IsNullOrWhiteSpace(txtConfirm.Text))
             {
                 MessageBox.Show("All fields are required.");
@@ -29,12 +36,10 @@ namespace TheMatchaClub.Winforms
 
             try
             {
-                using var context = DbContextHelper.Create();
-                var auth = new AuthService(context);
+                // Force username to "admin"
+                await _authService.CreateAdminAsync("admin", txtPassword.Text);
 
-                await auth.CreateAdminAsync(txtUsername.Text, txtPassword.Text);
-
-                MessageBox.Show("Admin created successfully.");
+                MessageBox.Show("Admin account created successfully.");
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -44,6 +49,5 @@ namespace TheMatchaClub.Winforms
                 MessageBox.Show(ex.Message);
             }
         }
-
     }
 }

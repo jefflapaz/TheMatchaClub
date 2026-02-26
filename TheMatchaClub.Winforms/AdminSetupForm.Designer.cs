@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblUsername = new Label();
             lblPassword = new Label();
             lblConfirm = new Label();
             btnCreate = new CuoreUI.Controls.cuiButton();
@@ -107,35 +106,6 @@
             btnCreate.TextPadding = 12;
             btnCreate.TextSpacing = 2;
             btnCreate.Click += btnCreate_Click;
-            // 
-            // txtUsername
-            // 
-            txtUsername.BackColor = Color.FromArgb(225, 244, 206);
-            txtUsername.BackgroundColor = Color.FromArgb(53, 108, 27);
-            txtUsername.Content = "";
-            txtUsername.FocusBackgroundColor = Color.FromArgb(53, 108, 27);
-            txtUsername.FocusImageTint = Color.White;
-            txtUsername.FocusOutlineColor = Color.DarkOliveGreen;
-            txtUsername.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.ForeColor = Color.LemonChiffon;
-            txtUsername.Image = null;
-            txtUsername.ImageExpand = new Point(0, 0);
-            txtUsername.ImageOffset = new Point(0, 0);
-            txtUsername.Location = new Point(914, 258);
-            txtUsername.Margin = new Padding(4);
-            txtUsername.Multiline = false;
-            txtUsername.Name = "txtUsername";
-            txtUsername.NormalImageTint = Color.White;
-            txtUsername.OutlineColor = Color.DimGray;
-            txtUsername.Padding = new Padding(20, 9, 20, 0);
-            txtUsername.PasswordChar = false;
-            txtUsername.PlaceholderColor = Color.LemonChiffon;
-            txtUsername.PlaceholderText = "Username";
-            txtUsername.Rounding = new Padding(15);
-            txtUsername.Size = new Size(322, 39);
-            txtUsername.TabIndex = 7;
-            txtUsername.TextOffset = new Size(0, 0);
-            txtUsername.UnderlinedStyle = true;
             // 
             // txtPassword
             // 
@@ -232,11 +202,11 @@
             Controls.Add(cuiLabel1);
             Controls.Add(txtConfirm);
             Controls.Add(txtPassword);
-            Controls.Add(txtUsername);
+           
             Controls.Add(btnCreate);
             Controls.Add(lblConfirm);
             Controls.Add(lblPassword);
-            Controls.Add(lblUsername);
+           
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "AdminSetupForm";
@@ -247,8 +217,6 @@
         }
 
         #endregion
-
-        private Label lblUsername;
         private Label lblPassword;
         private Label lblConfirm;
         private CuoreUI.Controls.cuiButton btnCreate;
