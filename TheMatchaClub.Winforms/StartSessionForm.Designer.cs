@@ -36,24 +36,26 @@
             // lblSession
             // 
             lblSession.AutoSize = true;
-            lblSession.Location = new Point(295, 159);
+            lblSession.Location = new Point(337, 212);
             lblSession.Name = "lblSession";
-            lblSession.Size = new Size(84, 15);
+            lblSession.Size = new Size(105, 20);
             lblSession.TabIndex = 0;
             lblSession.Text = "Session Name:";
             // 
             // txtSession
             // 
-            txtSession.Location = new Point(295, 177);
+            txtSession.Location = new Point(337, 236);
+            txtSession.Margin = new Padding(3, 4, 3, 4);
             txtSession.Name = "txtSession";
-            txtSession.Size = new Size(143, 23);
+            txtSession.Size = new Size(163, 27);
             txtSession.TabIndex = 1;
             // 
             // btnStart
             // 
-            btnStart.Location = new Point(355, 230);
+            btnStart.Location = new Point(406, 307);
+            btnStart.Margin = new Padding(3, 4, 3, 4);
             btnStart.Name = "btnStart";
-            btnStart.Size = new Size(75, 23);
+            btnStart.Size = new Size(86, 31);
             btnStart.TabIndex = 2;
             btnStart.Text = "Start Session";
             btnStart.UseVisualStyleBackColor = true;
@@ -61,12 +63,14 @@
             // 
             // StartSessionForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Red;
+            ClientSize = new Size(914, 600);
             Controls.Add(btnStart);
             Controls.Add(txtSession);
             Controls.Add(lblSession);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "StartSessionForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StartSessionForm";

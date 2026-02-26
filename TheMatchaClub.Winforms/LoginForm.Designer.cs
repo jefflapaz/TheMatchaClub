@@ -37,25 +37,27 @@
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(480, 173);
+            lblPassword.Location = new Point(549, 231);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(60, 15);
+            lblPassword.Size = new Size(73, 20);
             lblPassword.TabIndex = 0;
             lblPassword.Text = "Password:";
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(568, 170);
+            txtPassword.Location = new Point(649, 227);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(110, 23);
+            txtPassword.Size = new Size(125, 27);
             txtPassword.TabIndex = 1;
             txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(603, 276);
+            btnLogin.Location = new Point(689, 368);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(75, 23);
+            btnLogin.Size = new Size(86, 31);
             btnLogin.TabIndex = 2;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
@@ -63,9 +65,10 @@
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(12, 401);
+            btnExit.Location = new Point(14, 535);
+            btnExit.Margin = new Padding(3, 4, 3, 4);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(75, 23);
+            btnExit.Size = new Size(86, 31);
             btnExit.TabIndex = 3;
             btnExit.Text = "Exit App";
             btnExit.UseVisualStyleBackColor = true;
@@ -73,13 +76,14 @@
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(btnExit);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(lblPassword);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
