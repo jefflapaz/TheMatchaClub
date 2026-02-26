@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblName = new Label();
             lblPrice = new Label();
             lblCategory = new Label();
             btnDelete = new Button();
             btnClose = new Button();
             btnEdit = new Button();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             SuspendLayout();
             // 
             // lblName
@@ -93,11 +96,23 @@
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
             // 
+            // guna2Panel1
+            // 
+            guna2Panel1.BackColor = Color.FromArgb(245, 245, 221);
+            guna2Panel1.BorderRadius = 50;
+            guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            guna2Panel1.CustomizableEdges = customizableEdges1;
+            guna2Panel1.Location = new Point(12, 12);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel1.Size = new Size(438, 194);
+            guna2Panel1.TabIndex = 6;
+            // 
             // ItemDetailForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(250, 255, 208);
+            BackColor = Color.FromArgb(53, 108, 27);
             ClientSize = new Size(454, 231);
             Controls.Add(btnEdit);
             Controls.Add(btnClose);
@@ -105,6 +120,7 @@
             Controls.Add(lblCategory);
             Controls.Add(lblPrice);
             Controls.Add(lblName);
+            Controls.Add(guna2Panel1);
             Name = "ItemDetailForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ItemDetailForm";
@@ -120,5 +136,6 @@
         private Button btnDelete;
         private Button btnClose;
         private Button btnEdit;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }
