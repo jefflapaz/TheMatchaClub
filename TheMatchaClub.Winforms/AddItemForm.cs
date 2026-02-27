@@ -147,5 +147,10 @@ namespace TheMatchaClub.Winforms
         {
 
         }
+
+        private void chkUsual_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
