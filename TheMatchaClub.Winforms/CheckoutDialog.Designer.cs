@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lstSummary = new ListBox();
             lblTotal = new Label();
             lblCash = new Label();
             txtCash = new TextBox();
             btnConfirm = new Button();
             btnBack = new Button();
+            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             SuspendLayout();
             // 
             // lstSummary
@@ -91,12 +97,54 @@
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
+            // guna2TextBox1
+            // 
+            guna2TextBox1.BorderRadius = 10;
+            guna2TextBox1.CustomizableEdges = customizableEdges1;
+            guna2TextBox1.DefaultText = "";
+            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Font = new Font("Segoe UI", 9F);
+            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Location = new Point(239, 324);
+            guna2TextBox1.Name = "guna2TextBox1";
+            guna2TextBox1.PlaceholderText = "";
+            guna2TextBox1.SelectedText = "";
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2TextBox1.Size = new Size(139, 23);
+            guna2TextBox1.TabIndex = 6;
+            // 
+            // guna2TextBox2
+            // 
+            guna2TextBox2.BorderRadius = 10;
+            guna2TextBox2.CustomizableEdges = customizableEdges3;
+            guna2TextBox2.DefaultText = "";
+            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox2.Font = new Font("Segoe UI", 9F);
+            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox2.Location = new Point(133, 278);
+            guna2TextBox2.Name = "guna2TextBox2";
+            guna2TextBox2.PlaceholderText = "";
+            guna2TextBox2.SelectedText = "";
+            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2TextBox2.Size = new Size(139, 23);
+            guna2TextBox2.TabIndex = 7;
+            // 
             // CheckoutDialog
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(53, 108, 27);
             ClientSize = new Size(465, 450);
+            Controls.Add(guna2TextBox2);
+            Controls.Add(guna2TextBox1);
             Controls.Add(btnBack);
             Controls.Add(btnConfirm);
             Controls.Add(txtCash);
@@ -105,6 +153,7 @@
             Controls.Add(lstSummary);
             Name = "CheckoutDialog";
             Text = "CheckoutDialog";
+            Load += CheckoutDialog_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -117,5 +166,7 @@
         private TextBox txtCash;
         private Button btnConfirm;
         private Button btnBack;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
     }
 }

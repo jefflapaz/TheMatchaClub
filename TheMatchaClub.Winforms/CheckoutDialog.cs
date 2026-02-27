@@ -29,9 +29,9 @@ namespace TheMatchaClub.Winforms
         }
 
 
-        private  void CheckoutDialog_Load(object? sender, EventArgs e)
+        private void CheckoutDialog_Load(object? sender, EventArgs e)
         {
-             LoadSummary();
+            LoadSummary();
         }
 
         private void LoadSummary()
@@ -95,7 +95,12 @@ namespace TheMatchaClub.Winforms
             }
         }
 
-        
+        private void CheckoutDialog_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 
 }

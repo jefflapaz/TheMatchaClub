@@ -119,7 +119,7 @@
             // guna2GradientPanel1
             // 
             guna2GradientPanel1.BackColor = Color.FromArgb(225, 244, 206);
-            guna2GradientPanel1.BorderRadius = 100;
+            guna2GradientPanel1.BorderRadius = 50;
             guna2GradientPanel1.BorderThickness = 1;
             guna2GradientPanel1.Controls.Add(lblName);
             guna2GradientPanel1.Controls.Add(lblPrice);
