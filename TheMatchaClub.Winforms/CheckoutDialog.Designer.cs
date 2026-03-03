@@ -32,6 +32,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lstSummary = new ListBox();
             lblTotal = new Label();
             lblCash = new Label();
@@ -40,6 +44,8 @@
             btnBack = new Button();
             guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
             // lstSummary
@@ -79,7 +85,7 @@
             // 
             // btnConfirm
             // 
-            btnConfirm.Location = new Point(133, 387);
+            btnConfirm.Location = new Point(133, 363);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(129, 23);
             btnConfirm.TabIndex = 4;
@@ -89,7 +95,7 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(33, 387);
+            btnBack.Location = new Point(33, 363);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(75, 23);
             btnBack.TabIndex = 5;
@@ -137,12 +143,52 @@
             guna2TextBox2.Size = new Size(139, 23);
             guna2TextBox2.TabIndex = 7;
             // 
+            // guna2Button1
+            // 
+            guna2Button1.BackColor = Color.Transparent;
+            guna2Button1.BorderRadius = 15;
+            guna2Button1.CustomizableEdges = customizableEdges5;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.FromArgb(225, 244, 206);
+            guna2Button1.Font = new Font("Segoe UI", 10F);
+            guna2Button1.ForeColor = Color.Black;
+            guna2Button1.Location = new Point(33, 405);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Button1.Size = new Size(75, 33);
+            guna2Button1.TabIndex = 8;
+            guna2Button1.Text = "Back";
+            // 
+            // guna2Button2
+            // 
+            guna2Button2.BackColor = Color.Transparent;
+            guna2Button2.BorderRadius = 15;
+            guna2Button2.CustomizableEdges = customizableEdges7;
+            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button2.FillColor = Color.FromArgb(225, 244, 206);
+            guna2Button2.Font = new Font("Segoe UI", 10F);
+            guna2Button2.ForeColor = Color.Black;
+            guna2Button2.Location = new Point(135, 405);
+            guna2Button2.Name = "guna2Button2";
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Button2.Size = new Size(137, 33);
+            guna2Button2.TabIndex = 9;
+            guna2Button2.Text = "Confirm and Save";
+            // 
             // CheckoutDialog
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(53, 108, 27);
             ClientSize = new Size(465, 450);
+            Controls.Add(guna2Button2);
+            Controls.Add(guna2Button1);
             Controls.Add(guna2TextBox2);
             Controls.Add(guna2TextBox1);
             Controls.Add(btnBack);
@@ -168,5 +214,7 @@
         private Button btnBack;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }
