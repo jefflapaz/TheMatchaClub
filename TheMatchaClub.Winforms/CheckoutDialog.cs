@@ -58,7 +58,7 @@ namespace TheMatchaClub.Winforms
 
         private async void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (!decimal.TryParse(txtCash.Text, out decimal cash))
+            if (!decimal.TryParse(gtxtCash.Text, out decimal cash))
             {
                 MessageBox.Show("Invalid cash amount.");
                 return;

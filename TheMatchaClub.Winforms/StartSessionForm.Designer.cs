@@ -34,15 +34,14 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblSession = new Label();
             txtSession = new TextBox();
-            btnStart = new Button();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            gtxtSession = new Guna.UI2.WinForms.Guna2TextBox();
             SuspendLayout();
             // 
             // lblSession
             // 
             lblSession.AutoSize = true;
-            lblSession.Location = new Point(295, 66);
+            lblSession.Location = new Point(274, 127);
             lblSession.Name = "lblSession";
             lblSession.Size = new Size(84, 15);
             lblSession.TabIndex = 0;
@@ -54,16 +53,6 @@
             txtSession.Name = "txtSession";
             txtSession.Size = new Size(143, 23);
             txtSession.TabIndex = 1;
-            // 
-            // btnStart
-            // 
-            btnStart.Location = new Point(355, 137);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(75, 23);
-            btnStart.TabIndex = 2;
-            btnStart.Text = "Start Session";
-            btnStart.UseVisualStyleBackColor = true;
-            btnStart.Click += btnStart_Click;
             // 
             // guna2Button1
             // 
@@ -77,33 +66,34 @@
             guna2Button1.FillColor = Color.FromArgb(53, 108, 27);
             guna2Button1.Font = new Font("Segoe UI", 12F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(371, 314);
+            guna2Button1.Location = new Point(371, 187);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(103, 31);
             guna2Button1.TabIndex = 3;
             guna2Button1.Text = "Start";
+            guna2Button1.Click += btnStart_Click;
             // 
-            // guna2TextBox1
+            // gtxtSession
             // 
-            guna2TextBox1.BorderRadius = 15;
-            guna2TextBox1.BorderThickness = 2;
-            guna2TextBox1.CustomizableEdges = customizableEdges3;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(274, 261);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PlaceholderText = "";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2TextBox1.Size = new Size(200, 36);
-            guna2TextBox1.TabIndex = 4;
+            gtxtSession.BorderRadius = 15;
+            gtxtSession.BorderThickness = 2;
+            gtxtSession.CustomizableEdges = customizableEdges3;
+            gtxtSession.DefaultText = "";
+            gtxtSession.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            gtxtSession.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            gtxtSession.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            gtxtSession.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            gtxtSession.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            gtxtSession.Font = new Font("Segoe UI", 9F);
+            gtxtSession.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            gtxtSession.Location = new Point(274, 145);
+            gtxtSession.Name = "gtxtSession";
+            gtxtSession.PlaceholderText = "";
+            gtxtSession.SelectedText = "";
+            gtxtSession.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            gtxtSession.Size = new Size(200, 36);
+            gtxtSession.TabIndex = 4;
             // 
             // StartSessionForm
             // 
@@ -111,9 +101,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 245, 221);
             ClientSize = new Size(800, 450);
-            Controls.Add(guna2TextBox1);
+            Controls.Add(gtxtSession);
             Controls.Add(guna2Button1);
-            Controls.Add(btnStart);
             Controls.Add(txtSession);
             Controls.Add(lblSession);
             Name = "StartSessionForm";
@@ -127,8 +116,7 @@
 
         private Label lblSession;
         private TextBox txtSession;
-        private Button btnStart;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox gtxtSession;
     }
 }

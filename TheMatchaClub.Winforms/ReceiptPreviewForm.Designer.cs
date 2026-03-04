@@ -31,7 +31,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             rtbReceipt = new RichTextBox();
-            btnDone = new Button();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
@@ -47,16 +46,6 @@
             rtbReceipt.TabIndex = 0;
             rtbReceipt.Text = "";
             // 
-            // btnDone
-            // 
-            btnDone.Dock = DockStyle.Bottom;
-            btnDone.Location = new Point(0, 410);
-            btnDone.Name = "btnDone";
-            btnDone.Size = new Size(384, 40);
-            btnDone.TabIndex = 1;
-            btnDone.Text = "Done";
-            btnDone.UseVisualStyleBackColor = true;
-            // 
             // guna2Button1
             // 
             guna2Button1.CustomizableEdges = customizableEdges1;
@@ -67,12 +56,13 @@
             guna2Button1.FillColor = Color.FromArgb(53, 108, 27);
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(118, 246);
+            guna2Button1.Location = new Point(0, 412);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button1.Size = new Size(180, 45);
+            guna2Button1.Size = new Size(384, 38);
             guna2Button1.TabIndex = 2;
-            guna2Button1.Text = "guna2Button1";
+            guna2Button1.Text = "Done";
+            guna2Button1.Click += btnDone_Click;
             // 
             // ReceiptPreviewForm
             // 
@@ -80,7 +70,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 450);
             Controls.Add(guna2Button1);
-            Controls.Add(btnDone);
             Controls.Add(rtbReceipt);
             Name = "ReceiptPreviewForm";
             Text = "ReceiptPreviewForm";
@@ -90,7 +79,6 @@
         #endregion
 
         private RichTextBox rtbReceipt;
-        private Button btnDone;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

@@ -28,27 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItemForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItemForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblName = new Label();
             lblPrice = new Label();
             lblCategory = new Label();
             txtName = new TextBox();
             txtPrice = new TextBox();
             chkUsual = new CheckBox();
-            btnSave = new Button();
             cmbCategory = new ComboBox();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             guna2GradientPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(17, 18);
+            lblName.Location = new Point(19, 41);
             lblName.Name = "lblName";
             lblName.Size = new Size(39, 15);
             lblName.TabIndex = 0;
@@ -57,7 +59,7 @@
             // lblPrice
             // 
             lblPrice.AutoSize = true;
-            lblPrice.Location = new Point(17, 47);
+            lblPrice.Location = new Point(19, 70);
             lblPrice.Name = "lblPrice";
             lblPrice.Size = new Size(33, 15);
             lblPrice.TabIndex = 1;
@@ -66,7 +68,7 @@
             // lblCategory
             // 
             lblCategory.AutoSize = true;
-            lblCategory.Location = new Point(17, 80);
+            lblCategory.Location = new Point(19, 103);
             lblCategory.Name = "lblCategory";
             lblCategory.Size = new Size(55, 15);
             lblCategory.TabIndex = 2;
@@ -74,14 +76,14 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(126, 15);
+            txtName.Location = new Point(128, 38);
             txtName.Name = "txtName";
             txtName.Size = new Size(126, 23);
             txtName.TabIndex = 3;
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(126, 47);
+            txtPrice.Location = new Point(128, 70);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(126, 23);
             txtPrice.TabIndex = 4;
@@ -89,7 +91,7 @@
             // chkUsual
             // 
             chkUsual.AutoSize = true;
-            chkUsual.Location = new Point(17, 109);
+            chkUsual.Location = new Point(19, 132);
             chkUsual.Name = "chkUsual";
             chkUsual.Size = new Size(101, 19);
             chkUsual.TabIndex = 5;
@@ -97,20 +99,10 @@
             chkUsual.UseVisualStyleBackColor = true;
             chkUsual.CheckedChanged += chkUsual_CheckedChanged;
             // 
-            // btnSave
-            // 
-            btnSave.Location = new Point(146, 153);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 6;
-            btnSave.Text = "SAVE";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
-            // 
             // cmbCategory
             // 
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(126, 77);
+            cmbCategory.Location = new Point(128, 100);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(121, 23);
             cmbCategory.TabIndex = 7;
@@ -118,21 +110,23 @@
             // 
             // guna2GradientPanel1
             // 
-            guna2GradientPanel1.BackColor = Color.FromArgb(225, 244, 206);
+            guna2GradientPanel1.BackColor = Color.Transparent;
             guna2GradientPanel1.BorderRadius = 50;
             guna2GradientPanel1.BorderThickness = 1;
+            guna2GradientPanel1.Controls.Add(guna2Button1);
             guna2GradientPanel1.Controls.Add(lblName);
             guna2GradientPanel1.Controls.Add(lblPrice);
             guna2GradientPanel1.Controls.Add(txtName);
             guna2GradientPanel1.Controls.Add(cmbCategory);
             guna2GradientPanel1.Controls.Add(chkUsual);
-            guna2GradientPanel1.Controls.Add(btnSave);
             guna2GradientPanel1.Controls.Add(txtPrice);
             guna2GradientPanel1.Controls.Add(lblCategory);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges1;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges3;
+            guna2GradientPanel1.FillColor = Color.FromArgb(225, 244, 206);
+            guna2GradientPanel1.FillColor2 = Color.FromArgb(225, 244, 206);
             guna2GradientPanel1.Location = new Point(291, 72);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2GradientPanel1.Size = new Size(277, 205);
             guna2GradientPanel1.TabIndex = 8;
             // 
@@ -147,9 +141,28 @@
             guna2ImageButton1.Location = new Point(24, 72);
             guna2ImageButton1.Name = "guna2ImageButton1";
             guna2ImageButton1.PressedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges5;
             guna2ImageButton1.Size = new Size(231, 205);
             guna2ImageButton1.TabIndex = 9;
+            // 
+            // guna2Button1
+            // 
+            guna2Button1.BorderRadius = 10;
+            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.FromArgb(53, 108, 27);
+            guna2Button1.Font = new Font("Segoe UI", 9F);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(153, 156);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.Size = new Size(72, 22);
+            guna2Button1.TabIndex = 8;
+            guna2Button1.Text = "Save";
+            guna2Button1.Click += btnSave_Click;
             // 
             // AddItemForm
             // 
@@ -176,9 +189,9 @@
         private TextBox txtName;
         private TextBox txtPrice;
         private CheckBox chkUsual;
-        private Button btnSave;
         private ComboBox cmbCategory;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

@@ -22,7 +22,7 @@ namespace TheMatchaClub.Winforms
 
         private async void btnStart_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSession.Text))
+            if (string.IsNullOrWhiteSpace(gtxtSession.Text))
             {
                 MessageBox.Show("Please enter session name.");
                 return;
@@ -33,7 +33,7 @@ namespace TheMatchaClub.Winforms
                 using var context = DbContextHelper.Create();
                 var sessionService = new SessionService(context);
 
-                await sessionService.StartSessionAsync(txtSession.Text);
+                await sessionService.StartSessionAsync(gtxtSession.Text);
 
                 MessageBox.Show("Session started.");
 
