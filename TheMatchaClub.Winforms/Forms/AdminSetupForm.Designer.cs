@@ -36,13 +36,17 @@
             txtConfirm = new CuoreUI.Controls.cuiTextBox();
             cuiLabel1 = new CuoreUI.Controls.cuiLabel();
             cuiLabel2 = new CuoreUI.Controls.cuiLabel();
+            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            lblConfirmationText = new CuoreUI.Controls.cuiLabel();
+            lblStatus = new CuoreUI.Controls.cuiLabel();
+            cuiPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.BackColor = Color.FromArgb(225, 244, 206);
-            lblPassword.Location = new Point(921, 308);
+            lblPassword.BackColor = Color.Transparent;
+            lblPassword.Location = new Point(48, 133);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(73, 20);
             lblPassword.TabIndex = 1;
@@ -51,8 +55,8 @@
             // lblConfirm
             // 
             lblConfirm.AutoSize = true;
-            lblConfirm.BackColor = Color.FromArgb(225, 244, 206);
-            lblConfirm.Location = new Point(923, 394);
+            lblConfirm.BackColor = Color.Transparent;
+            lblConfirm.Location = new Point(55, 236);
             lblConfirm.Name = "lblConfirm";
             lblConfirm.Size = new Size(127, 20);
             lblConfirm.TabIndex = 2;
@@ -60,7 +64,7 @@
             // 
             // btnCreate
             // 
-            btnCreate.BackColor = Color.FromArgb(225, 244, 206);
+            btnCreate.BackColor = Color.Transparent;
             btnCreate.CheckButton = false;
             btnCreate.Checked = false;
             btnCreate.CheckedBackground = Color.FromArgb(255, 106, 0);
@@ -77,12 +81,12 @@
             btnCreate.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnCreate.Image = null;
             btnCreate.ImageExpand = new Point(0, 0);
-            btnCreate.Location = new Point(914, 486);
+            btnCreate.Location = new Point(50, 376);
             btnCreate.Name = "btnCreate";
             btnCreate.NormalBackground = Color.White;
             btnCreate.NormalForeColor = Color.Black;
             btnCreate.NormalImageTint = Color.Black;
-            btnCreate.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            btnCreate.NormalOutline = Color.DarkOliveGreen;
             btnCreate.OutlineThickness = 1F;
             btnCreate.Padding = new Padding(12);
             btnCreate.PressedBackground = Color.FromArgb(53, 108, 27);
@@ -127,7 +131,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.BackColor = Color.FromArgb(225, 244, 206);
+            txtPassword.BackColor = Color.Transparent;
             txtPassword.BackgroundColor = Color.FromArgb(53, 108, 27);
             txtPassword.Content = "";
             txtPassword.FocusBackgroundColor = Color.FromArgb(53, 108, 27);
@@ -138,7 +142,7 @@
             txtPassword.Image = null;
             txtPassword.ImageExpand = new Point(0, 0);
             txtPassword.ImageOffset = new Point(0, 0);
-            txtPassword.Location = new Point(915, 342);
+            txtPassword.Location = new Point(50, 160);
             txtPassword.Margin = new Padding(4);
             txtPassword.Multiline = false;
             txtPassword.Name = "txtPassword";
@@ -154,10 +158,11 @@
             txtPassword.Tag = "*";
             txtPassword.TextOffset = new Size(0, 0);
             txtPassword.UnderlinedStyle = true;
+            txtPassword.ContentChanged += TxtPassword_ContentChanged;
             // 
             // txtConfirm
             // 
-            txtConfirm.BackColor = Color.FromArgb(225, 244, 206);
+            txtConfirm.BackColor = Color.Transparent;
             txtConfirm.BackgroundColor = Color.FromArgb(53, 108, 27);
             txtConfirm.Content = "";
             txtConfirm.FocusBackgroundColor = Color.FromArgb(53, 108, 27);
@@ -168,7 +173,7 @@
             txtConfirm.Image = null;
             txtConfirm.ImageExpand = new Point(0, 0);
             txtConfirm.ImageOffset = new Point(0, 0);
-            txtConfirm.Location = new Point(914, 425);
+            txtConfirm.Location = new Point(50, 260);
             txtConfirm.Margin = new Padding(4);
             txtConfirm.Multiline = false;
             txtConfirm.Name = "txtConfirm";
@@ -187,10 +192,10 @@
             // 
             // cuiLabel1
             // 
-            cuiLabel1.BackColor = Color.FromArgb(225, 244, 206);
+            cuiLabel1.BackColor = Color.Transparent;
             cuiLabel1.Content = "Create\\ an\\ Account";
             cuiLabel1.HorizontalAlignment = StringAlignment.Center;
-            cuiLabel1.Location = new Point(909, 174);
+            cuiLabel1.Location = new Point(51, 71);
             cuiLabel1.Margin = new Padding(4, 5, 4, 5);
             cuiLabel1.Name = "cuiLabel1";
             cuiLabel1.Size = new Size(320, 25);
@@ -199,17 +204,62 @@
             // 
             // cuiLabel2
             // 
-            cuiLabel2.BackColor = Color.FromArgb(225, 244, 206);
+            cuiLabel2.BackColor = Color.Transparent;
             cuiLabel2.Content = "Welcome\\ Admin!";
             cuiLabel2.Font = new Font("Verdana", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cuiLabel2.ForeColor = Color.DarkOliveGreen;
             cuiLabel2.HorizontalAlignment = StringAlignment.Center;
-            cuiLabel2.Location = new Point(925, 131);
+            cuiLabel2.Location = new Point(68, 34);
             cuiLabel2.Margin = new Padding(4, 5, 4, 5);
             cuiLabel2.Name = "cuiLabel2";
             cuiLabel2.Size = new Size(287, 33);
             cuiLabel2.TabIndex = 11;
             cuiLabel2.VerticalAlignment = StringAlignment.Near;
+            // 
+            // cuiPanel1
+            // 
+            cuiPanel1.BackColor = Color.Transparent;
+            cuiPanel1.Controls.Add(lblConfirmationText);
+            cuiPanel1.Controls.Add(lblStatus);
+            cuiPanel1.Controls.Add(cuiLabel2);
+            cuiPanel1.Controls.Add(btnCreate);
+            cuiPanel1.Controls.Add(txtConfirm);
+            cuiPanel1.Controls.Add(cuiLabel1);
+            cuiPanel1.Controls.Add(txtPassword);
+            cuiPanel1.Controls.Add(lblConfirm);
+            cuiPanel1.Controls.Add(lblPassword);
+            cuiPanel1.Location = new Point(842, 60);
+            cuiPanel1.Name = "cuiPanel1";
+            cuiPanel1.OutlineThickness = 0F;
+            cuiPanel1.PanelColor = Color.White;
+            cuiPanel1.PanelOutlineColor = Color.FromArgb(225, 244, 206);
+            cuiPanel1.Rounding = new Padding(30);
+            cuiPanel1.Size = new Size(417, 489);
+            cuiPanel1.TabIndex = 12;
+            // 
+            // lblConfirmationText
+            // 
+            lblConfirmationText.Content = "";
+            lblConfirmationText.HorizontalAlignment = StringAlignment.Center;
+            lblConfirmationText.Location = new Point(140, 303);
+            lblConfirmationText.Margin = new Padding(4, 5, 4, 5);
+            lblConfirmationText.Name = "lblConfirmationText";
+            lblConfirmationText.Size = new Size(137, 23);
+            lblConfirmationText.TabIndex = 13;
+            lblConfirmationText.VerticalAlignment = StringAlignment.Near;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Content = "Status";
+            lblStatus.HorizontalAlignment = StringAlignment.Near;
+            lblStatus.Location = new Point(55, 208);
+            lblStatus.Margin = new Padding(4, 5, 4, 5);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(145, 23);
+            lblStatus.TabIndex = 12;
+            lblStatus.VerticalAlignment = StringAlignment.Near;
+            lblStatus.Load += lblStatus_Load;
             // 
             // AdminSetupForm
             // 
@@ -218,20 +268,15 @@
             BackColor = SystemColors.Control;
             BackgroundImage = Properties.Resources.Desktop___37;
             ClientSize = new Size(1348, 721);
-            Controls.Add(cuiLabel2);
-            Controls.Add(cuiLabel1);
-            Controls.Add(txtConfirm);
-            Controls.Add(txtPassword);
-            Controls.Add(btnCreate);
-            Controls.Add(lblConfirm);
-            Controls.Add(lblPassword);
+            Controls.Add(cuiPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "AdminSetupForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            cuiPanel1.ResumeLayout(false);
+            cuiPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -243,5 +288,8 @@
         private CuoreUI.Controls.cuiTextBox txtConfirm;
         private CuoreUI.Controls.cuiLabel cuiLabel1;
         private CuoreUI.Controls.cuiLabel cuiLabel2;
+        private CuoreUI.Controls.cuiPanel cuiPanel1;
+        private CuoreUI.Controls.cuiLabel lblConfirmationText;
+        private CuoreUI.Controls.cuiLabel lblStatus;
     }
 }

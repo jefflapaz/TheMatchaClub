@@ -14,15 +14,13 @@ using TheMatchaClub.WinForms.Helpers;
 namespace TheMatchaClub.Winforms
 {
     public partial class ItemsControl : UserControl
-
-
     {
         public ItemsControl()
         {
             InitializeComponent();
+            EnableDoubleBuffering(flpItems);
             Load += ItemsControl_Load;
         }
-
 
         private async void ItemsControl_Load(object? sender, EventArgs e)
         {
@@ -31,18 +29,18 @@ namespace TheMatchaClub.Winforms
 
         private async Task LoadItems()
         {
+            flpItems.SuspendLayout();
+
             flpItems.Controls.Clear();
 
             using var context = DbContextHelper.Create();
             var itemService = new ItemService(context);
 
             var items = await itemService.GetAllAsync();
-
             var grouped = items.GroupBy(x => x.Category.Name);
 
             foreach (var group in grouped)
             {
-                // Category header
                 var lblCategory = new Label
                 {
                     Text = group.Key,
@@ -64,11 +62,25 @@ namespace TheMatchaClub.Winforms
                     };
 
                     btn.Click += ItemButton_Click;
-
                     flpItems.Controls.Add(btn);
-
                 }
             }
+
+            flpItems.ResumeLayout();
+        }
+        private void EnableDoubleBuffering(Control control)
+        {
+            var prop = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+
+            prop?.SetValue(control, true, null);
+        }
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            this.DoubleBuffered = true;
         }
         private async void ItemButton_Click(object? sender, EventArgs e)
         {
@@ -81,7 +93,6 @@ namespace TheMatchaClub.Winforms
             if (detail.ShowDialog() == DialogResult.OK)
                 await LoadItems();
         }
-
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {

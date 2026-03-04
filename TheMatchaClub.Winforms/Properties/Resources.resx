@@ -118,7 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pos-terminal (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pos-terminal (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="output-onlinepngtools" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\output-onlinepngtools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pokecut_1772532916810" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pokecut_1772532916810.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pos-terminal (4)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pos-terminal (4)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="convertico-pos-terminal__4__32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\convertico-pos-terminal__4__32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Desktop - 40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Desktop - 40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Desktop - 39" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Desktop - 39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Desktop - 40 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Desktop - 40 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Desktop - 37" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Desktop - 37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="input-onlinepngtools" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\input-onlinepngtools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Desktop - 40 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Desktop - 40 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="growth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\growth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu-bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu-bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu-bar (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu-bar (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

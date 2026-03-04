@@ -18,8 +18,14 @@ namespace TheMatchaClub.Winforms
         public POSControl()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            // Apply to internal panels if they are heavy
+            pnlPOS.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                  ?.SetValue(pnlPOS, true, null);
+
             Load += POSControl_Load;
         }
+
 
         private async void POSControl_Load(object? sender, EventArgs e)
         {
@@ -155,7 +161,7 @@ namespace TheMatchaClub.Winforms
 
             // Reset UI instead of exiting app
             lblSession.Text = "";
-            txtSessionName.Clear();
+            txtSessionName.Text = "";
             pnlPOS.Visible = false;
             pnlStartSession.Visible = true;
         }
@@ -180,5 +186,9 @@ namespace TheMatchaClub.Winforms
             pnlPOS.Visible = true;
         }
 
+        private void pnlStartSession_Enter(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

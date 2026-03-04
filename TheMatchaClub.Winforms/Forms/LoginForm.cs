@@ -70,5 +70,10 @@ namespace TheMatchaClub.Winforms
                 setup.ShowDialog();
             }
         }
+
+        private void cuiLabel1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

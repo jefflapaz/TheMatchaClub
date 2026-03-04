@@ -52,7 +52,7 @@
             // 
             // btnStart
             // 
-            btnStart.Location = new Point(406, 307);
+            btnStart.Location = new Point(366, 280);
             btnStart.Margin = new Padding(3, 4, 3, 4);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(86, 31);
