@@ -169,15 +169,7 @@ namespace TheMatchaClub.Winforms
         }
 
 
-        private void AddItemForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkUsual_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+       
         
         private void btnImageAdd_Click(object sender, EventArgs e)
         {

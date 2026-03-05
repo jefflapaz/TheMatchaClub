@@ -63,7 +63,7 @@ namespace TheMatchaClub.Winforms
 
         private async void POSControl_Load(object? sender, EventArgs e)
         {
-            // Link Enums to Radio Buttons via the Tag property
+   
             rbtnGcash.Tag = PaymentMethod.GCash;
             rbtnCash.Tag = PaymentMethod.Cash;
             rbtnBank.Tag = PaymentMethod.Bank;
@@ -72,17 +72,17 @@ namespace TheMatchaClub.Winforms
             rbtnTakeOut.Tag = OrderType.TakeOut;
             rbtnDelivery.Tag = OrderType.Delivery;
 
-            // Attach the single event to all Payment buttons
+        
             rbtnGcash.CheckedChanged += RadioButton_CheckedChanged;
             rbtnCash.CheckedChanged += RadioButton_CheckedChanged;
             rbtnBank.CheckedChanged += RadioButton_CheckedChanged;
 
-            // Attach the single event to all Order Type buttons
+     
             rbtnDineIn.CheckedChanged += RadioButton_CheckedChanged;
             rbtnTakeOut.CheckedChanged += RadioButton_CheckedChanged;
             rbtnDelivery.CheckedChanged += RadioButton_CheckedChanged;
 
-            // Set Defaults visually and logically
+
             rbtnCash.Checked = true;
             _selectedPayment = PaymentMethod.Cash;
 

@@ -205,18 +205,7 @@ namespace TheMatchaClub.Winforms
 
             return path;
         }
-        private Image? LoadImage(string path)
-        {
-            if (!File.Exists(path))
-                return null;
-
-            byte[] bytes = File.ReadAllBytes(path);
-
-            using MemoryStream ms = new MemoryStream(bytes);
-
-            return Image.FromStream(ms);
-        }
-
+      
         private void Item_Click(object? sender, EventArgs e)
         {
             if (sender is not Control ctrl || ctrl.Tag is not Item item)

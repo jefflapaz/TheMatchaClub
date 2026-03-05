@@ -40,7 +40,7 @@ namespace TheMatchaClub.Winforms
                 Cursor = Cursors.Hand
             };
 
-            // Rounded corners
+           
             card.Paint += (s, e) =>
             {
                 var rect = card.ClientRectangle;

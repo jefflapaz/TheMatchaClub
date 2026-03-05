@@ -49,7 +49,7 @@ namespace TheMatchaClub.Winforms
             int score = 0;
 
             if (password.Length >= 8) score++;
-            if (password.Length >= 12) score++; // bonus for long passwords
+            if (password.Length >= 12) score++; 
             if (password.Any(char.IsUpper)) score++;
             if (password.Any(char.IsLower)) score++;
             if (password.Any(char.IsDigit)) score++;

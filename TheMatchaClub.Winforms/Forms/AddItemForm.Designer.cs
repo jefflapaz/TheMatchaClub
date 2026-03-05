@@ -97,7 +97,7 @@
             chkUsual.TabIndex = 5;
             chkUsual.Text = "Mark As Usual";
             chkUsual.UseVisualStyleBackColor = true;
-            chkUsual.CheckedChanged += chkUsual_CheckedChanged;
+           
             // 
             // cmbCategory
             // 
@@ -182,7 +182,7 @@
             Name = "AddItemForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
-            Load += AddItemForm_Load_1;
+     
             guna2GradientPanel1.ResumeLayout(false);
             guna2GradientPanel1.PerformLayout();
             ResumeLayout(false);
