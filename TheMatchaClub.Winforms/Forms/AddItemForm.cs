@@ -153,6 +153,9 @@ namespace TheMatchaClub.Winforms
 
         }
 
+        private void btnImageAdd_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

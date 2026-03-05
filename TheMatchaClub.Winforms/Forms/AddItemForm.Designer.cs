@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItemForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblName = new Label();
             lblPrice = new Label();
             lblCategory = new Label();
@@ -43,7 +42,7 @@
             cmbCategory = new ComboBox();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             btnSave = new Guna.UI2.WinForms.Guna2Button();
-            guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            btnImageAddItem = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2GradientPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -121,19 +120,19 @@
             guna2GradientPanel1.Controls.Add(chkUsual);
             guna2GradientPanel1.Controls.Add(txtPrice);
             guna2GradientPanel1.Controls.Add(lblCategory);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges3;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges8;
             guna2GradientPanel1.FillColor = Color.FromArgb(225, 244, 206);
             guna2GradientPanel1.FillColor2 = Color.FromArgb(225, 244, 206);
-            guna2GradientPanel1.Location = new Point(291, 72);
+            guna2GradientPanel1.Location = new Point(291, 59);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2GradientPanel1.Size = new Size(277, 205);
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            guna2GradientPanel1.Size = new Size(277, 230);
             guna2GradientPanel1.TabIndex = 8;
             // 
             // btnSave
             // 
             btnSave.BorderRadius = 10;
-            btnSave.CustomizableEdges = customizableEdges1;
+            btnSave.CustomizableEdges = customizableEdges6;
             btnSave.DisabledState.BorderColor = Color.DarkGray;
             btnSave.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSave.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -142,28 +141,27 @@
             btnSave.Font = new Font("Segoe UI", 9F);
             btnSave.ForeColor = Color.White;
             btnSave.Location = new Point(153, 156);
-        
             btnSave.Name = "btnSave";
-            btnSave.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnSave.ShadowDecoration.CustomizableEdges = customizableEdges7;
             btnSave.Size = new Size(72, 22);
             btnSave.TabIndex = 8;
             btnSave.Text = "Save";
             btnSave.Click += btnSave_Click;
             // 
-            // guna2ImageButton1
+            // btnImageAddItem
             // 
-            guna2ImageButton1.BackColor = Color.White;
-            guna2ImageButton1.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.HoverState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.Image = (Image)resources.GetObject("guna2ImageButton1.Image");
-            guna2ImageButton1.ImageOffset = new Point(0, 0);
-            guna2ImageButton1.ImageRotate = 0F;
-            guna2ImageButton1.Location = new Point(24, 72);
-            guna2ImageButton1.Name = "guna2ImageButton1";
-            guna2ImageButton1.PressedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            guna2ImageButton1.Size = new Size(231, 205);
-            guna2ImageButton1.TabIndex = 9;
+            btnImageAddItem.BackColor = Color.White;
+            btnImageAddItem.CheckedState.ImageSize = new Size(64, 64);
+            btnImageAddItem.HoverState.ImageSize = new Size(64, 64);
+            btnImageAddItem.ImageOffset = new Point(0, 0);
+            btnImageAddItem.ImageRotate = 0F;
+            btnImageAddItem.Location = new Point(37, 59);
+            btnImageAddItem.Name = "btnImageAddItem";
+            btnImageAddItem.PressedState.ImageSize = new Size(64, 64);
+            btnImageAddItem.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnImageAddItem.Size = new Size(230, 230);
+            btnImageAddItem.TabIndex = 9;
+            btnImageAddItem.Click += btnImageAdd_Click;
             // 
             // AddItemForm
             // 
@@ -171,7 +169,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(53, 108, 27);
             ClientSize = new Size(592, 343);
-            Controls.Add(guna2ImageButton1);
+            Controls.Add(btnImageAddItem);
             Controls.Add(guna2GradientPanel1);
             Name = "AddItemForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -192,7 +190,7 @@
         private CheckBox chkUsual;
         private ComboBox cmbCategory;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton btnImageAddItem;
         private Guna.UI2.WinForms.Guna2Button btnSave;
     }
 }

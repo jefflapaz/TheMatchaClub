@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             rtbReceipt = new RichTextBox();
-            btnDone = new Button();
+            btnDone = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
             // rtbReceipt
             // 
+            rtbReceipt.BackColor = Color.FromArgb(250, 255, 208);
             rtbReceipt.Dock = DockStyle.Fill;
             rtbReceipt.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtbReceipt.Location = new Point(0, 0);
@@ -45,13 +48,21 @@
             // 
             // btnDone
             // 
-            btnDone.Dock = DockStyle.Bottom;
-            btnDone.Location = new Point(0, 410);
+            btnDone.CustomizableEdges = customizableEdges3;
+            btnDone.DisabledState.BorderColor = Color.DarkGray;
+            btnDone.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnDone.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnDone.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnDone.FillColor = Color.FromArgb(53, 108, 27);
+            btnDone.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnDone.ForeColor = Color.White;
+            btnDone.Location = new Point(0, 412);
             btnDone.Name = "btnDone";
-            btnDone.Size = new Size(384, 40);
-            btnDone.TabIndex = 1;
+            btnDone.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnDone.Size = new Size(384, 38);
+            btnDone.TabIndex = 2;
             btnDone.Text = "Done";
-            btnDone.UseVisualStyleBackColor = true;
+            btnDone.Click += btnDone_Click;
             // 
             // ReceiptPreviewForm
             // 
@@ -68,6 +79,6 @@
         #endregion
 
         private RichTextBox rtbReceipt;
-        private Button btnDone;
+        private Guna.UI2.WinForms.Guna2Button btnDone;
     }
 }

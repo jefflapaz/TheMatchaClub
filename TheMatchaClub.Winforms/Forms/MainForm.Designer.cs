@@ -56,14 +56,14 @@
             sidebar.Controls.Add(btnItemSales);
             sidebar.Controls.Add(btnCustomer);
             sidebar.Dock = DockStyle.Left;
-            sidebar.Location = new Point(0, 59);
+            sidebar.Location = new Point(0, 44);
             sidebar.Margin = new Padding(0);
             sidebar.Name = "sidebar";
             sidebar.OutlineThickness = 0F;
             sidebar.PanelColor = Color.FromArgb(45, 83, 26);
             sidebar.PanelOutlineColor = Color.FromArgb(45, 83, 26);
             sidebar.Rounding = new Padding(0);
-            sidebar.Size = new Size(233, 974);
+            sidebar.Size = new Size(204, 646);
             sidebar.TabIndex = 6;
             // 
             // btnLogout1
@@ -77,6 +77,7 @@
             btnLogout1.CheckedOutline = Color.FromArgb(255, 106, 0);
             btnLogout1.Content = "Logout";
             btnLogout1.DialogResult = DialogResult.None;
+            btnLogout1.Dock = DockStyle.Bottom;
             btnLogout1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             btnLogout1.ForeColor = Color.Black;
             btnLogout1.HoverBackground = Color.White;
@@ -85,23 +86,24 @@
             btnLogout1.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnLogout1.Image = null;
             btnLogout1.ImageExpand = new Point(0, 0);
-            btnLogout1.Location = new Point(12, 898);
+            btnLogout1.Location = new Point(0, 612);
+            btnLogout1.Margin = new Padding(3, 2, 3, 2);
             btnLogout1.Name = "btnLogout1";
             btnLogout1.NormalBackground = Color.White;
             btnLogout1.NormalForeColor = Color.Black;
             btnLogout1.NormalImageTint = Color.Black;
             btnLogout1.NormalOutline = Color.FromArgb(64, 128, 128, 128);
             btnLogout1.OutlineThickness = 1F;
-            btnLogout1.Padding = new Padding(12);
+            btnLogout1.Padding = new Padding(10, 9, 10, 9);
             btnLogout1.PressedBackground = Color.WhiteSmoke;
             btnLogout1.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnLogout1.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnLogout1.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnLogout1.Rounding = new Padding(15);
-            btnLogout1.Size = new Size(210, 46);
+            btnLogout1.Size = new Size(204, 34);
             btnLogout1.TabIndex = 11;
             btnLogout1.TextAlignment = StringAlignment.Center;
-            btnLogout1.TextPadding = 12;
+            btnLogout1.TextPadding = -1;
             btnLogout1.TextSpacing = 2;
             btnLogout1.Click += btnLogout1_Click;
             // 
@@ -126,23 +128,24 @@
             btnItems.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnItems.Image = null;
             btnItems.ImageExpand = new Point(0, 0);
-            btnItems.Location = new Point(12, 227);
+            btnItems.Location = new Point(10, 170);
+            btnItems.Margin = new Padding(3, 2, 3, 2);
             btnItems.Name = "btnItems";
             btnItems.NormalBackground = Color.Transparent;
             btnItems.NormalForeColor = Color.White;
             btnItems.NormalImageTint = Color.Black;
             btnItems.NormalOutline = Color.FromArgb(45, 83, 26);
             btnItems.OutlineThickness = 1F;
-            btnItems.Padding = new Padding(12);
+            btnItems.Padding = new Padding(10, 9, 10, 9);
             btnItems.PressedBackground = Color.WhiteSmoke;
             btnItems.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnItems.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnItems.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnItems.Rounding = new Padding(15);
-            btnItems.Size = new Size(210, 46);
+            btnItems.Size = new Size(184, 34);
             btnItems.TabIndex = 2;
             btnItems.TextAlignment = StringAlignment.Center;
-            btnItems.TextPadding = 12;
+            btnItems.TextPadding = -1;
             btnItems.TextSpacing = 2;
             btnItems.Click += btnItems_Click;
             // 
@@ -167,23 +170,24 @@
             btnReport.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnReport.Image = null;
             btnReport.ImageExpand = new Point(0, 0);
-            btnReport.Location = new Point(12, 413);
+            btnReport.Location = new Point(10, 310);
+            btnReport.Margin = new Padding(3, 2, 3, 2);
             btnReport.Name = "btnReport";
             btnReport.NormalBackground = Color.Transparent;
             btnReport.NormalForeColor = Color.White;
             btnReport.NormalImageTint = Color.Black;
             btnReport.NormalOutline = Color.Transparent;
             btnReport.OutlineThickness = 1F;
-            btnReport.Padding = new Padding(12);
+            btnReport.Padding = new Padding(10, 9, 10, 9);
             btnReport.PressedBackground = Color.WhiteSmoke;
             btnReport.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnReport.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnReport.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnReport.Rounding = new Padding(15);
-            btnReport.Size = new Size(210, 46);
+            btnReport.Size = new Size(184, 34);
             btnReport.TabIndex = 9;
             btnReport.TextAlignment = StringAlignment.Center;
-            btnReport.TextPadding = 12;
+            btnReport.TextPadding = -1;
             btnReport.TextSpacing = 2;
             btnReport.Click += btnReport_Click;
             // 
@@ -207,23 +211,24 @@
             btnPOS.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnPOS.Image = Properties.Resources.Pokecut_1772532916810;
             btnPOS.ImageExpand = new Point(11, 11);
-            btnPOS.Location = new Point(12, 164);
+            btnPOS.Location = new Point(10, 123);
+            btnPOS.Margin = new Padding(3, 2, 3, 2);
             btnPOS.Name = "btnPOS";
             btnPOS.NormalBackground = Color.Transparent;
             btnPOS.NormalForeColor = Color.White;
             btnPOS.NormalImageTint = Color.White;
             btnPOS.NormalOutline = Color.Transparent;
             btnPOS.OutlineThickness = 1F;
-            btnPOS.Padding = new Padding(12);
+            btnPOS.Padding = new Padding(10, 9, 10, 9);
             btnPOS.PressedBackground = Color.WhiteSmoke;
             btnPOS.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnPOS.PressedImageTint = Color.Black;
             btnPOS.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnPOS.Rounding = new Padding(15);
-            btnPOS.Size = new Size(210, 46);
+            btnPOS.Size = new Size(184, 34);
             btnPOS.TabIndex = 7;
             btnPOS.TextAlignment = StringAlignment.Near;
-            btnPOS.TextPadding = 12;
+            btnPOS.TextPadding = -1;
             btnPOS.TextSpacing = 2;
             btnPOS.Click += btnPOS_Click;
             // 
@@ -248,23 +253,24 @@
             btnItemSales.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnItemSales.Image = null;
             btnItemSales.ImageExpand = new Point(0, 0);
-            btnItemSales.Location = new Point(12, 350);
+            btnItemSales.Location = new Point(10, 262);
+            btnItemSales.Margin = new Padding(3, 2, 3, 2);
             btnItemSales.Name = "btnItemSales";
             btnItemSales.NormalBackground = Color.Transparent;
             btnItemSales.NormalForeColor = Color.White;
             btnItemSales.NormalImageTint = Color.Black;
             btnItemSales.NormalOutline = Color.Transparent;
             btnItemSales.OutlineThickness = 1F;
-            btnItemSales.Padding = new Padding(12);
+            btnItemSales.Padding = new Padding(10, 9, 10, 9);
             btnItemSales.PressedBackground = Color.WhiteSmoke;
             btnItemSales.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnItemSales.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnItemSales.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnItemSales.Rounding = new Padding(15);
-            btnItemSales.Size = new Size(210, 46);
+            btnItemSales.Size = new Size(184, 34);
             btnItemSales.TabIndex = 9;
             btnItemSales.TextAlignment = StringAlignment.Center;
-            btnItemSales.TextPadding = 12;
+            btnItemSales.TextPadding = -1;
             btnItemSales.TextSpacing = 2;
             btnItemSales.Click += btnItemSales_Click;
             // 
@@ -289,23 +295,24 @@
             btnCustomer.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnCustomer.Image = null;
             btnCustomer.ImageExpand = new Point(0, 0);
-            btnCustomer.Location = new Point(12, 290);
+            btnCustomer.Location = new Point(10, 218);
+            btnCustomer.Margin = new Padding(3, 2, 3, 2);
             btnCustomer.Name = "btnCustomer";
             btnCustomer.NormalBackground = Color.Transparent;
             btnCustomer.NormalForeColor = Color.White;
             btnCustomer.NormalImageTint = Color.Black;
             btnCustomer.NormalOutline = Color.Transparent;
             btnCustomer.OutlineThickness = 1F;
-            btnCustomer.Padding = new Padding(12);
+            btnCustomer.Padding = new Padding(10, 9, 10, 9);
             btnCustomer.PressedBackground = Color.WhiteSmoke;
             btnCustomer.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnCustomer.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnCustomer.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnCustomer.Rounding = new Padding(15);
-            btnCustomer.Size = new Size(210, 43);
+            btnCustomer.Size = new Size(184, 32);
             btnCustomer.TabIndex = 10;
             btnCustomer.TextAlignment = StringAlignment.Center;
-            btnCustomer.TextPadding = 12;
+            btnCustomer.TextPadding = -1;
             btnCustomer.TextSpacing = 2;
             btnCustomer.Click += btnCustomer_Click;
             // 
@@ -330,23 +337,24 @@
             cuiButton1.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             cuiButton1.Image = null;
             cuiButton1.ImageExpand = new Point(0, 0);
-            cuiButton1.Location = new Point(12, 7);
+            cuiButton1.Location = new Point(10, 5);
+            cuiButton1.Margin = new Padding(3, 2, 3, 2);
             cuiButton1.Name = "cuiButton1";
             cuiButton1.NormalBackground = Color.Transparent;
             cuiButton1.NormalForeColor = Color.Black;
             cuiButton1.NormalImageTint = Color.Black;
             cuiButton1.NormalOutline = Color.Transparent;
             cuiButton1.OutlineThickness = 1F;
-            cuiButton1.Padding = new Padding(12);
+            cuiButton1.Padding = new Padding(10, 9, 10, 9);
             cuiButton1.PressedBackground = Color.WhiteSmoke;
             cuiButton1.PressedForeColor = Color.FromArgb(32, 32, 32);
             cuiButton1.PressedImageTint = Color.FromArgb(32, 32, 32);
             cuiButton1.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             cuiButton1.Rounding = new Padding(8);
-            cuiButton1.Size = new Size(43, 46);
+            cuiButton1.Size = new Size(38, 34);
             cuiButton1.TabIndex = 12;
             cuiButton1.TextAlignment = StringAlignment.Center;
-            cuiButton1.TextPadding = 12;
+            cuiButton1.TextPadding = -1;
             cuiButton1.TextSpacing = 2;
             cuiButton1.Click += cuiButton1_Click;
             // 
@@ -354,13 +362,13 @@
             // 
             cuiLabel1.BackColor = Color.Transparent;
             cuiLabel1.Content = "The\\ Matcha\\ Club";
-            cuiLabel1.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
+            cuiLabel1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             cuiLabel1.ForeColor = Color.LemonChiffon;
             cuiLabel1.HorizontalAlignment = StringAlignment.Center;
-            cuiLabel1.Location = new Point(52, 12);
-            cuiLabel1.Margin = new Padding(4, 5, 4, 5);
+            cuiLabel1.Location = new Point(46, 9);
+            cuiLabel1.Margin = new Padding(4, 4, 4, 4);
             cuiLabel1.Name = "cuiLabel1";
-            cuiLabel1.Size = new Size(265, 38);
+            cuiLabel1.Size = new Size(232, 28);
             cuiLabel1.TabIndex = 6;
             cuiLabel1.VerticalAlignment = StringAlignment.Near;
             // 
@@ -374,14 +382,14 @@
             mainPanel.AutoSize = true;
             mainPanel.BackColor = Color.Transparent;
             mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(233, 59);
+            mainPanel.Location = new Point(204, 44);
             mainPanel.Margin = new Padding(0);
             mainPanel.Name = "mainPanel";
             mainPanel.OutlineThickness = 0F;
             mainPanel.PanelColor = Color.FromArgb(45, 83, 26);
             mainPanel.PanelOutlineColor = Color.FromArgb(64, 128, 128, 128);
             mainPanel.Rounding = new Padding(0);
-            mainPanel.Size = new Size(1669, 974);
+            mainPanel.Size = new Size(1214, 646);
             mainPanel.TabIndex = 7;
             // 
             // cuiPanel1
@@ -397,19 +405,18 @@
             cuiPanel1.PanelColor = Color.FromArgb(45, 83, 26);
             cuiPanel1.PanelOutlineColor = Color.FromArgb(45, 83, 26);
             cuiPanel1.Rounding = new Padding(0);
-            cuiPanel1.Size = new Size(1902, 59);
+            cuiPanel1.Size = new Size(1418, 44);
             cuiPanel1.TabIndex = 0;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1902, 1033);
+            ClientSize = new Size(1418, 690);
             Controls.Add(mainPanel);
             Controls.Add(sidebar);
             Controls.Add(cuiPanel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";

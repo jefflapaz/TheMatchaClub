@@ -40,10 +40,9 @@
             // 
             flpItems.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             flpItems.AutoScroll = true;
-            flpItems.Location = new Point(0, 0);
-            flpItems.Margin = new Padding(3, 4, 3, 4);
+            flpItems.Location = new Point(0, 49);
             flpItems.Name = "flpItems";
-            flpItems.Size = new Size(1645, 954);
+            flpItems.Size = new Size(1439, 667);
             flpItems.TabIndex = 3;
             flpItems.Click += btnAdd_Click;
             // 
@@ -66,23 +65,24 @@
             btnAdd.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnAdd.Image = null;
             btnAdd.ImageExpand = new Point(0, 0);
-            btnAdd.Location = new Point(3, 3);
+            btnAdd.Location = new Point(3, 2);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.NormalBackground = Color.FromArgb(53, 108, 27);
             btnAdd.NormalForeColor = Color.LemonChiffon;
             btnAdd.NormalImageTint = Color.Black;
             btnAdd.NormalOutline = Color.FromArgb(64, 128, 128, 128);
             btnAdd.OutlineThickness = 1F;
-            btnAdd.Padding = new Padding(12);
+            btnAdd.Padding = new Padding(10, 9, 10, 9);
             btnAdd.PressedBackground = Color.WhiteSmoke;
             btnAdd.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnAdd.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnAdd.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnAdd.Rounding = new Padding(20);
-            btnAdd.Size = new Size(1635, 56);
+            btnAdd.Size = new Size(1431, 42);
             btnAdd.TabIndex = 0;
             btnAdd.TextAlignment = StringAlignment.Center;
-            btnAdd.TextPadding = 12;
+            btnAdd.TextPadding = -1;
             btnAdd.TextSpacing = 2;
             btnAdd.Click += btnAdd_Click;
             // 
@@ -92,14 +92,15 @@
             cuiPanel1.BackColor = Color.Transparent;
             cuiPanel1.Controls.Add(btnAdd);
             cuiPanel1.Controls.Add(flpItems);
-            cuiPanel1.Location = new Point(3, 3);
+            cuiPanel1.Location = new Point(3, 2);
+            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
-            cuiPanel1.Padding = new Padding(0, 0, 10, 10);
+            cuiPanel1.Padding = new Padding(0, 0, 9, 8);
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.FromArgb(64, 128, 128, 128);
             cuiPanel1.Rounding = new Padding(20);
-            cuiPanel1.Size = new Size(1655, 964);
+            cuiPanel1.Size = new Size(1448, 723);
             cuiPanel1.TabIndex = 0;
             // 
             // cuiPanel2
@@ -107,23 +108,23 @@
             cuiPanel2.Controls.Add(cuiPanel1);
             cuiPanel2.Dock = DockStyle.Fill;
             cuiPanel2.Location = new Point(0, 0);
+            cuiPanel2.Margin = new Padding(3, 2, 3, 2);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.PanelColor = Color.FromArgb(45, 83, 26);
             cuiPanel2.PanelOutlineColor = Color.FromArgb(64, 128, 128, 128);
             cuiPanel2.Rounding = new Padding(8);
-            cuiPanel2.Size = new Size(1669, 974);
+            cuiPanel2.Size = new Size(1460, 730);
             cuiPanel2.TabIndex = 0;
             // 
             // ItemsControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 83, 26);
             Controls.Add(cuiPanel2);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ItemsControl";
-            Size = new Size(1669, 974);
+            Size = new Size(1460, 730);
             cuiPanel1.ResumeLayout(false);
             cuiPanel2.ResumeLayout(false);
             ResumeLayout(false);

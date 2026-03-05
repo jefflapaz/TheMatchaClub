@@ -57,7 +57,9 @@ namespace TheMatchaClub.Winforms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            this.Close();
+            //System.Windows.Forms.Application.Exit();
+  
         }
 
         private async void LoginForm_Load(object sender, EventArgs e)

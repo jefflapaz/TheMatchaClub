@@ -34,6 +34,7 @@
             // flpItems
             // 
             flpItems.AutoScroll = true;
+            flpItems.BackColor = Color.FromArgb(250, 255, 208);
             flpItems.Dock = DockStyle.Fill;
             flpItems.Location = new Point(0, 0);
             flpItems.Name = "flpItems";
