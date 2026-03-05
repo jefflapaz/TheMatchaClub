@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             rtbReceipt = new RichTextBox();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            btnDone = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
             // rtbReceipt
@@ -46,30 +46,30 @@
             rtbReceipt.TabIndex = 0;
             rtbReceipt.Text = "";
             // 
-            // guna2Button1
+            // btnDone
             // 
-            guna2Button1.CustomizableEdges = customizableEdges1;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.FromArgb(53, 108, 27);
-            guna2Button1.Font = new Font("Segoe UI", 9F);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(0, 412);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button1.Size = new Size(384, 38);
-            guna2Button1.TabIndex = 2;
-            guna2Button1.Text = "Done";
-            guna2Button1.Click += btnDone_Click;
+            btnDone.CustomizableEdges = customizableEdges3;
+            btnDone.DisabledState.BorderColor = Color.DarkGray;
+            btnDone.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnDone.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnDone.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnDone.FillColor = Color.FromArgb(53, 108, 27);
+            btnDone.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnDone.ForeColor = Color.White;
+            btnDone.Location = new Point(0, 412);
+            btnDone.Name = "btnDone";
+            btnDone.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnDone.Size = new Size(384, 38);
+            btnDone.TabIndex = 2;
+            btnDone.Text = "Done";
+            btnDone.Click += btnDone_Click;
             // 
             // ReceiptPreviewForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 450);
-            Controls.Add(guna2Button1);
+            Controls.Add(btnDone);
             Controls.Add(rtbReceipt);
             Name = "ReceiptPreviewForm";
             Text = "ReceiptPreviewForm";
@@ -79,6 +79,6 @@
         #endregion
 
         private RichTextBox rtbReceipt;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnDone;
     }
 }
