@@ -29,9 +29,9 @@ namespace TheMatchaClub.Winforms
         }
 
 
-        private  void CheckoutDialog_Load(object? sender, EventArgs e)
+        private void CheckoutDialog_Load(object? sender, EventArgs e)
         {
-             LoadSummary();
+            LoadSummary();
         }
 
         private void LoadSummary()
@@ -58,7 +58,7 @@ namespace TheMatchaClub.Winforms
 
         private async void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (!decimal.TryParse(txtCash.Text, out decimal cash))
+            if (!decimal.TryParse(gtxtCash.Text, out decimal cash))
             {
                 MessageBox.Show("Invalid cash amount.");
                 return;
@@ -95,7 +95,12 @@ namespace TheMatchaClub.Winforms
             }
         }
 
-        
+        private void CheckoutDialog_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 
 }

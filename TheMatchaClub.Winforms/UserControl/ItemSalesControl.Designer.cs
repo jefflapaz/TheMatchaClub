@@ -44,9 +44,9 @@
             lblGrandTotal.BackColor = Color.White;
             lblGrandTotal.Dock = DockStyle.Bottom;
             lblGrandTotal.Font = new Font("Segoe UI", 16F);
-            lblGrandTotal.Location = new Point(0, 917);
+            lblGrandTotal.Location = new Point(0, 685);
             lblGrandTotal.Name = "lblGrandTotal";
-            lblGrandTotal.Size = new Size(234, 37);
+            lblGrandTotal.Size = new Size(189, 30);
             lblGrandTotal.TabIndex = 3;
             lblGrandTotal.Text = "Grand Total: ₱0.00";
             // 
@@ -55,12 +55,11 @@
             dgvItems.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvItems.BackgroundColor = Color.White;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvItems.Location = new Point(78, 120);
-            dgvItems.Margin = new Padding(3, 4, 3, 4);
+            dgvItems.Location = new Point(68, 90);
             dgvItems.Name = "dgvItems";
             dgvItems.ReadOnly = true;
             dgvItems.RowHeadersWidth = 51;
-            dgvItems.Size = new Size(1492, 771);
+            dgvItems.Size = new Size(1306, 578);
             dgvItems.TabIndex = 2;
             // 
             // cuiPanel1
@@ -70,13 +69,14 @@
             cuiPanel1.Controls.Add(lblGrandTotal);
             cuiPanel1.Controls.Add(dgvItems);
             cuiPanel1.Location = new Point(0, 0);
+            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
-            cuiPanel1.Padding = new Padding(0, 0, 10, 10);
+            cuiPanel1.Padding = new Padding(0, 0, 9, 8);
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Transparent;
             cuiPanel1.Rounding = new Padding(20);
-            cuiPanel1.Size = new Size(1655, 964);
+            cuiPanel1.Size = new Size(1448, 723);
             cuiPanel1.TabIndex = 4;
             // 
             // cuiLabel1
@@ -86,10 +86,10 @@
             cuiLabel1.Font = new Font("Verdana", 21F, FontStyle.Bold);
             cuiLabel1.ForeColor = Color.OliveDrab;
             cuiLabel1.HorizontalAlignment = StringAlignment.Center;
-            cuiLabel1.Location = new Point(78, 35);
-            cuiLabel1.Margin = new Padding(4, 5, 4, 5);
+            cuiLabel1.Location = new Point(68, 26);
+            cuiLabel1.Margin = new Padding(4);
             cuiLabel1.Name = "cuiLabel1";
-            cuiLabel1.Size = new Size(255, 58);
+            cuiLabel1.Size = new Size(223, 44);
             cuiLabel1.TabIndex = 4;
             cuiLabel1.VerticalAlignment = StringAlignment.Near;
             // 
@@ -98,23 +98,23 @@
             cuiPanel2.Controls.Add(cuiPanel1);
             cuiPanel2.Dock = DockStyle.Fill;
             cuiPanel2.Location = new Point(0, 0);
+            cuiPanel2.Margin = new Padding(3, 2, 3, 2);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.PanelColor = Color.FromArgb(45, 83, 26);
             cuiPanel2.PanelOutlineColor = Color.FromArgb(64, 128, 128, 128);
             cuiPanel2.Rounding = new Padding(8);
-            cuiPanel2.Size = new Size(1669, 974);
+            cuiPanel2.Size = new Size(1460, 730);
             cuiPanel2.TabIndex = 5;
             // 
             // ItemSalesControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 83, 26);
             Controls.Add(cuiPanel2);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ItemSalesControl";
-            Size = new Size(1669, 974);
+            Size = new Size(1460, 730);
             ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
