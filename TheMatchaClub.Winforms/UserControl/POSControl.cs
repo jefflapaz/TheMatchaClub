@@ -24,11 +24,37 @@ namespace TheMatchaClub.Winforms
             // Apply to internal panels if they are heavy
             pnlPOS.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
                   ?.SetValue(pnlPOS, true, null);
-
+            lstOrders.DoubleClick += lstOrders_DoubleClick;
+           
             Load += POSControl_Load;
 
         }
+        private void lstOrders_DoubleClick(object? sender, EventArgs e)
+        {
+            if (lstOrders.SelectedIndex < 0)
+                return;
 
+            var item = _cart[lstOrders.SelectedIndex];
+
+            string? input = Microsoft.VisualBasic.Interaction.InputBox(
+                $"Enter new quantity for {item.Name}:",
+                "Edit Quantity",
+                item.Quantity.ToString());
+
+            if (!int.TryParse(input, out int newQty))
+                return;
+
+            if (newQty <= 0)
+            {
+                _cart.RemoveAt(lstOrders.SelectedIndex);
+            }
+            else
+            {
+                item.Quantity = newQty;
+            }
+
+            RefreshOrderList();
+        }
 
         private PaymentMethod _selectedPayment;
         private OrderType _selectedOrderType;
@@ -78,6 +104,7 @@ namespace TheMatchaClub.Winforms
                 pnlPOS.Visible = true;
                 lblSession.Text = $"Session: {session.SessionName}";
             }
+            this.Focus();
         }
 
 
@@ -101,6 +128,30 @@ namespace TheMatchaClub.Winforms
 
 
         }
+        private void POSControl_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnChoose_Click(this, EventArgs.Empty);
+                e.Handled = true;
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnChoose_Click(this, EventArgs.Empty);
+                return true;
+            }
+
+            if (keyData == Keys.Delete)
+            {
+                btnRemove_Click(this, EventArgs.Empty);
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void RefreshOrderList()
         {
             lstOrders.Items.Clear();
@@ -109,13 +160,20 @@ namespace TheMatchaClub.Winforms
 
             foreach (var item in _cart)
             {
-                var sub = item.Price * item.Quantity;
-                total += sub;
+                decimal subTotal = item.Price * item.Quantity;
+                total += subTotal;
 
-                lstOrders.Items.Add($"{item.Name} x {item.Quantity} = ₱{sub}");
+                string line =
+                    item.Name.PadRight(18) +
+                    $" x{item.Quantity}".PadRight(6) +
+                    $"₱{subTotal}";
+
+                lstOrders.Items.Add(line);
             }
 
             lblRunningTotal.Text = $"Total: ₱{total}";
+            if (lstOrders.Items.Count > 0)
+                lstOrders.SelectedIndex = lstOrders.Items.Count - 1;
         }
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
@@ -141,7 +199,7 @@ namespace TheMatchaClub.Winforms
             if (_cart.Count == 0) { MessageBox.Show("Cart is empty."); return; }
             if (string.IsNullOrWhiteSpace(txtCustomer.Text)) { MessageBox.Show("Enter customer name."); return; }
 
-            
+
 
             using var checkout = new CheckoutDialog(_cart, txtCustomer.Text, _selectedPayment, _selectedOrderType);
 
@@ -234,6 +292,33 @@ namespace TheMatchaClub.Winforms
         private void pnlPaymentGroup_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnIncrease_Click(object sender, EventArgs e)
+        {
+            if (lstOrders.SelectedIndex < 0)
+                return;
+
+            var item = _cart[lstOrders.SelectedIndex];
+
+            item.Quantity++;
+
+            RefreshOrderList();
+        }
+
+        private void btnDecrease_Click(object sender, EventArgs e)
+        {
+            if (lstOrders.SelectedIndex < 0)
+                return;
+
+            var item = _cart[lstOrders.SelectedIndex];
+
+            item.Quantity--;
+
+            if (item.Quantity <= 0)
+                _cart.RemoveAt(lstOrders.SelectedIndex);
+
+            RefreshOrderList();
         }
     }
 }

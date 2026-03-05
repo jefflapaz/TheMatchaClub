@@ -44,7 +44,8 @@
             flpItems.Name = "flpItems";
             flpItems.Size = new Size(1439, 667);
             flpItems.TabIndex = 3;
-            
+            flpItems.FlowDirection = FlowDirection.TopDown;
+            flpItems.WrapContents = false;
             // 
             // btnAdd
             // 
