@@ -188,7 +188,12 @@ namespace TheMatchaClub.Winforms
 
         private void pnlStartSession_Enter(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void panelCustomerInfo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

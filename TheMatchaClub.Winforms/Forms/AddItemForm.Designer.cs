@@ -142,6 +142,7 @@
             btnSave.Font = new Font("Segoe UI", 9F);
             btnSave.ForeColor = Color.White;
             btnSave.Location = new Point(153, 156);
+        
             btnSave.Name = "btnSave";
             btnSave.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnSave.Size = new Size(72, 22);
