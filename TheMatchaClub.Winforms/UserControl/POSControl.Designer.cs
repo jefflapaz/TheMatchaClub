@@ -411,9 +411,6 @@
         private Label lblSession;
         private Panel panelOrder;
         private Label lblRunningTotal;
-        private Button btnRemove;
-        private Button btnCheckout;
-        private Button btnChoose;
         private ListBox lstOrders;
         private ComboBox cmbOrderType;
         private ComboBox cmbPayment;
