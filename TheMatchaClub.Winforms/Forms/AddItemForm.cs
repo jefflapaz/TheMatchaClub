@@ -19,7 +19,7 @@ namespace TheMatchaClub.Winforms
     {
         private string? _pendingNewCategory;
         private int? _editItemId;
-
+        private string? _selectedImagePath;
         public AddItemForm()
         {
             InitializeComponent();
@@ -70,6 +70,29 @@ namespace TheMatchaClub.Winforms
 
 
 
+                string? savedImagePath = null;
+
+                if (!string.IsNullOrEmpty(_selectedImagePath))
+                {
+                    string imagesFolder = Path.Combine(
+                        AppDomain.CurrentDomain.BaseDirectory,
+                        "images",
+                        "items"
+                    );
+
+                    Directory.CreateDirectory(imagesFolder);
+
+                    string extension = Path.GetExtension(_selectedImagePath);
+
+                    string fileName = Guid.NewGuid().ToString() + extension;
+
+                    string destinationPath = Path.Combine(imagesFolder, fileName);
+
+                    File.Copy(_selectedImagePath, destinationPath, true);
+
+                    savedImagePath = destinationPath;
+                }
+
                 if (_editItemId.HasValue)
                 {
                     await itemService.UpdateAsync(
@@ -77,7 +100,8 @@ namespace TheMatchaClub.Winforms
                         txtName.Text,
                         price,
                         category.Id,
-                        chkUsual.Checked);
+                        chkUsual.Checked,
+                        savedImagePath);
                 }
                 else
                 {
@@ -85,7 +109,8 @@ namespace TheMatchaClub.Winforms
                         txtName.Text,
                         price,
                         category.Id,
-                        chkUsual.Checked);
+                        chkUsual.Checked,
+                        savedImagePath);
                 }
 
 
@@ -153,35 +178,25 @@ namespace TheMatchaClub.Winforms
         {
 
         }
-        private byte[] _itemImageBytes;
-
-        private void btnImageClear_Click(object sender, EventArgs e)
-        {
-            btnImageAddItem.Image = null; // Assuming your placeholder is set in the Designer
-            _itemImageBytes = null;
-        }
+        
         private void btnImageAdd_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog())
+            using OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+            ofd.Title = "Select Product Image";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                // Filter for common image formats
-                ofd.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
-                ofd.Title = "Select Product Image";
-
-                if (ofd.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    try
-                    {
-                        // 1. Display the image in your PictureBox (assuming it's named pbImage)
-                        btnImageAddItem.Image = Image.FromFile(ofd.FileName);
+                    _selectedImagePath = ofd.FileName;
 
-                        // 2. Convert the image to bytes for the database
-                        _itemImageBytes = File.ReadAllBytes(ofd.FileName);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    btnImageAddItem.Image = Image.FromFile(_selectedImagePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading image: {ex.Message}");
                 }
             }
         }

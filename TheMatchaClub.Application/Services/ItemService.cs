@@ -21,7 +21,7 @@ public class ItemService
             .ToListAsync();
     }
 
-    public async Task AddAsync(string name, decimal price, int categoryId, bool isUsual)
+    public async Task AddAsync(string name, decimal price, int categoryId, bool isUsual, string? imagePath)
     {
         var item = new Item
         {
@@ -29,7 +29,8 @@ public class ItemService
             Price = price,
             CategoryId = categoryId,
             IsUsual = isUsual,
-            CreatedAt = DateTime.Now
+            CreatedAt = DateTime.Now,
+            ImagePath = imagePath
         };
 
         _context.Items.Add(item);
@@ -44,7 +45,7 @@ public class ItemService
         item.IsActive = false;
         await _context.SaveChangesAsync();
     }
-    public async Task UpdateAsync(int itemId, string name, decimal price, int newCategoryId, bool isUsual)
+    public async Task UpdateAsync(int itemId, string name, decimal price, int newCategoryId, bool isUsual, string? imagePath)
     {
         var item = await _context.Items.FindAsync(itemId);
         if (item == null) return;
@@ -55,7 +56,7 @@ public class ItemService
         item.Price = price;
         item.CategoryId = newCategoryId;
         item.IsUsual = isUsual;
-
+        item.ImagePath = imagePath ?? item.ImagePath;
         await _context.SaveChangesAsync();
 
         

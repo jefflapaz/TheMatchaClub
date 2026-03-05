@@ -53,16 +53,64 @@ namespace TheMatchaClub.Winforms
 
                 foreach (var item in group)
                 {
-                    var btn = new Button
+                    Panel card = new Panel
                     {
-                        Text = $"{item.Name}\n₱{item.Price}",
                         Width = 150,
-                        Height = 80,
+                        Height = 160,
+                        BackColor = Color.White,
+                        Margin = new Padding(10),
                         Tag = item
                     };
 
-                    btn.Click += ItemButton_Click;
-                    flpItems.Controls.Add(btn);
+                    PictureBox pic = new PictureBox
+                    {
+                        Width = 130,
+                        Height = 90,
+                        Top = 10,
+                        Left = 10,
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Tag = item
+                    };
+
+                    if (!string.IsNullOrEmpty(item.ImagePath))
+                    {
+                        pic.Image = LoadImage(item.ImagePath);
+                    }
+
+                    Label lblName = new Label
+                    {
+                        Text = item.Name,
+                        Top = 105,
+                        Width = 130,
+                        Height = 20,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Tag = item
+                    };
+                    Label lblPrice = new Label
+                    {
+                        Text = $"₱{item.Price}",
+                        Top = 125,
+                        Width = 130,
+                        Height = 20,
+                        Font = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Bold),
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Tag = item
+                    };
+
+                    card.Controls.Add(pic);
+                    card.Controls.Add(lblName);
+                    card.Controls.Add(lblPrice);
+
+                    card.Click += ItemButton_Click;
+                    pic.Click += ItemButton_Click;
+                    lblName.Click += ItemButton_Click;
+                    lblPrice.Click += ItemButton_Click;
+                    flpItems.Controls.Add(card);
+
+                    card.Cursor = Cursors.Hand;
+                    pic.Cursor = Cursors.Hand;
+                    lblName.Cursor = Cursors.Hand;
+                    lblPrice.Cursor = Cursors.Hand;
                 }
             }
 
@@ -76,6 +124,17 @@ namespace TheMatchaClub.Winforms
 
             prop?.SetValue(control, true, null);
         }
+        private Image? LoadImage(string path)
+        {
+            if (!File.Exists(path))
+                return null;
+
+            byte[] bytes = File.ReadAllBytes(path);
+
+            using MemoryStream ms = new MemoryStream(bytes);
+
+            return Image.FromStream(ms);
+        }
 
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -84,11 +143,10 @@ namespace TheMatchaClub.Winforms
         }
         private async void ItemButton_Click(object? sender, EventArgs e)
         {
-            if (sender is not Button btn || btn.Tag is not Item item)
+            if (sender is not Control ctrl || ctrl.Tag is not Item item)
                 return;
 
             using var detail = new ItemDetailForm(item);
-
 
             if (detail.ShowDialog() == DialogResult.OK)
                 await LoadItems();
