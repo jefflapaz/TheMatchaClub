@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItemForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblName = new Label();
             lblPrice = new Label();
             lblCategory = new Label();
@@ -120,19 +121,19 @@
             guna2GradientPanel1.Controls.Add(chkUsual);
             guna2GradientPanel1.Controls.Add(txtPrice);
             guna2GradientPanel1.Controls.Add(lblCategory);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges8;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges3;
             guna2GradientPanel1.FillColor = Color.FromArgb(225, 244, 206);
             guna2GradientPanel1.FillColor2 = Color.FromArgb(225, 244, 206);
             guna2GradientPanel1.Location = new Point(291, 59);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2GradientPanel1.Size = new Size(277, 230);
             guna2GradientPanel1.TabIndex = 8;
             // 
             // btnSave
             // 
             btnSave.BorderRadius = 10;
-            btnSave.CustomizableEdges = customizableEdges6;
+            btnSave.CustomizableEdges = customizableEdges1;
             btnSave.DisabledState.BorderColor = Color.DarkGray;
             btnSave.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSave.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -142,7 +143,7 @@
             btnSave.ForeColor = Color.White;
             btnSave.Location = new Point(153, 156);
             btnSave.Name = "btnSave";
-            btnSave.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            btnSave.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnSave.Size = new Size(72, 22);
             btnSave.TabIndex = 8;
             btnSave.Text = "Save";
@@ -153,15 +154,22 @@
             btnImageAddItem.BackColor = Color.White;
             btnImageAddItem.CheckedState.ImageSize = new Size(64, 64);
             btnImageAddItem.HoverState.ImageSize = new Size(64, 64);
+            btnImageAddItem.Image = (Image)resources.GetObject("btnImageAddItem.Image");
             btnImageAddItem.ImageOffset = new Point(0, 0);
             btnImageAddItem.ImageRotate = 0F;
+            btnImageAddItem.ImageSize = new Size(230, 230);
             btnImageAddItem.Location = new Point(37, 59);
             btnImageAddItem.Name = "btnImageAddItem";
-            btnImageAddItem.PressedState.ImageSize = new Size(64, 64);
-            btnImageAddItem.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            //btnImageAddItem.PressedState.ImageSize = new Size(64, 64);
+            btnImageAddItem.ShadowDecoration.CustomizableEdges = customizableEdges5;
             btnImageAddItem.Size = new Size(230, 230);
             btnImageAddItem.TabIndex = 9;
             btnImageAddItem.Click += btnImageAdd_Click;
+          
+
+            // Use this if it's a Guna2ImageButton to make the icon/image fill the button area
+            btnImageAddItem.ImageOffset = new Point(0, 0);
+            btnImageAddItem.ImageSize = new Size(btnImageAddItem.Width, btnImageAddItem.Height);
             // 
             // AddItemForm
             // 

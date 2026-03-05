@@ -34,13 +34,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lstSummary = new ListBox();
             lblTotal = new Label();
             lblCash = new Label();
             gtxtCash = new Guna.UI2.WinForms.Guna2TextBox();
-            gtxtTotalCash = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
@@ -97,31 +94,11 @@
             gtxtCash.Size = new Size(139, 23);
             gtxtCash.TabIndex = 6;
             // 
-            // gtxtTotalCash
-            // 
-            gtxtTotalCash.BorderRadius = 10;
-            gtxtTotalCash.CustomizableEdges = customizableEdges3;
-            gtxtTotalCash.DefaultText = "";
-            gtxtTotalCash.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            gtxtTotalCash.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            gtxtTotalCash.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            gtxtTotalCash.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            gtxtTotalCash.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            gtxtTotalCash.Font = new Font("Segoe UI", 9F);
-            gtxtTotalCash.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            gtxtTotalCash.Location = new Point(133, 286);
-            gtxtTotalCash.Name = "gtxtTotalCash";
-            gtxtTotalCash.PlaceholderText = "";
-            gtxtTotalCash.SelectedText = "";
-            gtxtTotalCash.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            gtxtTotalCash.Size = new Size(139, 23);
-            gtxtTotalCash.TabIndex = 7;
-            // 
             // guna2Button1
             // 
             guna2Button1.BackColor = Color.Transparent;
             guna2Button1.BorderRadius = 10;
-            guna2Button1.CustomizableEdges = customizableEdges5;
+            guna2Button1.CustomizableEdges = customizableEdges3;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -131,16 +108,17 @@
             guna2Button1.ForeColor = Color.Black;
             guna2Button1.Location = new Point(44, 374);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button1.Size = new Size(75, 23);
             guna2Button1.TabIndex = 8;
             guna2Button1.Text = "Back";
+            guna2Button1.Click += btnBack_Click;
             // 
             // guna2Button2
             // 
             guna2Button2.BackColor = Color.Transparent;
             guna2Button2.BorderRadius = 10;
-            guna2Button2.CustomizableEdges = customizableEdges7;
+            guna2Button2.CustomizableEdges = customizableEdges5;
             guna2Button2.DisabledState.BorderColor = Color.DarkGray;
             guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -150,10 +128,11 @@
             guna2Button2.ForeColor = Color.Black;
             guna2Button2.Location = new Point(131, 374);
             guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Button2.Size = new Size(137, 23);
             guna2Button2.TabIndex = 9;
             guna2Button2.Text = "Confirm and Save";
+            guna2Button2.Click += btnConfirm_Click;
             // 
             // CheckoutDialog
             // 
@@ -163,7 +142,6 @@
             ClientSize = new Size(465, 450);
             Controls.Add(guna2Button2);
             Controls.Add(guna2Button1);
-            Controls.Add(gtxtTotalCash);
             Controls.Add(gtxtCash);
             Controls.Add(lblCash);
             Controls.Add(lblTotal);
@@ -181,7 +159,6 @@
         private Label lblTotal;
         private Label lblCash;
         private Guna.UI2.WinForms.Guna2TextBox gtxtCash;
-        private Guna.UI2.WinForms.Guna2TextBox gtxtTotalCash;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }

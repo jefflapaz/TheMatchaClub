@@ -20,7 +20,7 @@ namespace TheMatchaClub.Winforms
         private Item _item;
 
 
-        public ItemDetailForm(Item item)
+        public ItemDetailForm(Item item, byte[]? imageBytes)
         {
             InitializeComponent();
 
@@ -29,6 +29,29 @@ namespace TheMatchaClub.Winforms
             lblName.Text = $"Name: {item.Name}";
             lblPrice.Text = $"Price: ₱{item.Price}";
             lblCategory.Text = $"Category: {item.Category.Name}";
+
+            // Handle the Image
+            if (imageBytes != null && imageBytes.Length > 0)
+            {
+                try
+                {
+                    using (var ms = new MemoryStream(imageBytes))
+                    {
+                        // Assign image to your Guna2ImageButton
+                        btnImageAddItem.Image = Image.FromStream(ms);
+
+                        // FIX THE "SMOL" BUG: Stretch image to fill the button area
+                        btnImageAddItem.ImageSize = new Size(btnImageAddItem.Width, btnImageAddItem.Height);
+
+                        // Ensure no offset is pushing the image out of center
+                        btnImageAddItem.ImageOffset = new Point(0, 0);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error displaying image: " + ex.Message);
+                }
+            }
         }
 
 

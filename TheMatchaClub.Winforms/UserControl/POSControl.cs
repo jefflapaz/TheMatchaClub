@@ -1,8 +1,10 @@
-﻿using System;
-using TheMatchaClub.Domain;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Linq;
-using TheMatchaClub.Domain.Enums;
+using TheArtOfDevHtmlRenderer.Adapters;
 using TheMatchaClub.Application.Services;
+using TheMatchaClub.Domain;
+using TheMatchaClub.Domain.Enums;
 using TheMatchaClub.WinForms.Helpers;
 
 
@@ -24,20 +26,45 @@ namespace TheMatchaClub.Winforms
                   ?.SetValue(pnlPOS, true, null);
 
             Load += POSControl_Load;
+
         }
+
+
+        private PaymentMethod _selectedPayment;
+        private OrderType _selectedOrderType;
+
 
 
         private async void POSControl_Load(object? sender, EventArgs e)
         {
-            cmbPayment.Items.Clear();
-            cmbPayment.Items.AddRange(Enum.GetNames(typeof(PaymentMethod)));
+            // Link Enums to Radio Buttons via the Tag property
+            rbtnGcash.Tag = PaymentMethod.GCash;
+            rbtnCash.Tag = PaymentMethod.Cash;
+            rbtnBank.Tag = PaymentMethod.Bank;
 
-            cmbOrderType.Items.Clear();
-            cmbOrderType.Items.AddRange(Enum.GetNames(typeof(OrderType)));
+            rbtnDineIn.Tag = OrderType.DineIn;
+            rbtnTakeOut.Tag = OrderType.TakeOut;
+            rbtnDelivery.Tag = OrderType.Delivery;
 
+            // Attach the single event to all Payment buttons
+            rbtnGcash.CheckedChanged += RadioButton_CheckedChanged;
+            rbtnCash.CheckedChanged += RadioButton_CheckedChanged;
+            rbtnBank.CheckedChanged += RadioButton_CheckedChanged;
+
+            // Attach the single event to all Order Type buttons
+            rbtnDineIn.CheckedChanged += RadioButton_CheckedChanged;
+            rbtnTakeOut.CheckedChanged += RadioButton_CheckedChanged;
+            rbtnDelivery.CheckedChanged += RadioButton_CheckedChanged;
+
+            // Set Defaults visually and logically
+            rbtnCash.Checked = true;
+            _selectedPayment = PaymentMethod.Cash;
+
+            rbtnDineIn.Checked = true;
+            _selectedOrderType = OrderType.DineIn;
+            // Existing session logic...
             using var context = DbContextHelper.Create();
             var sessionService = new SessionService(context);
-
             var session = await sessionService.GetActiveSessionAsync();
 
             if (session == null)
@@ -91,44 +118,52 @@ namespace TheMatchaClub.Winforms
             lblRunningTotal.Text = $"Total: ₱{total}";
         }
 
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is not RadioButton rb || !rb.Checked)
+                return;
 
+
+
+            switch (rb.Tag)
+            {
+                case PaymentMethod payment:
+                    _selectedPayment = payment;
+                    break;
+
+                case OrderType orderType:
+                    _selectedOrderType = orderType;
+                    break;
+            }
+        }
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            if (_cart.Count == 0)
-            {
-                MessageBox.Show("Cart is empty.");
-                return;
-            }
+            if (_cart.Count == 0) { MessageBox.Show("Cart is empty."); return; }
+            if (string.IsNullOrWhiteSpace(txtCustomer.Text)) { MessageBox.Show("Enter customer name."); return; }
 
-            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
-            {
-                MessageBox.Show("Enter customer name.");
-                return;
-            }
+            
 
-            if (cmbPayment.SelectedItem == null || cmbOrderType.SelectedItem == null)
-            {
-                MessageBox.Show("Select payment and order type.");
-                return;
-            }
-
-            var payment = Enum.Parse<PaymentMethod>(cmbPayment.SelectedItem.ToString()!);
-            var orderType = Enum.Parse<OrderType>(cmbOrderType.SelectedItem.ToString()!);
-
-            using var checkout = new CheckoutDialog(_cart, txtCustomer.Text, payment, orderType);
+            using var checkout = new CheckoutDialog(_cart, txtCustomer.Text, _selectedPayment, _selectedOrderType);
 
             if (checkout.ShowDialog() == DialogResult.OK)
             {
-                _cart.Clear();
-                lstOrders.Items.Clear();
-                txtCustomer.Clear();
-                cmbPayment.SelectedIndex = -1;
-                cmbOrderType.SelectedIndex = -1;
-                lblRunningTotal.Text = "Total: ₱0.00";
+                ClearPOS();
             }
+        }
+        // Helper method to keep your code clean
+        private void ClearPOS()
+        {
+            _cart.Clear();
+            lstOrders.Items.Clear();
+            txtCustomer.Clear();
+            lblRunningTotal.Text = "Total: ₱0.00";
 
+            // Reset visually AND logically to defaults
+            rbtnCash.Checked = true;
+            _selectedPayment = PaymentMethod.Cash;
 
-
+            rbtnDineIn.Checked = true;
+            _selectedOrderType = OrderType.DineIn;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -192,6 +227,11 @@ namespace TheMatchaClub.Winforms
         }
 
         private void panelCustomerInfo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlPaymentGroup_Paint(object sender, PaintEventArgs e)
         {
 
         }

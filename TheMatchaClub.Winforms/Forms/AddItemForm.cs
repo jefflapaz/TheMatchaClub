@@ -23,6 +23,7 @@ namespace TheMatchaClub.Winforms
         public AddItemForm()
         {
             InitializeComponent();
+
             this.Load += AddItemForm_Load;
         }
         public AddItemForm(Item item) : this()
@@ -152,10 +153,37 @@ namespace TheMatchaClub.Winforms
         {
 
         }
+        private byte[] _itemImageBytes;
 
+        private void btnImageClear_Click(object sender, EventArgs e)
+        {
+            btnImageAddItem.Image = null; // Assuming your placeholder is set in the Designer
+            _itemImageBytes = null;
+        }
         private void btnImageAdd_Click(object sender, EventArgs e)
         {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                // Filter for common image formats
+                ofd.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
+                ofd.Title = "Select Product Image";
 
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // 1. Display the image in your PictureBox (assuming it's named pbImage)
+                        btnImageAddItem.Image = Image.FromFile(ofd.FileName);
+
+                        // 2. Convert the image to bytes for the database
+                        _itemImageBytes = File.ReadAllBytes(ofd.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }
