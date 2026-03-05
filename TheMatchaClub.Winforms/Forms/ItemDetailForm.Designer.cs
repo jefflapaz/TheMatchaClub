@@ -36,13 +36,14 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemDetailForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblName = new Label();
             lblPrice = new Label();
             lblCategory = new Label();
@@ -50,10 +51,10 @@
             guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            btnImageReflect = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             guna2Panel1.Controls.Add(guna2TextBox3);
             guna2Panel1.Controls.Add(guna2TextBox2);
             guna2Panel1.Controls.Add(guna2TextBox1);
-            guna2Panel1.Controls.Add(guna2ImageButton1);
+            guna2Panel1.Controls.Add(btnImageReflect);
             guna2Panel1.Controls.Add(lblPrice);
             guna2Panel1.Controls.Add(lblCategory);
             guna2Panel1.Controls.Add(lblName);
@@ -167,19 +168,6 @@
             guna2TextBox1.Size = new Size(132, 27);
             guna2TextBox1.TabIndex = 4;
             // 
-            // guna2ImageButton1
-            // 
-            guna2ImageButton1.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.HoverState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.ImageOffset = new Point(0, 0);
-            guna2ImageButton1.ImageRotate = 0F;
-            guna2ImageButton1.Location = new Point(17, 23);
-            guna2ImageButton1.Name = "guna2ImageButton1";
-            guna2ImageButton1.PressedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            guna2ImageButton1.Size = new Size(172, 151);
-            guna2ImageButton1.TabIndex = 3;
-            // 
             // guna2Button3
             // 
             guna2Button3.BorderRadius = 11;
@@ -237,6 +225,21 @@
             guna2Button1.Text = "Edit";
             guna2Button1.Click += btnEdit_Click;
             // 
+            // btnImageReflect
+            // 
+            btnImageReflect.CheckedState.ImageSize = new Size(64, 64);
+            btnImageReflect.HoverState.ImageSize = new Size(64, 64);
+            btnImageReflect.Image = (Image)resources.GetObject("btnImageReflect.Image");
+            btnImageReflect.ImageOffset = new Point(0, 0);
+            btnImageReflect.ImageRotate = 0F;
+            btnImageReflect.Location = new Point(17, 23);
+            btnImageReflect.Name = "btnImageReflect";
+            btnImageReflect.PressedState.ImageSize = new Size(64, 64);
+            btnImageReflect.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            btnImageReflect.Size = new Size(172, 151);
+            btnImageReflect.TabIndex = 3;
+            btnImageReflect.Click += btnImageReflect_Click;
+            // 
             // ItemDetailForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -265,6 +268,6 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton btnImageReflect;
     }
 }

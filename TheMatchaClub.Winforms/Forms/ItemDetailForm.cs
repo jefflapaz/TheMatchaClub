@@ -20,7 +20,7 @@ namespace TheMatchaClub.Winforms
         private Item _item;
 
 
-        public ItemDetailForm(Item item, byte[]? imageBytes)
+        public ItemDetailForm(Item item)
         {
             InitializeComponent();
 
@@ -64,6 +64,11 @@ namespace TheMatchaClub.Winforms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnImageReflect_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
