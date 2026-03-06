@@ -12,7 +12,7 @@ using TheMatchaClub.Infrastructure.Data;
 namespace TheMatchaClub.Infrastructure.Migrations
 {
     [DbContext(typeof(MatchaDbContext))]
-    [Migration("20260305111814_InitialDb")]
+    [Migration("20260306015639_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />
@@ -326,6 +326,8 @@ namespace TheMatchaClub.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ItemId");
+
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
@@ -473,7 +475,7 @@ namespace TheMatchaClub.Infrastructure.Migrations
                 {
                     b.HasOne("TheMatchaClub.Domain.Entities.Item", "Item")
                         .WithMany()
-                        .HasForeignKey("OrderId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

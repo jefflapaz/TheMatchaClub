@@ -323,6 +323,8 @@ namespace TheMatchaClub.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ItemId");
+
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
@@ -470,7 +472,7 @@ namespace TheMatchaClub.Infrastructure.Migrations
                 {
                     b.HasOne("TheMatchaClub.Domain.Entities.Item", "Item")
                         .WithMany()
-                        .HasForeignKey("OrderId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -13,13 +13,17 @@ namespace TheMatchaClub.Domain.Entities
         public int ItemId { get; set; }
 
         public int Quantity { get; set; }
+
         [Column(TypeName = "decimal(18,2)")]
         public decimal UnitPrice { get; set; }
+
         [Column(TypeName = "decimal(18,2)")]
         public decimal SubTotal { get; set; }
+
         [ForeignKey(nameof(OrderId))]
         public Order Order { get; set; } = null!;
-        [ForeignKey(nameof(OrderId))]
+
+        [ForeignKey(nameof(ItemId))]
         public Item Item { get; set; } = null!;
     }
 }

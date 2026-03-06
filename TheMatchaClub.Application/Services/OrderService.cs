@@ -37,23 +37,21 @@ public class OrderService
             BusinessSessionId = session.Id
         };
 
-        _context.Orders.Add(order);
-        await _context.SaveChangesAsync();
-
         decimal total = 0;
 
         foreach (var (itemId, qty) in items)
         {
             var item = await _context.Items.FindAsync(itemId);
-            if (item == null) continue;
+
+            if (item == null)
+                throw new Exception($"Item with ID {itemId} no longer exists in the database.");
 
             var sub = item.Price * qty;
 
             total += sub;
 
-            _context.OrderItems.Add(new OrderItem
+            order.OrderItems.Add(new OrderItem
             {
-                OrderId = order.Id,
                 ItemId = item.Id,
                 Quantity = qty,
                 UnitPrice = item.Price,
@@ -66,6 +64,8 @@ public class OrderService
         order.Change = cashReceived - total;
 
         session.TotalSales += total;
+
+        _context.Orders.Add(order);
 
         await _context.SaveChangesAsync();
 
