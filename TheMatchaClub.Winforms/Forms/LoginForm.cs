@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheMatchaClub.Application.Services;
 using TheMatchaClub.Infrastructure;
+using TheMatchaClub.Winforms.Forms;
 using TheMatchaClub.WinForms.Helpers;
 
 namespace TheMatchaClub.Winforms
@@ -63,9 +64,11 @@ namespace TheMatchaClub.Winforms
         {
             if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                MessageBox.Show("Please enter password.");
+                // Using your custom typewriter box for an empty field
+                MyUniversalBox.Show("Please enter your password to proceed.", "Input Required", isError: false);
                 return;
             }
+
             try
             {
                 var userManager = IdentityHelper.GetUserManager();
@@ -75,11 +78,13 @@ namespace TheMatchaClub.Winforms
 
                 if (!success)
                 {
-                    MessageBox.Show("Invalid password.");
+                    // Error style (red theme if you set it up that way)
+                    MyUniversalBox.Show("The password you entered is incorrect. Please try again.", "Auth Failed", isError: true);
                     return;
                 }
 
-                MessageBox.Show("Login successful.");
+                // Success message
+                MyUniversalBox.Show("Login successful! Welcome back to The Matcha Club.", "Success", isError: false);
 
                 this.Hide();
 
@@ -90,7 +95,8 @@ namespace TheMatchaClub.Winforms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                // Exception handler using the universal box
+                MyUniversalBox.Show($"A system error occurred: {ex.Message}", "Critical Error", isError: true);
             }
         }
 
