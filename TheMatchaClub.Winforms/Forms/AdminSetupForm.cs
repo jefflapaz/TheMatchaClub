@@ -31,8 +31,8 @@ namespace TheMatchaClub.Winforms
             txtPassword.PasswordChar = true;
             txtConfirm.PasswordChar = true;
 
-            btnShowPassword.Image = Properties.Resources.eye_open;
-            btnShowConfirm.Image = Properties.Resources.eye_open;
+            btnShowPassword.Image = Properties.Resources.eyes_open;
+            btnShowConfirm.Image = Properties.Resources.eyes_open;
 
             lblStatus.Text = "Waiting for input...";
             lblStatus.ForeColor = Color.Gray;
@@ -41,7 +41,7 @@ namespace TheMatchaClub.Winforms
         private (string Message, Color StatusColor) GetPasswordStrength(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
-                return ("Waiting for input...", Color.Gray);
+                return ("Waiting for input...", Color.White);
 
             int score = 0;
             if (password.Length >= 8) score++;
@@ -168,11 +168,11 @@ namespace TheMatchaClub.Winforms
                 // If it WAS visible, we just hid it, so show 'eye_open'
                 if (isCurrentlyHidden)
                 {
-                    toggleButton.Image = Properties.Resources.eye_close;
+                    toggleButton.Image = Properties.Resources.eye_closed;
                 }
                 else
                 {
-                    toggleButton.Image = Properties.Resources.eye_open;
+                    toggleButton.Image = Properties.Resources.eyes_open;
                 }
             }
             catch (Exception ex)
