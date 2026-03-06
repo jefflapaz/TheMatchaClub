@@ -1,4 +1,5 @@
 using TheMatchaClub.Winforms;
+using TheMatchaClub.Winforms.Forms;
 
 namespace TheMatchaClub.WinForms;
 
@@ -8,6 +9,6 @@ internal static class Program
     static void Main()
     {
         ApplicationConfiguration.Initialize();
-        System.Windows.Forms.Application.Run(new LoginForm());
+        System.Windows.Forms.Application.Run(new TestDeleteWhenPublish());
     }
 }
