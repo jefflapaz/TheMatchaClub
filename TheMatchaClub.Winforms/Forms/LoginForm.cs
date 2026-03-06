@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CuoreUI.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,45 @@ namespace TheMatchaClub.Winforms
         public LoginForm()
         {
             InitializeComponent();
+            SetupPasswordFields();
         }
+
+        private void SetupPasswordFields()
+        {
+            txtPassword.PasswordChar = true;
+            btnShowPassword.Image = Properties.Resources.eyes_open;
+
+        }
+
+        private void ToggleVisibility(cuiTextBox targetTextBox, cuiButton toggleButton)
+        {
+            try
+            {
+                // 1. Get the current state from the internal CuoreUI textbox
+                bool isCurrentlyHidden = targetTextBox.PasswordChar;
+
+                // 2. Toggle the password visibility
+                targetTextBox.PasswordChar = !isCurrentlyHidden;
+
+                // 3. Switch the Image based on the NEW state
+                // If it WAS hidden, we just revealed it, so show 'eye_closed' (the slash eye)
+                // If it WAS visible, we just hid it, so show 'eye_open'
+                if (isCurrentlyHidden)
+                {
+                    toggleButton.Image = Properties.Resources.eye_closed;
+                }
+                else
+                {
+                    toggleButton.Image = Properties.Resources.eyes_open;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Debugging tip: If 'Content' isn't the right property, this will tell you.
+                Console.WriteLine("CuoreUI Property Error: " + ex.Message);
+            }
+        }
+
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
@@ -57,9 +96,7 @@ namespace TheMatchaClub.Winforms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //System.Windows.Forms.Application.Exit();
-  
+            System.Windows.Forms.Application.Exit();
         }
 
         private async void LoginForm_Load(object sender, EventArgs e)
@@ -76,6 +113,11 @@ namespace TheMatchaClub.Winforms
         private void cuiLabel1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnShowPassword_Click(object sender, EventArgs e)
+        {
+            ToggleVisibility(txtPassword, btnShowPassword);
         }
     }
 }

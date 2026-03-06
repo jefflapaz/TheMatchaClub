@@ -1,9 +1,11 @@
-﻿using System;
+﻿using CuoreUI.Controls;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheMatchaClub.Application.Services;
 using TheMatchaClub.Infrastructure;
-using TheMatchaClub.Winforms; // for MainForm
+using TheMatchaClub.Winforms;
+using TheMatchaClub.Winforms.Properties; // for MainForm
 
 namespace TheMatchaClub.Winforms
 {
@@ -18,52 +20,58 @@ namespace TheMatchaClub.Winforms
             var userManager = IdentityHelper.GetUserManager();
             _authService = new AuthService(userManager);
 
+            SetupPasswordFields();
+
+            // Wire up events
             txtPassword.TextChanged += TxtPassword_ContentChanged;
         }
 
-        private (bool IsValid, string Message, Color StatusColor) ValidatePassword(string password)
+        private void SetupPasswordFields()
         {
-            if (password.Length < 8)
-                return (false, "Password must be at least 8 characters.", Color.Red);
+            txtPassword.PasswordChar = true;
+            txtConfirm.PasswordChar = true;
 
-            if (!password.Any(char.IsUpper))
-                return (false, "Must contain at least one uppercase letter.", Color.OrangeRed);
+            btnShowPassword.Image = Properties.Resources.eyes_open;
+            btnShowConfirm.Image = Properties.Resources.eyes_open;
 
-            if (!password.Any(char.IsLower))
-                return (false, "Must contain at least one lowercase letter.", Color.OrangeRed);
-
-            if (!password.Any(char.IsDigit))
-                return (false, "Must contain at least one number.", Color.DarkOrange);
-
-            if (!password.Any(ch => !char.IsLetterOrDigit(ch)))
-                return (false, "Must contain at least one special character.", Color.DarkOrange);
-
-            return (true, "Strong password ✔", Color.Green);
+            lblStatus.Text = "Waiting for input...";
+            lblStatus.ForeColor = Color.Gray;
         }
 
         private (string Message, Color StatusColor) GetPasswordStrength(string password)
         {
-            if (string.IsNullOrEmpty(password))
-                return ("", Color.Black);
+            if (string.IsNullOrWhiteSpace(password))
+                return ("Waiting for input...", Color.White);
 
             int score = 0;
-
             if (password.Length >= 8) score++;
-            if (password.Length >= 12) score++; 
+            if (password.Length >= 12) score++;
             if (password.Any(char.IsUpper)) score++;
             if (password.Any(char.IsLower)) score++;
             if (password.Any(char.IsDigit)) score++;
             if (password.Any(ch => !char.IsLetterOrDigit(ch))) score++;
 
-            // Determine status based on score
             return score switch
             {
-                <= 2 => ("Very Weak", Color.Red),
-                3 => ("Weak", Color.OrangeRed),
-                4 => ("Medium", Color.Goldenrod),
-                5 => ("Strong", Color.Green),
-                >= 6 => ("Very Strong", Color.DarkGreen),
+                <= 2 => ("Weak", Color.FromArgb(231, 76, 60)),     // Flat Red
+                3 or 4 => ("Medium", Color.FromArgb(230, 126, 34)), // Flat Orange
+                5 => ("Strong", Color.FromArgb(46, 204, 113)),     // Flat Green
+                _ => ("Very Strong", Color.FromArgb(39, 174, 96))   // Dark Green
             };
+        }
+
+        private void UpdateStrengthUI(string password)
+        {
+            var (message, statusColor) = GetPasswordStrength(password);
+
+            // Apply to CuoreUI Label
+            lblStatus.Text = message;
+            lblStatus.ForeColor = statusColor;
+
+            // Standard WinForms refresh to force the custom UI to repaint the text
+            lblStatus.Invalidate();
+            lblStatus.Update();
+
         }
 
         private void TxtPassword_ContentChanged(object? sender, EventArgs e)
@@ -71,34 +79,28 @@ namespace TheMatchaClub.Winforms
             var result = GetPasswordStrength(txtPassword.Text);
             lblStatus.Text = result.Message;
             lblStatus.ForeColor = result.StatusColor;
-            lblStatus.Refresh();
+            UpdateStrengthUI(txtPassword.Text);
         }
 
         private async void btnCreate_Click(object sender, EventArgs e)
         {
-            if (!ValidateInputs())
-                return;
+            if (!ValidateInputs()) return;
 
             try
             {
                 ToggleUI(false);
-
                 await _authService.CreateAdminAsync("admin", txtPassword.Text);
 
-                MessageBox.Show("Admin account created successfully.",
-                                "Success",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                MessageBox.Show("Admin account created successfully!", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                DialogResult = DialogResult.OK;
-                Close();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                MessageBox.Show($"Error: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -108,32 +110,18 @@ namespace TheMatchaClub.Winforms
 
         private bool ValidateInputs()
         {
-            if (string.IsNullOrWhiteSpace(txtPassword.Text) ||
-                string.IsNullOrWhiteSpace(txtConfirm.Text))
+            if (string.IsNullOrWhiteSpace(txtPassword.Text) || txtPassword.Text != txtConfirm.Text)
             {
-                MessageBox.Show("All fields are required.",
-                                "Validation",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show("Passwords must match and cannot be empty.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            if (txtPassword.Text != txtConfirm.Text)
+            var strength = GetPasswordStrength(txtPassword.Text);
+            if (txtPassword.Text.Length < 8 || strength.Message == "Weak")
             {
-                MessageBox.Show("Passwords do not match.",
-                                "Validation",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-
-            var result = ValidatePassword(txtPassword.Text);
-            if (!result.IsValid)
-            {
-                MessageBox.Show(result.Message,
-                                "Weak Password",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show("Password is too weak. Please use at least 8 characters with mixed types.",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -145,11 +133,55 @@ namespace TheMatchaClub.Winforms
             btnCreate.Enabled = enabled;
             txtPassword.Enabled = enabled;
             txtConfirm.Enabled = enabled;
+            btnShowPassword.Enabled = enabled;
+            btnShowConfirm.Enabled = enabled;
         }
+
 
         private void lblStatus_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void btnShowPassword_Click(object sender, EventArgs e)
+        {
+            ToggleVisibility(txtPassword, btnShowPassword);
+        }
+
+        private void btnShowConfirm_Click(object sender, EventArgs e)
+        {
+            ToggleVisibility(txtConfirm, btnShowConfirm);
+        }
+
+        private void ToggleVisibility(cuiTextBox targetTextBox, cuiButton toggleButton)
+        {
+            try
+            {
+                // 1. Get the current state from the internal CuoreUI textbox
+                bool isCurrentlyHidden = targetTextBox.PasswordChar;
+
+                // 2. Toggle the password visibility
+                targetTextBox.PasswordChar = !isCurrentlyHidden;
+
+                // 3. Switch the Image based on the NEW state
+                // If it WAS hidden, we just revealed it, so show 'eye_closed' (the slash eye)
+                // If it WAS visible, we just hid it, so show 'eye_open'
+                if (isCurrentlyHidden)
+                {
+                    toggleButton.Image = Properties.Resources.eye_closed;
+                }
+                else
+                {
+                    toggleButton.Image = Properties.Resources.eyes_open;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Debugging tip: If 'Content' isn't the right property, this will tell you.
+                Console.WriteLine("CuoreUI Property Error: " + ex.Message);
+            }
+        }
+
+
     }
 }
