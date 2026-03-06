@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheMatchaClub.Domain.Entities;
 using TheMatchaClub.Application.Services;
+using TheMatchaClub.Domain.Entities;
+using TheMatchaClub.Winforms.Forms;
 using TheMatchaClub.WinForms.Helpers;
-
 
 namespace TheMatchaClub.Winforms
 {
     public partial class ItemDetailForm : Form
     {
-
         private Item _item;
-
-        
 
         public ItemDetailForm(Item item)
         {
@@ -44,16 +42,15 @@ namespace TheMatchaClub.Winforms
             try
             {
                 byte[] bytes = File.ReadAllBytes(_item.ImagePath);
-
                 using MemoryStream ms = new MemoryStream(bytes);
-
                 pictureBoxItem.Image = Image.FromStream(ms);
             }
             catch
             {
-                
+                // Silent fail for image loading
             }
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -73,26 +70,37 @@ namespace TheMatchaClub.Winforms
 
             pnlImageContainer.Region = new Region(path);
         }
+
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Delete this item?", "Confirm", MessageBoxButtons.YesNo);
+            // Note: Standard MessageBox used for Yes/No confirmation 
+            // until MyUniversalBox is upgraded with two buttons!
+            var confirm = MessageBox.Show($"Are you sure you want to delete {_item.Name}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (confirm != DialogResult.Yes)
                 return;
 
-            using var context = DbContextHelper.Create();
-            var itemService = new ItemService(context);
-            var categoryService = new CategoryService(context);
+            try
+            {
+                using var context = DbContextHelper.Create();
+                var itemService = new ItemService(context);
+                var categoryService = new CategoryService(context);
 
-            await itemService.DeleteAsync(_item.Id);
-            await categoryService.DeleteIfEmptyAsync(_item.CategoryId);
+                await itemService.DeleteAsync(_item.Id);
+                await categoryService.DeleteIfEmptyAsync(_item.CategoryId);
 
+                // Replaced with custom typewriter box
+                MyUniversalBox.Show("The item has been successfully removed.", "Item Deleted", isError: false);
 
-            MessageBox.Show("Item deleted.");
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MyUniversalBox.Show($"Error during deletion: {ex.Message}", "System Error", isError: true);
+            }
         }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             using var editForm = new AddItemForm(_item);
@@ -104,8 +112,5 @@ namespace TheMatchaClub.Winforms
         {
             this.Close();
         }
-
-       
     }
-
 }

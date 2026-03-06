@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Drawing.Drawing2D;
+using System.IO;
 using TheMatchaClub.Domain;
 using TheMatchaClub.Domain.Entities;
+using TheMatchaClub.Winforms.Forms;
 using TheMatchaClub.WinForms.Helpers;
 
 namespace TheMatchaClub.Winforms
@@ -20,7 +22,6 @@ namespace TheMatchaClub.Winforms
             flpItems.WrapContents = false;
             flpItems.AutoScroll = true;
 
-
             this.Load += ChooseItemDialog_Load;
         }
 
@@ -31,36 +32,44 @@ namespace TheMatchaClub.Winforms
 
         private async Task LoadItems()
         {
-            using var context = DbContextHelper.Create();
-
-            var items = await context.Items
-                .Include(x => x.Category)
-                .Where(x => x.IsActive)
-                .ToListAsync();
-
-            flpItems.SuspendLayout();
-            flpItems.Controls.Clear();
-
-            // ⭐ USUALS
-            var usuals = items.Where(x => x.IsUsual).ToList();
-
-            if (usuals.Any())
+            try
             {
-                AddCategorySection("⭐ Usuals", usuals);
+                using var context = DbContextHelper.Create();
+
+                var items = await context.Items
+                    .Include(x => x.Category)
+                    .Where(x => x.IsActive)
+                    .ToListAsync();
+
+                flpItems.SuspendLayout();
+                flpItems.Controls.Clear();
+
+                // ⭐ USUALS
+                var usuals = items.Where(x => x.IsUsual).ToList();
+
+                if (usuals.Any())
+                {
+                    AddCategorySection("⭐ Usuals", usuals);
+                }
+
+                // GROUP BY CATEGORY
+                var grouped = items
+                    .OrderBy(x => x.Category.Name)
+                    .GroupBy(x => x.Category.Name);
+
+                foreach (var group in grouped)
+                {
+                    AddCategorySection(group.Key, group.ToList());
+                }
+
+                flpItems.ResumeLayout();
             }
-
-            // GROUP BY CATEGORY
-            var grouped = items
-                .OrderBy(x => x.Category.Name)
-                .GroupBy(x => x.Category.Name);
-
-            foreach (var group in grouped)
+            catch (Exception ex)
             {
-                AddCategorySection(group.Key, group.ToList());
+                MyUniversalBox.Show($"Failed to load items: {ex.Message}", "Database Error", isError: true);
             }
-
-            flpItems.ResumeLayout();
         }
+
         private void AddCategorySection(string categoryName, List<Item> items)
         {
             Label lbl = new Label
@@ -91,6 +100,7 @@ namespace TheMatchaClub.Winforms
 
             flpItems.Controls.Add(panel);
         }
+
         private Control CreateItemCard(Item item)
         {
             Panel card = new Panel
@@ -103,7 +113,6 @@ namespace TheMatchaClub.Winforms
                 Cursor = Cursors.Hand
             };
 
-            // Rounded corners
             card.Paint += (s, e) =>
             {
                 var rect = card.ClientRectangle;
@@ -129,9 +138,13 @@ namespace TheMatchaClub.Winforms
 
             if (!string.IsNullOrEmpty(item.ImagePath) && File.Exists(item.ImagePath))
             {
-                byte[] bytes = File.ReadAllBytes(item.ImagePath);
-                using MemoryStream ms = new MemoryStream(bytes);
-                pic.Image = Image.FromStream(ms);
+                try
+                {
+                    byte[] bytes = File.ReadAllBytes(item.ImagePath);
+                    using MemoryStream ms = new MemoryStream(bytes);
+                    pic.Image = Image.FromStream(ms);
+                }
+                catch { /* Fallback if image fails to load */ }
             }
 
             Label lblName = new Label
@@ -161,33 +174,19 @@ namespace TheMatchaClub.Winforms
             card.Controls.Add(lblName);
             card.Controls.Add(lblPrice);
 
-            // click events
             card.Click += Item_Click;
             pic.Click += Item_Click;
             lblName.Click += Item_Click;
             lblPrice.Click += Item_Click;
 
-            void HoverOn(object? s, EventArgs e)
-            {
-                card.BackColor = Color.FromArgb(220, 235, 200);
-            }
+            void HoverOn(object? s, EventArgs e) => card.BackColor = Color.FromArgb(220, 235, 200);
+            void HoverOff(object? s, EventArgs e) => card.BackColor = Color.FromArgb(245, 245, 221);
 
-            void HoverOff(object? s, EventArgs e)
-            {
-                card.BackColor = Color.FromArgb(245, 245, 221);
-            }
+            card.MouseEnter += HoverOn; card.MouseLeave += HoverOff;
+            pic.MouseEnter += HoverOn; pic.MouseLeave += HoverOff;
+            lblName.MouseEnter += HoverOn; lblName.MouseLeave += HoverOff;
+            lblPrice.MouseEnter += HoverOn; lblPrice.MouseLeave += HoverOff;
 
-            card.MouseEnter += HoverOn;
-            card.MouseLeave += HoverOff;
-
-            pic.MouseEnter += HoverOn;
-            pic.MouseLeave += HoverOff;
-
-            lblName.MouseEnter += HoverOn;
-            lblName.MouseLeave += HoverOff;
-
-            lblPrice.MouseEnter += HoverOn;
-            lblPrice.MouseLeave += HoverOff;
             return card;
         }
 
@@ -195,29 +194,33 @@ namespace TheMatchaClub.Winforms
         {
             int diameter = radius * 2;
             var path = new GraphicsPath();
-
             path.AddArc(bounds.X, bounds.Y, diameter, diameter, 180, 90);
             path.AddArc(bounds.Right - diameter, bounds.Y, diameter, diameter, 270, 90);
             path.AddArc(bounds.Right - diameter, bounds.Bottom - diameter, diameter, diameter, 0, 90);
             path.AddArc(bounds.X, bounds.Bottom - diameter, diameter, diameter, 90, 90);
-
             path.CloseFigure();
-
             return path;
         }
-      
+
         private void Item_Click(object? sender, EventArgs e)
         {
             if (sender is not Control ctrl || ctrl.Tag is not Item item)
                 return;
 
+            // Currently using InputBox because MyUniversalBox is for display only.
+            // If you build a 'MyUniversalInput', swap this out next!
             string? input = Microsoft.VisualBasic.Interaction.InputBox(
                 $"Enter quantity for {item.Name}:",
                 "Quantity",
                 "1");
 
+            if (string.IsNullOrEmpty(input)) return;
+
             if (!int.TryParse(input, out int qty) || qty <= 0)
+            {
+                MyUniversalBox.Show("Please enter a valid positive number for quantity.", "Invalid Input", isError: true);
                 return;
+            }
 
             SelectedItem = new CartItem
             {

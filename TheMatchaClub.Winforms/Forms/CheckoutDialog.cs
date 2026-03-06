@@ -1,10 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using TheMatchaClub.Application.Services;
 using TheMatchaClub.Domain;
 using TheMatchaClub.Domain.Enums;
-using TheMatchaClub.Application.Services;
+using TheMatchaClub.Winforms.Forms;
 using TheMatchaClub.WinForms.Helpers;
-
 
 namespace TheMatchaClub.Winforms
 {
@@ -14,7 +21,6 @@ namespace TheMatchaClub.Winforms
         private readonly string _customer;
         private readonly PaymentMethod _payment;
         private readonly OrderType _orderType;
-
 
         private decimal _total;
 
@@ -27,7 +33,6 @@ namespace TheMatchaClub.Winforms
             _orderType = orderType;
             this.Load += CheckoutDialog_Load;
         }
-
 
         private void CheckoutDialog_Load(object? sender, EventArgs e)
         {
@@ -50,7 +55,6 @@ namespace TheMatchaClub.Winforms
             lblTotal.Text = $"Total: ₱{_total}";
         }
 
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -58,15 +62,17 @@ namespace TheMatchaClub.Winforms
 
         private async void btnConfirm_Click(object sender, EventArgs e)
         {
+            // Replaced MessageBox with MyUniversalBox
             if (!decimal.TryParse(gtxtCash.Text, out decimal cash))
             {
-                MessageBox.Show("Invalid cash amount.");
+                MyUniversalBox.Show("Please enter a valid cash amount.", "Payment Error", isError: true);
                 return;
             }
 
+            // Replaced MessageBox with MyUniversalBox
             if (cash < _total)
             {
-                MessageBox.Show("Insufficient cash.");
+                MyUniversalBox.Show($"Insufficient cash. The total is ₱{_total}.", "Payment Error", isError: true);
                 return;
             }
 
@@ -80,27 +86,19 @@ namespace TheMatchaClub.Winforms
                     _payment,
                     _orderType,
                     _cart.Select(x => (x.ItemId, x.Quantity)).ToList(),
-    cash);
+                    cash);
 
                 using var receipt = new ReceiptPreviewForm(order, _cart, cash);
                 receipt.ShowDialog();
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // Replaced MessageBox with MyUniversalBox
+                MyUniversalBox.Show("An error occurred while processing the order: " + ex.Message, "System Error", isError: true);
             }
         }
-
-        private void CheckoutDialog_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
-
 }

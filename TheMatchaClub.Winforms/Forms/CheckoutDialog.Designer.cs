@@ -148,7 +148,7 @@
             Controls.Add(lstSummary);
             Name = "CheckoutDialog";
             Text = "CheckoutDialog";
-            Load += CheckoutDialog_Load_1;
+          //  Load += CheckoutDialog_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }

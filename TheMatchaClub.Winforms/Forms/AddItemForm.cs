@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO; // Added for Path and File operations
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheMatchaClub.Domain.Entities;
 using TheMatchaClub.Application.Services;
+using TheMatchaClub.Domain.Entities;
+using TheMatchaClub.Winforms.Forms;
 using TheMatchaClub.WinForms.Helpers;
-
 
 namespace TheMatchaClub.Winforms
 {
@@ -20,12 +21,13 @@ namespace TheMatchaClub.Winforms
         private string? _pendingNewCategory;
         private int? _editItemId;
         private string? _selectedImagePath;
+
         public AddItemForm()
         {
             InitializeComponent();
-
             this.Load += AddItemForm_Load;
         }
+
         public AddItemForm(Item item) : this()
         {
             _editItemId = item.Id;
@@ -39,7 +41,6 @@ namespace TheMatchaClub.Winforms
             btnSave.Text = "Save Changes";
         }
 
-
         private async void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) ||
@@ -47,13 +48,15 @@ namespace TheMatchaClub.Winforms
                 cmbCategory.SelectedItem == null ||
                 cmbCategory.SelectedItem.ToString() == "Add New Category...")
             {
-                MessageBox.Show("All fields are required.");
+                // Replaced standard MessageBox
+                MyUniversalBox.Show("All fields are required.", "Validation", isError: true);
                 return;
             }
 
             if (!decimal.TryParse(txtPrice.Text, out decimal price))
             {
-                MessageBox.Show("Invalid price.");
+                // Replaced standard MessageBox
+                MyUniversalBox.Show("Invalid price.", "Input Error", isError: true);
                 return;
             }
 
@@ -67,8 +70,6 @@ namespace TheMatchaClub.Winforms
                 var selectedCategory = cmbCategory.SelectedItem!.ToString()!;
 
                 var category = await categoryService.GetOrCreateAsync(selectedCategory);
-
-
 
                 string? savedImagePath = null;
 
@@ -113,17 +114,19 @@ namespace TheMatchaClub.Winforms
                         savedImagePath);
                 }
 
-
-                MessageBox.Show("Item added.");
+                // Replaced standard MessageBox
+                MyUniversalBox.Show("Item saved successfully.", "Success", isError: false);
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                // Replaced standard MessageBox
+                MyUniversalBox.Show(ex.Message, "System Error", isError: true);
             }
         }
+
         private async void AddItemForm_Load(object? sender, EventArgs e)
         {
             await LoadCategories();
@@ -131,7 +134,6 @@ namespace TheMatchaClub.Winforms
 
         private async Task LoadCategories()
         {
-
             using var context = DbContextHelper.Create();
 
             var categories = await context.Categories
@@ -168,9 +170,6 @@ namespace TheMatchaClub.Winforms
             }
         }
 
-
-       
-        
         private void btnImageAdd_Click(object sender, EventArgs e)
         {
             using OpenFileDialog ofd = new OpenFileDialog();
@@ -183,12 +182,12 @@ namespace TheMatchaClub.Winforms
                 try
                 {
                     _selectedImagePath = ofd.FileName;
-
                     btnImageAddItem.Image = Image.FromFile(_selectedImagePath);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error loading image: {ex.Message}");
+                    // Replaced standard MessageBox
+                    MyUniversalBox.Show($"Error loading image: {ex.Message}", "Image Error", isError: true);
                 }
             }
         }
