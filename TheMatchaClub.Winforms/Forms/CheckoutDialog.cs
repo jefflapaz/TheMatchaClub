@@ -75,6 +75,10 @@ namespace TheMatchaClub.Winforms
                 using var context = DbContextHelper.Create();
                 var orderService = new OrderService(context);
 
+                // Add this before var order = await orderService.CreateOrderAsync...
+                var debugInfo = string.Join(", ", _cart.Select(x => $"Name: {x.Name}, ID: {x.ItemId}"));
+                MessageBox.Show("Sending these IDs to DB: " + debugInfo);
+
                 var order = await orderService.CreateOrderAsync(
                     _customer,
                     _payment,
@@ -91,7 +95,12 @@ namespace TheMatchaClub.Winforms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                // If there's an inner exception, show that. If not, show the main message.
+                string realError = ex.InnerException != null
+                    ? ex.InnerException.Message
+                    : ex.Message;
+
+                MessageBox.Show(realError, "Database Error Detail");
             }
         }
 
