@@ -37,8 +37,10 @@
             cuiLabel1 = new CuoreUI.Controls.cuiLabel();
             cuiLabel2 = new CuoreUI.Controls.cuiLabel();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            lblStatus = new Label();
+            btnShowConfirm = new CuoreUI.Controls.cuiButton();
+            btnShowPassword = new CuoreUI.Controls.cuiButton();
             lblConfirmationText = new CuoreUI.Controls.cuiLabel();
-            lblStatus = new CuoreUI.Controls.cuiLabel();
             cuiPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -219,8 +221,10 @@
             // cuiPanel1
             // 
             cuiPanel1.BackColor = Color.Transparent;
-            cuiPanel1.Controls.Add(lblConfirmationText);
             cuiPanel1.Controls.Add(lblStatus);
+            cuiPanel1.Controls.Add(btnShowConfirm);
+            cuiPanel1.Controls.Add(btnShowPassword);
+            cuiPanel1.Controls.Add(lblConfirmationText);
             cuiPanel1.Controls.Add(cuiLabel2);
             cuiPanel1.Controls.Add(btnCreate);
             cuiPanel1.Controls.Add(txtConfirm);
@@ -237,6 +241,92 @@
             cuiPanel1.Size = new Size(417, 489);
             cuiPanel1.TabIndex = 12;
             // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(59, 206);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(0, 20);
+            lblStatus.TabIndex = 16;
+            // 
+            // btnShowConfirm
+            // 
+            btnShowConfirm.BackgroundImageLayout = ImageLayout.None;
+            btnShowConfirm.CheckButton = false;
+            btnShowConfirm.Checked = false;
+            btnShowConfirm.CheckedBackground = Color.FromArgb(255, 106, 0);
+            btnShowConfirm.CheckedForeColor = Color.White;
+            btnShowConfirm.CheckedImageTint = Color.Transparent;
+            btnShowConfirm.CheckedOutline = Color.FromArgb(255, 106, 0);
+            btnShowConfirm.Content = "";
+            btnShowConfirm.DialogResult = DialogResult.None;
+            btnShowConfirm.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnShowConfirm.ForeColor = Color.Black;
+            btnShowConfirm.HoverBackground = Color.White;
+            btnShowConfirm.HoverForeColor = Color.DimGray;
+            btnShowConfirm.HoverImageTint = Color.DimGray;
+            btnShowConfirm.HoverOutline = Color.FromArgb(32, 128, 128, 128);
+            btnShowConfirm.Image = Properties.Resources.eye_open;
+            btnShowConfirm.ImageExpand = new Point(0, 0);
+            btnShowConfirm.Location = new Point(325, 268);
+            btnShowConfirm.Name = "btnShowConfirm";
+            btnShowConfirm.NormalBackground = Color.Transparent;
+            btnShowConfirm.NormalForeColor = Color.Black;
+            btnShowConfirm.NormalImageTint = Color.Black;
+            btnShowConfirm.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            btnShowConfirm.OutlineThickness = 1F;
+            btnShowConfirm.Padding = new Padding(12);
+            btnShowConfirm.PressedBackground = Color.WhiteSmoke;
+            btnShowConfirm.PressedForeColor = Color.FromArgb(32, 32, 32);
+            btnShowConfirm.PressedImageTint = Color.FromArgb(32, 32, 32);
+            btnShowConfirm.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            btnShowConfirm.Rounding = new Padding(20);
+            btnShowConfirm.Size = new Size(25, 24);
+            btnShowConfirm.TabIndex = 15;
+            btnShowConfirm.TextAlignment = StringAlignment.Center;
+            btnShowConfirm.TextPadding = 12;
+            btnShowConfirm.TextSpacing = 2;
+            btnShowConfirm.Click += btnShowConfirm_Click;
+            // 
+            // btnShowPassword
+            // 
+            btnShowPassword.BackgroundImageLayout = ImageLayout.None;
+            btnShowPassword.CheckButton = false;
+            btnShowPassword.Checked = false;
+            btnShowPassword.CheckedBackground = Color.FromArgb(255, 106, 0);
+            btnShowPassword.CheckedForeColor = Color.White;
+            btnShowPassword.CheckedImageTint = Color.Transparent;
+            btnShowPassword.CheckedOutline = Color.FromArgb(255, 106, 0);
+            btnShowPassword.Content = "";
+            btnShowPassword.DialogResult = DialogResult.None;
+            btnShowPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnShowPassword.ForeColor = Color.Black;
+            btnShowPassword.HoverBackground = Color.White;
+            btnShowPassword.HoverForeColor = Color.DimGray;
+            btnShowPassword.HoverImageTint = Color.DimGray;
+            btnShowPassword.HoverOutline = Color.FromArgb(32, 128, 128, 128);
+            btnShowPassword.Image = Properties.Resources.eye_open;
+            btnShowPassword.ImageExpand = new Point(0, 0);
+            btnShowPassword.Location = new Point(324, 167);
+            btnShowPassword.Name = "btnShowPassword";
+            btnShowPassword.NormalBackground = Color.Transparent;
+            btnShowPassword.NormalForeColor = Color.Black;
+            btnShowPassword.NormalImageTint = Color.Black;
+            btnShowPassword.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            btnShowPassword.OutlineThickness = 1F;
+            btnShowPassword.Padding = new Padding(12);
+            btnShowPassword.PressedBackground = Color.WhiteSmoke;
+            btnShowPassword.PressedForeColor = Color.FromArgb(32, 32, 32);
+            btnShowPassword.PressedImageTint = Color.FromArgb(32, 32, 32);
+            btnShowPassword.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            btnShowPassword.Rounding = new Padding(20);
+            btnShowPassword.Size = new Size(25, 24);
+            btnShowPassword.TabIndex = 14;
+            btnShowPassword.TextAlignment = StringAlignment.Center;
+            btnShowPassword.TextPadding = 12;
+            btnShowPassword.TextSpacing = 2;
+            btnShowPassword.Click += btnShowPassword_Click;
+            // 
             // lblConfirmationText
             // 
             lblConfirmationText.Content = "";
@@ -247,19 +337,6 @@
             lblConfirmationText.Size = new Size(137, 23);
             lblConfirmationText.TabIndex = 13;
             lblConfirmationText.VerticalAlignment = StringAlignment.Near;
-            // 
-            // lblStatus
-            // 
-            lblStatus.AutoSize = true;
-            lblStatus.Content = "Status";
-            lblStatus.HorizontalAlignment = StringAlignment.Near;
-            lblStatus.Location = new Point(55, 208);
-            lblStatus.Margin = new Padding(4, 5, 4, 5);
-            lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(145, 23);
-            lblStatus.TabIndex = 12;
-            lblStatus.VerticalAlignment = StringAlignment.Near;
-            lblStatus.Load += lblStatus_Load;
             // 
             // AdminSetupForm
             // 
@@ -290,6 +367,8 @@
         private CuoreUI.Controls.cuiLabel cuiLabel2;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiLabel lblConfirmationText;
-        private CuoreUI.Controls.cuiLabel lblStatus;
+        private CuoreUI.Controls.cuiButton btnShowPassword;
+        private CuoreUI.Controls.cuiButton btnShowConfirm;
+        private Label lblStatus;
     }
 }
