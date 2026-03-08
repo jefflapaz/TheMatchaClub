@@ -460,7 +460,7 @@ namespace TheMatchaClub.Winforms
             pnlStartSession.Rounding = new Padding(20);
             pnlStartSession.Size = new Size(1214, 646);
             pnlStartSession.TabIndex = 3;
-            pnlStartSession.Enter += pnlStartSession_Enter;
+          //  pnlStartSession.Enter += pnlStartSession_Enter;
             // 
             // cuiPanel1
             // 

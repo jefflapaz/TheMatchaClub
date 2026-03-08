@@ -26,23 +26,21 @@ namespace TheMatchaClub.Winforms
         private void SetupPasswordFields()
         {
             txtPassword.PasswordChar = true;
+            // Ensure you have these images in your Resources
             btnShowPassword.Image = Properties.Resources.eyes_open;
-
         }
 
         private void ToggleVisibility(cuiTextBox targetTextBox, cuiButton toggleButton)
         {
             try
             {
-                // 1. Get the current state from the internal CuoreUI textbox
+                // 1. Get the current state
                 bool isCurrentlyHidden = targetTextBox.PasswordChar;
 
                 // 2. Toggle the password visibility
                 targetTextBox.PasswordChar = !isCurrentlyHidden;
 
                 // 3. Switch the Image based on the NEW state
-                // If it WAS hidden, we just revealed it, so show 'eye_closed' (the slash eye)
-                // If it WAS visible, we just hid it, so show 'eye_open'
                 if (isCurrentlyHidden)
                 {
                     toggleButton.Image = Properties.Resources.eye_closed;
@@ -54,8 +52,8 @@ namespace TheMatchaClub.Winforms
             }
             catch (Exception ex)
             {
-                // Debugging tip: If 'Content' isn't the right property, this will tell you.
-                Console.WriteLine("CuoreUI Property Error: " + ex.Message);
+                // Using UniversalBox for internal UI errors
+                MyUniversalBox.Show("UI Error: Unable to toggle password visibility.", "System Error", isError: true);
             }
         }
 
@@ -64,7 +62,6 @@ namespace TheMatchaClub.Winforms
         {
             if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                // Using your custom typewriter box for an empty field
                 MyUniversalBox.Show("Please enter your password to proceed.", "Input Required", isError: false);
                 return;
             }
@@ -78,7 +75,6 @@ namespace TheMatchaClub.Winforms
 
                 if (!success)
                 {
-                    // Error style (red theme if you set it up that way)
                     MyUniversalBox.Show("The password you entered is incorrect. Please try again.", "Auth Failed", isError: true);
                     return;
                 }
@@ -95,35 +91,41 @@ namespace TheMatchaClub.Winforms
             }
             catch (Exception ex)
             {
-                // Exception handler using the universal box
                 MyUniversalBox.Show($"A system error occurred: {ex.Message}", "Critical Error", isError: true);
             }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            // You could even use MyUniversalBox here to ask "Are you sure?" 
+            // but for now, we'll keep the direct exit.
             System.Windows.Forms.Application.Exit();
         }
 
         private async void LoginForm_Load(object sender, EventArgs e)
         {
-            var auth = new AuthService(IdentityHelper.GetUserManager());
-
-            if (!await auth.AdminExistsAsync())
+            try
             {
-                using var setup = new AdminSetupForm();
-                setup.ShowDialog();
+                var auth = new AuthService(IdentityHelper.GetUserManager());
+
+                if (!await auth.AdminExistsAsync())
+                {
+                    MyUniversalBox.Show("No administrator account found. Redirecting to setup...", "First Run", isError: false);
+                    using var setup = new AdminSetupForm();
+                    setup.ShowDialog();
+                }
             }
-        }
-
-        private void cuiLabel1_Load(object sender, EventArgs e)
-        {
-
+            catch (Exception ex)
+            {
+                MyUniversalBox.Show("Database connection failed. Please check if the server is running.", "Connection Error", isError: true);
+            }
         }
 
         private void btnShowPassword_Click(object sender, EventArgs e)
         {
             ToggleVisibility(txtPassword, btnShowPassword);
         }
+
+        // Cleaned up unused empty events
     }
 }

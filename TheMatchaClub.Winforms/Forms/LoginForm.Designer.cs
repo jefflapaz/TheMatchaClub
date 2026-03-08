@@ -169,7 +169,7 @@
             cuiLabel1.Size = new Size(338, 39);
             cuiLabel1.TabIndex = 5;
             cuiLabel1.VerticalAlignment = StringAlignment.Near;
-            cuiLabel1.Load += cuiLabel1_Load;
+           // cuiLabel1.Load += cuiLabel1_Load;
             // 
             // cuiLabel2
             // 
