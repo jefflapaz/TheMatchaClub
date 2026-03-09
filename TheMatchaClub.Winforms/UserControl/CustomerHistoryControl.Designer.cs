@@ -2,15 +2,8 @@
 {
     partial class CustomerHistoryControl
     {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,14 +15,18 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dgvHistory = new DataGridView();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            btnSearch = new Guna.UI2.WinForms.Guna2CircleButton();
+            txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             cuiLabel1 = new CuoreUI.Controls.cuiLabel();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             ((System.ComponentModel.ISupportInitialize)dgvHistory).BeginInit();
@@ -39,44 +36,119 @@
             // 
             // dgvHistory
             // 
-            dgvHistory.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dgvHistory.AllowUserToAddRows = false;
+            dgvHistory.AllowUserToDeleteRows = false;
+            dgvHistory.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(250, 252, 248);
+            dgvHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvHistory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHistory.BackgroundColor = Color.White;
-            dgvHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHistory.GridColor = Color.DarkOliveGreen;
-            dgvHistory.Location = new Point(86, 114);
-            dgvHistory.Margin = new Padding(3, 4, 3, 4);
+            dgvHistory.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvHistory.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(45, 83, 26);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(45, 83, 26);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvHistory.ColumnHeadersHeight = 45;
+            dgvHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(235, 240, 230);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(45, 83, 26);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvHistory.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvHistory.EnableHeadersVisualStyles = false;
+            dgvHistory.GridColor = Color.FromArgb(224, 224, 224);
+            dgvHistory.Location = new Point(35, 82);
+            dgvHistory.Margin = new Padding(3, 2, 3, 2);
+            dgvHistory.MultiSelect = false;
             dgvHistory.Name = "dgvHistory";
             dgvHistory.ReadOnly = true;
-            dgvHistory.RowHeadersWidth = 80;
-            dgvHistory.Size = new Size(1468, 765);
+            dgvHistory.RowHeadersVisible = false;
+            dgvHistory.RowTemplate.Height = 40;
+            dgvHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHistory.Size = new Size(1374, 608);
             dgvHistory.TabIndex = 1;
             // 
             // cuiPanel1
             // 
-            cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel1.Controls.Add(btnSearch);
+            cuiPanel1.Controls.Add(txtSearch);
             cuiPanel1.Controls.Add(cuiLabel1);
             cuiPanel1.Controls.Add(dgvHistory);
-            cuiPanel1.Location = new Point(0, 0);
+            cuiPanel1.Location = new Point(18, 15);
+            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
-            cuiPanel1.Padding = new Padding(0, 0, 10, 10);
             cuiPanel1.PanelColor = Color.White;
-            cuiPanel1.PanelOutlineColor = Color.FromArgb(64, 128, 128, 128);
+            cuiPanel1.PanelOutlineColor = Color.FromArgb(200, 200, 200);
             cuiPanel1.Rounding = new Padding(20);
-            cuiPanel1.Size = new Size(1655, 964);
+            cuiPanel1.Size = new Size(1425, 700);
             cuiPanel1.TabIndex = 2;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.Transparent;
+            btnSearch.BorderColor = Color.FromArgb(45, 83, 26);
+            btnSearch.BorderThickness = 1;
+            btnSearch.DisabledState.BorderColor = Color.DarkGray;
+            btnSearch.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnSearch.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnSearch.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnSearch.FillColor = Color.FromArgb(245, 245, 221);
+            btnSearch.Font = new Font("Segoe UI", 9F);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(718, 26);
+            btnSearch.Name = "btnSearch";
+            btnSearch.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            btnSearch.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            btnSearch.Size = new Size(36, 36);
+            btnSearch.TabIndex = 4;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.BackColor = Color.Transparent;
+            txtSearch.BorderColor = Color.FromArgb(45, 83, 26);
+            txtSearch.BorderRadius = 15;
+            txtSearch.CustomizableEdges = customizableEdges2;
+            txtSearch.DefaultText = "";
+            txtSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtSearch.FillColor = Color.FromArgb(245, 245, 221);
+            txtSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtSearch.Font = new Font("Segoe UI", 9F);
+            txtSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtSearch.Location = new Point(760, 26);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Search Here";
+            txtSearch.SelectedText = "";
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            txtSearch.Size = new Size(379, 36);
+            txtSearch.TabIndex = 3;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // cuiLabel1
             // 
             cuiLabel1.BackColor = Color.Transparent;
             cuiLabel1.Content = "Customer\\ History";
-            cuiLabel1.Font = new Font("Verdana", 21F, FontStyle.Bold);
-            cuiLabel1.ForeColor = Color.DarkOliveGreen;
-            cuiLabel1.HorizontalAlignment = StringAlignment.Center;
-            cuiLabel1.Location = new Point(65, 35);
-            cuiLabel1.Margin = new Padding(4, 5, 4, 5);
+            cuiLabel1.Font = new Font("Verdana", 24F, FontStyle.Bold);
+            cuiLabel1.ForeColor = Color.FromArgb(45, 83, 26);
+            cuiLabel1.HorizontalAlignment = StringAlignment.Near;
+            cuiLabel1.Location = new Point(35, 26);
+            cuiLabel1.Margin = new Padding(4, 2, 4, 2);
             cuiLabel1.Name = "cuiLabel1";
-            cuiLabel1.Size = new Size(400, 45);
+            cuiLabel1.Size = new Size(438, 38);
             cuiLabel1.TabIndex = 2;
             cuiLabel1.VerticalAlignment = StringAlignment.Near;
             // 
@@ -85,23 +157,24 @@
             cuiPanel2.Controls.Add(cuiPanel1);
             cuiPanel2.Dock = DockStyle.Fill;
             cuiPanel2.Location = new Point(0, 0);
+            cuiPanel2.Margin = new Padding(3, 2, 3, 2);
             cuiPanel2.Name = "cuiPanel2";
-            cuiPanel2.OutlineThickness = 1F;
+            cuiPanel2.OutlineThickness = 0F;
             cuiPanel2.PanelColor = Color.FromArgb(45, 83, 26);
-            cuiPanel2.PanelOutlineColor = Color.FromArgb(64, 128, 128, 128);
-            cuiPanel2.Rounding = new Padding(8);
-            cuiPanel2.Size = new Size(1669, 974);
+            cuiPanel2.PanelOutlineColor = Color.Transparent;
+            cuiPanel2.Rounding = new Padding(0);
+            cuiPanel2.Size = new Size(1460, 730);
             cuiPanel2.TabIndex = 3;
             // 
             // CustomerHistoryControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 83, 26);
             Controls.Add(cuiPanel2);
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CustomerHistoryControl";
-            Size = new Size(1669, 974);
+            Size = new Size(1460, 730);
             ((System.ComponentModel.ISupportInitialize)dgvHistory).EndInit();
             cuiPanel1.ResumeLayout(false);
             cuiPanel2.ResumeLayout(false);
@@ -114,5 +187,7 @@
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiPanel cuiPanel2;
         private CuoreUI.Controls.cuiLabel cuiLabel1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
+        private Guna.UI2.WinForms.Guna2CircleButton btnSearch;
     }
 }
