@@ -207,31 +207,26 @@ namespace TheMatchaClub.Winforms
             if (sender is not Control ctrl || ctrl.Tag is not Item item)
                 return;
 
-            // Currently using InputBox because MyUniversalBox is for display only.
-            // If you build a 'MyUniversalInput', swap this out next!
-            string? input = Microsoft.VisualBasic.Interaction.InputBox(
-                $"Enter quantity for {item.Name}:",
-                "Quantity",
-                "1");
-
-            if (string.IsNullOrEmpty(input)) return;
-
-            if (!int.TryParse(input, out int qty) || qty <= 0)
+            // 1. Call your custom QuantityBox instead of the VB InputBox
+            using (var qtyBox = new QuantityBox(item.Name))
             {
-                MyUniversalBox.Show("Please enter a valid positive number for quantity.", "Invalid Input", isError: true);
-                return;
+                if (qtyBox.ShowDialog() == DialogResult.OK)
+                {
+                    int qty = qtyBox.SelectedQuantity;
+
+                    // 2. Assign the selected item details
+                    SelectedItem = new CartItem
+                    {
+                        ItemId = item.Id,
+                        Name = item.Name,
+                        Price = item.Price,
+                        Quantity = qty
+                    };
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
-
-            SelectedItem = new CartItem
-            {
-                ItemId = item.Id,
-                Name = item.Name,
-                Price = item.Price,
-                Quantity = qty
-            };
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
         }
     }
 }
