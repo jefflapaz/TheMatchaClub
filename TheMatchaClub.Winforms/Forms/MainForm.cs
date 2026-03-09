@@ -193,6 +193,7 @@ namespace TheMatchaClub.Winforms
                 btnPOS.Width = sidebar.Width- 20;
             }
             sidebar.ResumeLayout();
+            
             mainPanel.ResumeLayout();
 
         }
