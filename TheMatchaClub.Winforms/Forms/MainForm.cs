@@ -165,16 +165,16 @@ namespace TheMatchaClub.Winforms
         }
         private void sidebarTransition_Tick(object sender, EventArgs e)
         {
-            int step = 10;
+            int step = 20;
             sidebar.SuspendLayout();
             mainPanel.SuspendLayout();
 
             if (_sidebarExpanded)
             {
                 sidebar.Width -= step;
-                if (sidebar.Width <= 67)
+                if (sidebar.Width <= 75)
                 {
-                    sidebar.Width = 67;
+                    sidebar.Width = 75;
                     _sidebarExpanded = false;
                     sidebarTransition.Stop();
                 }

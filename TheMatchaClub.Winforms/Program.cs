@@ -8,6 +8,6 @@ internal static class Program
     static void Main()
     {
         ApplicationConfiguration.Initialize();
-        System.Windows.Forms.Application.Run(new LoginForm());
+        System.Windows.Forms.Application.Run(new MainForm());
     }
 }

@@ -48,9 +48,9 @@
             lblPassword.AutoSize = true;
             lblPassword.BackColor = Color.Transparent;
             lblPassword.ForeColor = Color.FromArgb(235, 250, 221);
-            lblPassword.Location = new Point(42, 100);
+            lblPassword.Location = new Point(48, 133);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(60, 15);
+            lblPassword.Size = new Size(73, 20);
             lblPassword.TabIndex = 1;
             lblPassword.Text = "Password:";
             // 
@@ -59,9 +59,9 @@
             lblConfirm.AutoSize = true;
             lblConfirm.BackColor = Color.Transparent;
             lblConfirm.ForeColor = Color.FromArgb(235, 250, 221);
-            lblConfirm.Location = new Point(44, 183);
+            lblConfirm.Location = new Point(50, 244);
             lblConfirm.Name = "lblConfirm";
-            lblConfirm.Size = new Size(104, 15);
+            lblConfirm.Size = new Size(127, 20);
             lblConfirm.TabIndex = 2;
             lblConfirm.Text = "Confirm Password";
             // 
@@ -84,21 +84,19 @@
             btnCreate.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnCreate.Image = null;
             btnCreate.ImageExpand = new Point(0, 0);
-            btnCreate.Location = new Point(50, 302);
-            btnCreate.Margin = new Padding(3, 2, 3, 2);
+            btnCreate.Location = new Point(57, 403);
             btnCreate.Name = "btnCreate";
             btnCreate.NormalBackground = Color.Transparent;
             btnCreate.NormalForeColor = Color.FromArgb(235, 250, 221);
             btnCreate.NormalImageTint = Color.Black;
             btnCreate.NormalOutline = Color.FromArgb(235, 250, 221);
             btnCreate.OutlineThickness = 1F;
-            btnCreate.Padding = new Padding(10, 9, 10, 9);
             btnCreate.PressedBackground = Color.FromArgb(53, 108, 27);
             btnCreate.PressedForeColor = Color.FromArgb(169, 209, 129);
             btnCreate.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnCreate.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnCreate.Rounding = new Padding(20);
-            btnCreate.Size = new Size(282, 36);
+            btnCreate.Size = new Size(322, 48);
             btnCreate.TabIndex = 6;
             btnCreate.TextAlignment = StringAlignment.Center;
             btnCreate.TextPadding = -1;
@@ -146,18 +144,18 @@
             txtPassword.Image = null;
             txtPassword.ImageExpand = new Point(0, 0);
             txtPassword.ImageOffset = new Point(0, 0);
-            txtPassword.Location = new Point(44, 120);
-            txtPassword.Margin = new Padding(4, 3, 4, 3);
+            txtPassword.Location = new Point(50, 160);
+            txtPassword.Margin = new Padding(5, 4, 5, 4);
             txtPassword.Multiline = false;
             txtPassword.Name = "txtPassword";
             txtPassword.NormalImageTint = Color.White;
             txtPassword.OutlineColor = Color.DimGray;
-            txtPassword.Padding = new Padding(16, 6, 16, 0);
+            txtPassword.Padding = new Padding(20, 9, 20, 0);
             txtPassword.PasswordChar = false;
             txtPassword.PlaceholderColor = Color.FromArgb(17, 47, 21);
             txtPassword.PlaceholderText = "Password";
             txtPassword.Rounding = new Padding(15);
-            txtPassword.Size = new Size(282, 29);
+            txtPassword.Size = new Size(322, 39);
             txtPassword.TabIndex = 8;
             txtPassword.Tag = "*";
             txtPassword.TextOffset = new Size(0, 0);
@@ -177,18 +175,18 @@
             txtConfirm.Image = null;
             txtConfirm.ImageExpand = new Point(0, 0);
             txtConfirm.ImageOffset = new Point(0, 0);
-            txtConfirm.Location = new Point(44, 203);
-            txtConfirm.Margin = new Padding(4, 3, 4, 3);
+            txtConfirm.Location = new Point(50, 271);
+            txtConfirm.Margin = new Padding(5, 4, 5, 4);
             txtConfirm.Multiline = false;
             txtConfirm.Name = "txtConfirm";
             txtConfirm.NormalImageTint = Color.White;
             txtConfirm.OutlineColor = Color.DimGray;
-            txtConfirm.Padding = new Padding(16, 6, 16, 0);
+            txtConfirm.Padding = new Padding(20, 9, 20, 0);
             txtConfirm.PasswordChar = false;
             txtConfirm.PlaceholderColor = Color.FromArgb(17, 47, 21);
             txtConfirm.PlaceholderText = "Confirm Password";
             txtConfirm.Rounding = new Padding(15);
-            txtConfirm.Size = new Size(282, 29);
+            txtConfirm.Size = new Size(322, 39);
             txtConfirm.TabIndex = 9;
             txtConfirm.Tag = "*";
             txtConfirm.TextOffset = new Size(0, 0);
@@ -200,10 +198,10 @@
             cuiLabel1.Content = "Create\\ an\\ Account";
             cuiLabel1.ForeColor = Color.FromArgb(235, 250, 221);
             cuiLabel1.HorizontalAlignment = StringAlignment.Center;
-            cuiLabel1.Location = new Point(45, 53);
-            cuiLabel1.Margin = new Padding(4, 4, 4, 4);
+            cuiLabel1.Location = new Point(51, 71);
+            cuiLabel1.Margin = new Padding(5, 5, 5, 5);
             cuiLabel1.Name = "cuiLabel1";
-            cuiLabel1.Size = new Size(280, 19);
+            cuiLabel1.Size = new Size(320, 25);
             cuiLabel1.TabIndex = 10;
             cuiLabel1.VerticalAlignment = StringAlignment.Near;
             // 
@@ -214,10 +212,10 @@
             cuiLabel2.Font = new Font("Verdana", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cuiLabel2.ForeColor = Color.FromArgb(235, 250, 221);
             cuiLabel2.HorizontalAlignment = StringAlignment.Center;
-            cuiLabel2.Location = new Point(52, 22);
-            cuiLabel2.Margin = new Padding(4, 4, 4, 4);
+            cuiLabel2.Location = new Point(59, 29);
+            cuiLabel2.Margin = new Padding(5, 5, 5, 5);
             cuiLabel2.Name = "cuiLabel2";
-            cuiLabel2.Size = new Size(277, 25);
+            cuiLabel2.Size = new Size(317, 33);
             cuiLabel2.TabIndex = 11;
             cuiLabel2.VerticalAlignment = StringAlignment.Near;
             // 
@@ -234,22 +232,21 @@
             cuiPanel1.Controls.Add(txtPassword);
             cuiPanel1.Controls.Add(lblConfirm);
             cuiPanel1.Controls.Add(lblPassword);
-            cuiPanel1.Location = new Point(757, 48);
-            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel1.Location = new Point(865, 64);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 0F;
             cuiPanel1.PanelColor = Color.Transparent;
             cuiPanel1.PanelOutlineColor = Color.FromArgb(235, 250, 221);
             cuiPanel1.Rounding = new Padding(30);
-            cuiPanel1.Size = new Size(382, 397);
+            cuiPanel1.Size = new Size(437, 529);
             cuiPanel1.TabIndex = 12;
             // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(52, 154);
+            lblStatus.Location = new Point(59, 205);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(0, 15);
+            lblStatus.Size = new Size(0, 20);
             lblStatus.TabIndex = 16;
             // 
             // btnShowConfirm
@@ -269,23 +266,21 @@
             btnShowConfirm.HoverForeColor = Color.DimGray;
             btnShowConfirm.HoverImageTint = Color.DimGray;
             btnShowConfirm.HoverOutline = Color.FromArgb(32, 128, 128, 128);
-            btnShowConfirm.Image = null;
+            btnShowConfirm.Image = Properties.Resources.eyes_open;
             btnShowConfirm.ImageExpand = new Point(0, 0);
-            btnShowConfirm.Location = new Point(328, 203);
-            btnShowConfirm.Margin = new Padding(3, 2, 3, 2);
+            btnShowConfirm.Location = new Point(375, 271);
             btnShowConfirm.Name = "btnShowConfirm";
             btnShowConfirm.NormalBackground = Color.Transparent;
             btnShowConfirm.NormalForeColor = Color.Black;
             btnShowConfirm.NormalImageTint = Color.White;
             btnShowConfirm.NormalOutline = Color.FromArgb(64, 128, 128, 128);
             btnShowConfirm.OutlineThickness = 1F;
-            btnShowConfirm.Padding = new Padding(10, 9, 10, 9);
             btnShowConfirm.PressedBackground = Color.WhiteSmoke;
             btnShowConfirm.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnShowConfirm.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnShowConfirm.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnShowConfirm.Rounding = new Padding(20);
-            btnShowConfirm.Size = new Size(34, 27);
+            btnShowConfirm.Size = new Size(39, 36);
             btnShowConfirm.TabIndex = 15;
             btnShowConfirm.TextAlignment = StringAlignment.Center;
             btnShowConfirm.TextPadding = -1;
@@ -310,23 +305,21 @@
             btnShowPassword.HoverForeColor = Color.DimGray;
             btnShowPassword.HoverImageTint = Color.DimGray;
             btnShowPassword.HoverOutline = Color.FromArgb(32, 128, 128, 128);
-            btnShowPassword.Image = null;
+            btnShowPassword.Image = Properties.Resources.eyes_open;
             btnShowPassword.ImageExpand = new Point(0, 0);
-            btnShowPassword.Location = new Point(326, 120);
-            btnShowPassword.Margin = new Padding(3, 2, 3, 2);
+            btnShowPassword.Location = new Point(373, 160);
             btnShowPassword.Name = "btnShowPassword";
             btnShowPassword.NormalBackground = Color.Transparent;
             btnShowPassword.NormalForeColor = Color.Transparent;
             btnShowPassword.NormalImageTint = Color.White;
             btnShowPassword.NormalOutline = Color.FromArgb(64, 128, 128, 128);
             btnShowPassword.OutlineThickness = 1F;
-            btnShowPassword.Padding = new Padding(10, 9, 10, 9);
             btnShowPassword.PressedBackground = Color.WhiteSmoke;
             btnShowPassword.PressedForeColor = Color.FromArgb(32, 32, 32);
             btnShowPassword.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnShowPassword.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnShowPassword.Rounding = new Padding(20);
-            btnShowPassword.Size = new Size(34, 27);
+            btnShowPassword.Size = new Size(39, 36);
             btnShowPassword.TabIndex = 14;
             btnShowPassword.TextAlignment = StringAlignment.Center;
             btnShowPassword.TextPadding = -1;
@@ -335,13 +328,14 @@
             // 
             // AdminSetupForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(235, 250, 221);
             BackgroundImage = Properties.Resources.Desktop___41__4_;
-            ClientSize = new Size(1180, 541);
+            ClientSize = new Size(1349, 721);
             Controls.Add(cuiPanel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AdminSetupForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
