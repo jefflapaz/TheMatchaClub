@@ -155,6 +155,7 @@
             btnExit.TextAlignment = StringAlignment.Center;
             btnExit.TextPadding = 12;
             btnExit.TextSpacing = 2;
+            btnExit.Click += btnExit_Click_1;
             // 
             // cuiLabel1
             // 

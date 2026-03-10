@@ -59,7 +59,7 @@ namespace TheMatchaClub.Winforms
             property?.SetValue(control, true, null);
         }
 
-       /* private void btnLogout1_Click(object sender, EventArgs e)
+      /* private void btnLogout1_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show(
                 "Choose an option:\n\nYes = Logout only\nNo = Logout & Exit\nCancel = Stay",
@@ -76,7 +76,7 @@ namespace TheMatchaClub.Winforms
             }
         } */
 
-        private void btnLogout1_Click(object sender, EventArgs e)
+       private void btnLogout1_Click(object sender, EventArgs e)
         {
             // Create a temporary form to host your LogoutBox UserControl
             Form popup = new Form();

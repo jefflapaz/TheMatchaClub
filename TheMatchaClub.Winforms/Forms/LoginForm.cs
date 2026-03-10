@@ -125,5 +125,10 @@ namespace TheMatchaClub.Winforms
         {
             ToggleVisibility(txtPassword, btnShowPassword);
         }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

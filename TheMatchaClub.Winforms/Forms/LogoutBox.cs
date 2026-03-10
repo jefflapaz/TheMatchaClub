@@ -22,18 +22,49 @@ namespace TheMatchaClub.Winforms.Forms
             this.btnCancel.Click += btnCancel_Click;
         }
 
+        /* private void btnLogoutOnly_Click(object sender, EventArgs e)
+         {
+             new LoginForm().Show();
+
+             // 'this' is the UserControl
+             // FindForm() is the popup dialog
+             // .Owner is the MainForm
+             Form popup = this.FindForm();
+             Form mainForm = popup?.Owner;
+
+             popup?.Close();
+             mainForm?.Close();
+         }
+         */
+
         private void btnLogoutOnly_Click(object sender, EventArgs e)
         {
-            new LoginForm().Show();
+            // 1. Find the MainForm first
+            var mainForm = global::System.Windows.Forms.Application.OpenForms
+                .OfType<MainForm>()
+                .FirstOrDefault();
 
-            // 'this' is the UserControl
-            // FindForm() is the popup dialog
-            // .Owner is the MainForm
-            Form popup = this.FindForm();
-            Form mainForm = popup?.Owner;
+            // 2. Create the Login Form
+            LoginForm login = new LoginForm();
 
-            popup?.Close();
-            mainForm?.Close();
+            // Ensure if they close the login form, the whole process ends
+            login.FormClosed += (s, args) => global::System.Windows.Forms.Application.Exit();
+
+            // 3. Hide the Main Form and Show the Login Form
+            if (mainForm != null)
+            {
+                mainForm.Hide();
+                login.Show();
+            }
+            else
+            {
+                // Fallback: if MainForm isn't found, just show login anyway
+                login.Show();
+            }
+
+            // 4. Close the logout popup itself
+            // We use BeginInvoke to ensure the popup closes AFTER the other forms shift
+            this.FindForm()?.Close();
         }
 
         private void btnExitApp_Click(object sender, EventArgs e)
