@@ -60,11 +60,51 @@ namespace TheMatchaClub.Winforms
         }
 
 
+        /* private async void btnLogin_Click(object sender, EventArgs e)
+         {
+             if (string.IsNullOrWhiteSpace(txtPassword.Text))
+             {
+                 // Using your custom typewriter box for an empty field
+                 MyUniversalBox.Show("Please enter your password to proceed.", "Input Required", isError: false);
+                 return;
+             }
+
+             try
+             {
+                 var userManager = IdentityHelper.GetUserManager();
+                 var authService = new AuthService(userManager);
+
+                 var success = await authService.LoginAsync("admin", txtPassword.Text);
+
+                 if (!success)
+                 {
+                     // Error style (red theme if you set it up that way)
+                     MyUniversalBox.Show("The password you entered is incorrect. Please try again.", "Auth Failed", isError: true);
+                     return;
+                 }
+
+                 // Success message
+                 MyUniversalBox.Show("Login successful! Welcome back to The Matcha Club.", "Success", isError: false);
+
+                 this.Hide();
+
+                 var main = new MainForm();
+                 main.ShowDialog();
+
+                 this.Close();
+             }
+             catch (Exception ex)
+             {
+                 // Exception handler using the universal box
+                 MyUniversalBox.Show($"A system error occurred: {ex.Message}", "Critical Error", isError: true);
+             }
+         }
+        */
+
         private async void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                // Using your custom typewriter box for an empty field
                 MyUniversalBox.Show("Please enter your password to proceed.", "Input Required", isError: false);
                 return;
             }
@@ -78,24 +118,30 @@ namespace TheMatchaClub.Winforms
 
                 if (!success)
                 {
-                    // Error style (red theme if you set it up that way)
                     MyUniversalBox.Show("The password you entered is incorrect. Please try again.", "Auth Failed", isError: true);
                     return;
                 }
 
-                // Success message
                 MyUniversalBox.Show("Login successful! Welcome back to The Matcha Club.", "Success", isError: false);
 
+                // --- FIX STARTS HERE ---
+
+                // 1. Create the MainForm
+                var main = new MainForm();
+
+                // 2. Show it as a normal window (not ShowDialog)
+                main.Show();
+
+                // 3. Close this Login form immediately 
+                // Note: Because Program.cs ran "new LoginForm()", 
+                // we need to make sure the app doesn't exit. 
+                // If it does, use this.Hide() instead of .Close()
                 this.Hide();
 
-                var main = new MainForm();
-                main.ShowDialog();
-
-                this.Close();
+                // --- FIX ENDS HERE ---
             }
             catch (Exception ex)
             {
-                // Exception handler using the universal box
                 MyUniversalBox.Show($"A system error occurred: {ex.Message}", "Critical Error", isError: true);
             }
         }

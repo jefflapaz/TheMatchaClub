@@ -37,6 +37,8 @@ namespace TheMatchaClub.Winforms.Forms
          }
          */
 
+        /*
+         * 
         private void btnLogoutOnly_Click(object sender, EventArgs e)
         {
             // 1. Find the MainForm first
@@ -64,6 +66,28 @@ namespace TheMatchaClub.Winforms.Forms
 
             // 4. Close the logout popup itself
             // We use BeginInvoke to ensure the popup closes AFTER the other forms shift
+            this.FindForm()?.Close();
+        }
+        */
+
+        private void btnLogoutOnly_Click(object sender, EventArgs e)
+        {
+            // 1. Create and show a fresh Login Form
+            LoginForm login = new LoginForm();
+            login.Show();
+
+            // 2. Find the MainForm and CLOSE it (don't just hide it)
+            // We use the full namespace to avoid your 'OpenForms' error
+            var mainForm = System.Windows.Forms.Application.OpenForms
+                .OfType<MainForm>()
+                .FirstOrDefault();
+
+            if (mainForm != null)
+            {
+                mainForm.Close();
+            }
+
+            // 3. Close the LogoutBox popup dialog itself
             this.FindForm()?.Close();
         }
 
