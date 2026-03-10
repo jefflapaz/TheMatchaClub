@@ -1,4 +1,5 @@
 ﻿using CuoreUI.Controls;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,8 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheMatchaClub.Application.Services;
+using TheMatchaClub.Winforms.Forms;
 using TheMatchaClub.WinForms.Helpers;
-using Guna.UI2.WinForms;
 
 namespace TheMatchaClub.Winforms
 {
@@ -58,7 +59,7 @@ namespace TheMatchaClub.Winforms
             property?.SetValue(control, true, null);
         }
 
-        private void btnLogout1_Click(object sender, EventArgs e)
+       /* private void btnLogout1_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show(
                 "Choose an option:\n\nYes = Logout only\nNo = Logout & Exit\nCancel = Stay",
@@ -73,6 +74,26 @@ namespace TheMatchaClub.Winforms
             {
                 System.Windows.Forms.Application.Exit();
             }
+        } */
+
+        private void btnLogout1_Click(object sender, EventArgs e)
+        {
+            // Create a temporary form to host your LogoutBox UserControl
+            Form popup = new Form();
+            LogoutBox logoutControl = new LogoutBox();
+
+            // Setup the popup appearance to match The Matcha Club aesthetic
+            popup.FormBorderStyle = FormBorderStyle.None;
+            popup.StartPosition = FormStartPosition.CenterParent;
+            popup.BackColor = Color.FromArgb(245, 245, 221); // Matching your LogoutBox backcolor
+            popup.Size = logoutControl.Size;
+
+            // Add the control to the popup
+            logoutControl.Dock = DockStyle.Fill;
+            popup.Controls.Add(logoutControl);
+
+            // Show it as a dialog (blocks interaction with MainForm until closed)
+            popup.ShowDialog();
         }
 
         private void LoadPage(UserControl newPage)
