@@ -193,9 +193,9 @@ namespace TheMatchaClub.Winforms
             if (_sidebarExpanded)
             {
                 sidebar.Width -= step;
-                if (sidebar.Width <= 67)
+                if (sidebar.Width <= 68)
                 {
-                    sidebar.Width = 67;
+                    sidebar.Width = 68;
                     _sidebarExpanded = false;
                     sidebarTransition.Stop();
                 }

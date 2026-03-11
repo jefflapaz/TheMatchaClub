@@ -12,8 +12,8 @@ using TheMatchaClub.Infrastructure.Data;
 namespace TheMatchaClub.Infrastructure.Migrations
 {
     [DbContext(typeof(MatchaDbContext))]
-    [Migration("20260306015639_InitialDb")]
-    partial class InitialDb
+    [Migration("20260310011354_New")]
+    partial class New
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
