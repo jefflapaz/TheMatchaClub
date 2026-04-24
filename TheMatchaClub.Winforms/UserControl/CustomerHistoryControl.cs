@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +16,15 @@ namespace TheMatchaClub.Winforms
     {
         public CustomerHistoryControl()
         {
+            this.SetStyle(
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.OptimizedDoubleBuffer,
+                true);
+            this.UpdateStyles();
+
             InitializeComponent();
+            this.DoubleBuffered = true;
             // Subscribe to the Load event
             this.Load += CustomerHistoryControl_Load;
         }

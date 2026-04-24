@@ -1,4 +1,4 @@
-﻿namespace TheMatchaClub.Winforms
+namespace TheMatchaClub.Winforms
 {
     partial class MainForm
     {
@@ -63,7 +63,7 @@
             sidebar.PanelColor = Color.FromArgb(45, 83, 26);
             sidebar.PanelOutlineColor = Color.FromArgb(45, 83, 26);
             sidebar.Rounding = new Padding(0);
-            sidebar.Size = new Size(204, 646);
+            sidebar.Size = new Size(233, 646);
             sidebar.TabIndex = 6;
             // 
             // btnLogout1
@@ -77,7 +77,7 @@
             btnLogout1.CheckedOutline = Color.FromArgb(255, 106, 0);
             btnLogout1.Content = "Logout";
             btnLogout1.DialogResult = DialogResult.None;
-            btnLogout1.Dock = DockStyle.Bottom;
+            btnLogout1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnLogout1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             btnLogout1.ForeColor = Color.Black;
             btnLogout1.HoverBackground = Color.White;
@@ -100,7 +100,7 @@
             btnLogout1.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnLogout1.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnLogout1.Rounding = new Padding(15);
-            btnLogout1.Size = new Size(204, 34);
+            btnLogout1.Size = new Size(213, 34);
             btnLogout1.TabIndex = 11;
             btnLogout1.TextAlignment = StringAlignment.Center;
             btnLogout1.TextPadding = -1;
@@ -128,6 +128,7 @@
             btnItems.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnItems.Image = null;
             btnItems.ImageExpand = new Point(0, 0);
+            btnItems.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnItems.Location = new Point(10, 170);
             btnItems.Margin = new Padding(3, 2, 3, 2);
             btnItems.Name = "btnItems";
@@ -142,7 +143,7 @@
             btnItems.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnItems.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnItems.Rounding = new Padding(15);
-            btnItems.Size = new Size(184, 34);
+            btnItems.Size = new Size(213, 34);
             btnItems.TabIndex = 2;
             btnItems.TextAlignment = StringAlignment.Center;
             btnItems.TextPadding = -1;
@@ -170,6 +171,7 @@
             btnReport.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnReport.Image = null;
             btnReport.ImageExpand = new Point(0, 0);
+            btnReport.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnReport.Location = new Point(10, 310);
             btnReport.Margin = new Padding(3, 2, 3, 2);
             btnReport.Name = "btnReport";
@@ -184,7 +186,7 @@
             btnReport.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnReport.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnReport.Rounding = new Padding(15);
-            btnReport.Size = new Size(184, 34);
+            btnReport.Size = new Size(213, 34);
             btnReport.TabIndex = 9;
             btnReport.TextAlignment = StringAlignment.Center;
             btnReport.TextPadding = -1;
@@ -211,6 +213,7 @@
             btnPOS.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnPOS.Image = Properties.Resources.Pokecut_1772532916810;
             btnPOS.ImageExpand = new Point(11, 11);
+            btnPOS.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnPOS.Location = new Point(10, 123);
             btnPOS.Margin = new Padding(3, 2, 3, 2);
             btnPOS.Name = "btnPOS";
@@ -225,7 +228,7 @@
             btnPOS.PressedImageTint = Color.Black;
             btnPOS.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnPOS.Rounding = new Padding(15);
-            btnPOS.Size = new Size(184, 34);
+            btnPOS.Size = new Size(213, 34);
             btnPOS.TabIndex = 7;
             btnPOS.TextAlignment = StringAlignment.Near;
             btnPOS.TextPadding = -1;
@@ -253,6 +256,7 @@
             btnItemSales.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnItemSales.Image = null;
             btnItemSales.ImageExpand = new Point(0, 0);
+            btnItemSales.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnItemSales.Location = new Point(10, 262);
             btnItemSales.Margin = new Padding(3, 2, 3, 2);
             btnItemSales.Name = "btnItemSales";
@@ -267,7 +271,7 @@
             btnItemSales.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnItemSales.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnItemSales.Rounding = new Padding(15);
-            btnItemSales.Size = new Size(184, 34);
+            btnItemSales.Size = new Size(213, 34);
             btnItemSales.TabIndex = 9;
             btnItemSales.TextAlignment = StringAlignment.Center;
             btnItemSales.TextPadding = -1;
@@ -295,6 +299,7 @@
             btnCustomer.HoverOutline = Color.FromArgb(32, 128, 128, 128);
             btnCustomer.Image = null;
             btnCustomer.ImageExpand = new Point(0, 0);
+            btnCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnCustomer.Location = new Point(10, 218);
             btnCustomer.Margin = new Padding(3, 2, 3, 2);
             btnCustomer.Name = "btnCustomer";
@@ -309,7 +314,7 @@
             btnCustomer.PressedImageTint = Color.FromArgb(32, 32, 32);
             btnCustomer.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             btnCustomer.Rounding = new Padding(15);
-            btnCustomer.Size = new Size(184, 32);
+            btnCustomer.Size = new Size(213, 32);
             btnCustomer.TabIndex = 10;
             btnCustomer.TextAlignment = StringAlignment.Center;
             btnCustomer.TextPadding = -1;
@@ -374,12 +379,12 @@
             // 
             // sidebarTransition
             // 
-            sidebarTransition.Interval = 10;
+            sidebarTransition.Interval = 12;
             sidebarTransition.Tick += sidebarTransition_Tick;
             // 
             // mainPanel
             // 
-            mainPanel.AutoSize = true;
+            mainPanel.AutoSize = false;
             mainPanel.BackColor = Color.Transparent;
             mainPanel.Dock = DockStyle.Fill;
             mainPanel.Location = new Point(204, 44);

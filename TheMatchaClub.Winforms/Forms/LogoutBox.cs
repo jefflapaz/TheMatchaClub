@@ -94,7 +94,9 @@ namespace TheMatchaClub.Winforms.Forms
         private void btnExitApp_Click(object sender, EventArgs e)
         {
             //Application.Exit();
-            System.Windows.Forms.Application.Exit();
+            //System.Windows.Forms.Application.Exit();
+
+            Environment.Exit(0);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

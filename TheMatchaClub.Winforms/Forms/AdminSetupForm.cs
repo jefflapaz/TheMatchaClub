@@ -1,11 +1,14 @@
-﻿using CuoreUI.Controls;
+using CuoreUI.Controls;
 using System;
+using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheMatchaClub.Application.Services;
 using TheMatchaClub.Infrastructure;
 using TheMatchaClub.Winforms;
 using TheMatchaClub.Winforms.Properties; // for MainForm
+using TheMatchaClub.WinForms.Helpers;
 
 namespace TheMatchaClub.Winforms
 {
@@ -21,6 +24,10 @@ namespace TheMatchaClub.Winforms
             _authService = new AuthService(userManager);
 
             SetupPasswordFields();
+
+            // Apply themes and prevent GDI+ corruption
+            ThemeManager.ApplyTheme(this);
+            ThemeManager.EnableAntiCorruption(this);
 
             // Wire up events
             txtPassword.TextChanged += TxtPassword_ContentChanged;

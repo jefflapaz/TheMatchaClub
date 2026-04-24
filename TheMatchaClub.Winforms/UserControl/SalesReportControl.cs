@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Syncfusion.Windows.Forms.Chart;
 using WinChart = System.Windows.Forms.DataVisualization.Charting;
 using TheMatchaClub.WinForms.Helpers;
@@ -13,7 +13,15 @@ namespace TheMatchaClub.Winforms
 
         public SalesReportControl()
         {
+            this.SetStyle(
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.OptimizedDoubleBuffer,
+                true);
+            this.UpdateStyles();
+
             InitializeComponent();
+            this.DoubleBuffered = true;
             Load += SalesReportControl_Load;
             SetupChart();
         }

@@ -1,4 +1,4 @@
-﻿using CuoreUI.Controls;
+using CuoreUI.Controls;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -25,11 +25,29 @@ namespace TheMatchaClub.Winforms
         private ItemSalesControl _itemSales;
         private SalesReportControl _salesReport;
         private cuiButton _activeButton;
-    
+        private const int SIDEBAR_EXPANDED_WIDTH = 233;
+        private const int SIDEBAR_COLLAPSED_WIDTH = 67;
+        private const int SIDEBAR_BUTTON_MARGIN = 20;
+        private const int ANIMATION_STEP = 15;
+
         public MainForm()
         {
+            // Enable double buffering at the form level to prevent flicker
+            this.SetStyle(
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.OptimizedDoubleBuffer,
+                true);
+            this.UpdateStyles();
+
             InitializeComponent();
             EnableDoubleBuffering(mainPanel);
+            EnableDoubleBuffering(sidebar);
+
+            // Apply themes and prevent GDI+ corruption
+            ThemeManager.ApplyTheme(this);
+            ThemeManager.EnableAntiCorruption(this);
+
             InitializePages();
             ActivateButton(btnPOS);
             LoadPage(_pos);
@@ -49,6 +67,7 @@ namespace TheMatchaClub.Winforms
             })
             {
                 page.Dock = DockStyle.Fill;
+                EnableDoubleBuffering(page);
             }
         }
 
@@ -58,23 +77,6 @@ namespace TheMatchaClub.Winforms
                 System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             property?.SetValue(control, true, null);
         }
-
-      /* private void btnLogout1_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show(
-                "Choose an option:\n\nYes = Logout only\nNo = Logout & Exit\nCancel = Stay",
-                "Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                new LoginForm().Show();
-                this.Close();
-            }
-            else if (result == DialogResult.No)
-            {
-                System.Windows.Forms.Application.Exit();
-            }
-        } */
 
        private void btnLogout1_Click(object sender, EventArgs e)
         {
@@ -96,17 +98,37 @@ namespace TheMatchaClub.Winforms
             popup.ShowDialog();
         }
 
+
+
+
         private void LoadPage(UserControl newPage)
         {
-            mainPanel.SuspendLayout(); 
-            foreach (Control ctrl in mainPanel.Controls) { ctrl.Visible = false; }
-            if (!mainPanel.Controls.Contains(newPage)) 
+            // Suspend layout on the form and mainPanel to prevent flicker
+            this.SuspendLayout();
+            mainPanel.SuspendLayout();
+
+            // Hide all existing controls without removing them
+            foreach (Control ctrl in mainPanel.Controls)
             {
-                newPage.Dock = DockStyle.Fill; mainPanel.Controls.Add(newPage);
+                ctrl.Visible = false;
             }
-            newPage.Visible = true; 
+
+            // Add the page if not already added
+            if (!mainPanel.Controls.Contains(newPage))
+            {
+                newPage.Dock = DockStyle.Fill;
+                mainPanel.Controls.Add(newPage);
+            }
+
+            newPage.Visible = true;
             newPage.BringToFront();
-            mainPanel.ResumeLayout(true);
+
+            mainPanel.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+            // Force a single, clean repaint
+            mainPanel.Invalidate();
+            mainPanel.Update();
         }
 
         private void ActivateButton(cuiButton btn)
@@ -184,39 +206,63 @@ namespace TheMatchaClub.Winforms
         {
             sidebarTransition.Start();
         }
+
         private void sidebarTransition_Tick(object sender, EventArgs e)
         {
-            int step = 10;
-            sidebar.SuspendLayout();
-            mainPanel.SuspendLayout();
+            // Suspend layout on the entire form to prevent child controls from
+            // relaying out individually on each tick (which causes flicker)
+            this.SuspendLayout();
 
             if (_sidebarExpanded)
             {
-                sidebar.Width -= step;
-                if (sidebar.Width <= 67)
+                sidebar.Width -= ANIMATION_STEP;
+                if (sidebar.Width <= SIDEBAR_COLLAPSED_WIDTH)
                 {
-                    sidebar.Width = 67;
+                    sidebar.Width = SIDEBAR_COLLAPSED_WIDTH;
                     _sidebarExpanded = false;
                     sidebarTransition.Stop();
                 }
-                btnPOS.Width = sidebar.Width - 20;
             }
             else
             {
-                sidebar.Width += step;
-                if (sidebar.Width >= 233)
+                sidebar.Width += ANIMATION_STEP;
+                if (sidebar.Width >= SIDEBAR_EXPANDED_WIDTH)
                 {
-                    sidebar.Width = 233;
+                    sidebar.Width = SIDEBAR_EXPANDED_WIDTH;
                     _sidebarExpanded = true;
                     sidebarTransition.Stop();
                 }
-
-                btnPOS.Width = sidebar.Width- 20;
             }
-            sidebar.ResumeLayout();
-            
-            mainPanel.ResumeLayout();
 
+            // Resize ALL navigation buttons to match sidebar width
+            int newButtonWidth = sidebar.Width - SIDEBAR_BUTTON_MARGIN;
+            btnPOS.Width = newButtonWidth;
+            btnItems.Width = newButtonWidth;
+            btnCustomer.Width = newButtonWidth;
+            btnItemSales.Width = newButtonWidth;
+            btnReport.Width = newButtonWidth;
+
+            this.ResumeLayout(false);
+
+            // Force a single, clean repaint of the affected areas
+            sidebar.Invalidate();
+            mainPanel.Invalidate();
+            this.Update();
+        }
+
+        /// <summary>
+        /// Override to enable WS_EX_COMPOSITED which double-buffers the entire
+        /// form's window, eliminating child-control flicker during sidebar animation.
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                // WS_EX_COMPOSITED - enables double-buffered painting for all child controls
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
     }
 }

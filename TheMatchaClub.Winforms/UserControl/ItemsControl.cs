@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +18,15 @@ namespace TheMatchaClub.Winforms
     {
         public ItemsControl()
         {
+            this.SetStyle(
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.OptimizedDoubleBuffer,
+                true);
+            this.UpdateStyles();
+
             InitializeComponent();
+            this.DoubleBuffered = true;
             EnableDoubleBuffering(flpItems);
             Load += ItemsControl_Load;
             

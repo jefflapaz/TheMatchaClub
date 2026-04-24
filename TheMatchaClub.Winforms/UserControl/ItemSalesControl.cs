@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,7 +13,15 @@ namespace TheMatchaClub.Winforms
     {
         public ItemSalesControl()
         {
+            this.SetStyle(
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.OptimizedDoubleBuffer,
+                true);
+            this.UpdateStyles();
+
             InitializeComponent();
+            this.DoubleBuffered = true;
             this.Load += ItemSalesControl_Load;
         }
 

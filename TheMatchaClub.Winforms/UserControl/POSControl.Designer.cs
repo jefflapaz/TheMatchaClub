@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace TheMatchaClub.Winforms
 {
@@ -149,7 +149,7 @@ namespace TheMatchaClub.Winforms
             // 
             // pnlPOS
             // 
-            pnlPOS.AutoSize = true;
+            pnlPOS.AutoSize = false;
             pnlPOS.BackColor = Color.FromArgb(225, 244, 206);
             pnlPOS.Controls.Add(btnSession);
             pnlPOS.Controls.Add(guna2Panel2);
@@ -204,6 +204,7 @@ namespace TheMatchaClub.Winforms
             guna2Panel2.ShadowDecoration.Shadow = new Padding(0, 0, 5, 10);
             guna2Panel2.Size = new Size(404, 394);
             guna2Panel2.TabIndex = 9;
+            guna2Panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             // 
             // pnlOrderGroup
             // 
@@ -347,6 +348,7 @@ namespace TheMatchaClub.Winforms
             guna2Panel1.ShadowDecoration.Shadow = new Padding(0, 0, 5, 10);
             guna2Panel1.Size = new Size(388, 394);
             guna2Panel1.TabIndex = 8;
+            guna2Panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             // 
             // btnIncrease
             // 

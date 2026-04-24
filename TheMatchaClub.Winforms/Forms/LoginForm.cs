@@ -1,9 +1,10 @@
-﻿using CuoreUI.Controls;
+using CuoreUI.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,17 @@ namespace TheMatchaClub.Winforms
 {
     public partial class LoginForm : Form
     {
+        // Hardcoded admin password
+        private const string ADMIN_PASSWORD = "admin";
+
         public LoginForm()
         {
             InitializeComponent();
             SetupPasswordFields();
+            
+            // Apply themes and prevent GDI+ corruption
+            ThemeManager.ApplyTheme(this);
+            ThemeManager.EnableAntiCorruption(this);
         }
 
         private void SetupPasswordFields()
